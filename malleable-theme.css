@@ -336,6 +336,11 @@ body.mr-theme {
     animation: mr-slide-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
+/* Completion slide needs flex for centering */
+#slide-10.mr-slide.active {
+    display: flex;
+}
+
 .mr-quiz-options {
     display: flex;
     flex-direction: column;
