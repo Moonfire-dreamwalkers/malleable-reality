@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apps | Malleable Reality</title>
+    <meta name="description"
+        content="Deploy digital constructs and interactive experiences within the Malleable Reality ecosystem.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="malleable-theme.css">
+
+    <style>
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .construct-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 480px;
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            cursor: default;
+        }
+
+        .construct-visual {
+            height: 220px;
+            background: linear-gradient(135deg, var(--mr-void-3), #1a0033);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .construct-visual::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 204, 0, 0.1) 0%, transparent 60%);
+            animation: float-void 15s linear infinite;
+        }
+
+        @keyframes float-void {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .construct-info {
+            flex-grow: 1;
+        }
+
+        .construct-status {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--mr-accent);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .construct-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .construct-description {
+            color: var(--mr-text-muted);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* Hover states */
+        .construct-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        /* Glass / Glimmer specific overrides */
+        .card-inner {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 2.5rem;
+        }
+
+        /* Crossword Visual */
+        .crossword-icon-matrix {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            z-index: 2;
+        }
+
+        .matrix-cell {
+            width: 25px;
+            height: 25px;
+            border: 1px solid rgba(255, 204, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .matrix-cell.lit {
+            background: var(--mr-accent);
+            box-shadow: var(--mr-glow-gold);
+            border-color: #fff;
+        }
+
+        /* Nexus AI Visual */
+        .nexus-core {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .core-pulse {
+            width: 30px;
+            height: 30px;
+            background: var(--mr-purple);
+            border-radius: 50%;
+            box-shadow: var(--mr-glow-purple);
+            animation: core-breathing 3s ease-in-out infinite;
+        }
+
+        .core-ring {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 1px solid rgba(92, 24, 168, 0.3);
+            border-radius: 50%;
+            animation: core-rotate 8s linear infinite;
+        }
+
+        @keyframes core-breathing {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 1;
+                box-shadow: 0 0 50px var(--mr-purple);
+            }
+        }
+
+        @keyframes core-rotate {
+            from {
+                transform: rotate(0deg) scale(1);
+            }
+
+            to {
+                transform: rotate(360deg) scale(1.1);
+            }
+        }
+    </style>
+</head>
+
+<body class="mr-theme">
+
+    <div class="mr-starfield">
+        <div class="mr-starfield-foreground"></div>
+    </div>
+    <div class="mr-hypnotic-bg"></div>
+    <div class="mr-hypnotic-overlay"></div>
+
+    <nav class="mr-navbar">
+        <a href="index.html" class="mr-nav-link">Home</a>
+        <a href="blog.html" class="mr-nav-link">Blog</a>
+        <a href="modules.html" class="mr-nav-link">Learning Modules</a>
+        <a href="music-alchemy.html" class="mr-nav-link">Music Alchemy</a>
+        <a href="organization.html" class="mr-nav-link">Organization</a>
+        <a href="apps.html" class="mr-nav-link active">Apps</a>
+        <a href="nexus.html" class="mr-nav-link">Nexus AI</a>
+        <a href="nexus.html" class="mr-nav-link">Nexus AI</a>
+    </nav>
+
+    <div class="mr-container">
+        <header style="text-align: center; margin-bottom: 2rem;" class="mr-floating">
+            <h1 class="mr-text-gradient" style="font-size: 4rem; margin-bottom: 1rem;">Construct Hub</h1>
+            <p class="mr-text-muted" style="font-size: 1.25rem; max-width: 700px; margin: 0 auto;">
+                Functional data-constructs extracted from the Malleable Reality stream. Choose a frequency to deploy.
+            </p>
+        </header>
+
+        <main class="gallery-container">
+            <!-- Nexus AI Card -->
+            <article class="construct-card">
+                <div class="mr-panel mr-glass mr-gold-glimmer mr-gold-edge card-inner">
+                    <div class="construct-visual">
+                        <div class="nexus-core">
+                            <div class="core-pulse"></div>
+                            <div class="core-ring"></div>
+                            <div class="core-ring" style="animation-delay: -1s; width: 60px; height: 60px;"></div>
+                        </div>
+                    </div>
+                    <div class="construct-info">
+                        <span class="construct-status">Online</span>
+                        <h2 class="construct-title mr-text-accent">Nexus AI</h2>
+                        <p class="construct-description">
+                            A cognitive bridge to the Malleable Reality stream. Nexus contextualizes site-wide data
+                            through a direct holographic interface.
+                        </p>
+                    </div>
+                    <a href="nexus.html" class="mr-button">Deploy Nexus</a>
+                </div>
+            </article>
+
+            <!-- Locked App 1 -->
+            <article class="construct-card" style="opacity: 0.6; filter: grayscale(1);">
+                <div class="mr-panel mr-glass card-inner" style="cursor: not-allowed;">
+                    <div class="construct-visual">
+                        <div style="font-size: 4rem; color: rgba(255,255,255,0.05);">?</div>
+                    </div>
+                    <div class="construct-info">
+                        <span class="construct-status" style="color: var(--mr-text-muted);">Locked</span>
+                        <h2 class="construct-title mr-text-muted">Singularity Engine</h2>
+                        <p class="construct-description">
+                            Integration pending. Requires synchronization with further organizational data points.
+                        </p>
+                    </div>
+                    <button class="mr-button" disabled style="opacity: 0.3;">Access Restricted</button>
+                </div>
+            </article>
+
+            <!-- Locked App 2 -->
+            <article class="construct-card" style="opacity: 0.6; filter: grayscale(1);">
+                <div class="mr-panel mr-glass card-inner" style="cursor: not-allowed;">
+                    <div class="construct-visual">
+                        <div style="font-size: 4rem; color: rgba(255,255,255,0.05);">⚡</div>
+                    </div>
+                    <div class="construct-info">
+                        <span class="construct-status" style="color: var(--mr-text-muted);">Locked</span>
+                        <h2 class="construct-title mr-text-muted">Resonance Mapper</h2>
+                        <p class="construct-description">
+                            Visualizing the vibrational landscape of the observer. Prototype stage.
+                        </p>
+                    </div>
+                    <button class="mr-button" disabled style="opacity: 0.3;">Access Restricted</button>
+                </div>
+            </article>
+        </main>
+
+        <footer style="margin-top: 6rem; text-align: center; padding-bottom: 2rem;">
+            <p class="mr-text-muted" style="font-size: 0.9rem; opacity: 0.6;">
+                Reality is data. The Hub is your interface.
+            </p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
