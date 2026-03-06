@@ -656,10 +656,10 @@ The Malleable Reality organization has two wings:
         // ─────────────────────────────────────────────────────────────────────────────
         const FALLBACK_KB = {
             greet: { triggers: ['hello', 'hi', 'hey', 'what is this', 'who are you', 'what are you', 'nexus'], text: `I'm Nexus — a guide built into the Malleable Reality framework. I can walk you through the ideas here: identity, the observer, frequency, free will, discipline, and more. What are you curious about?`, chips: ['What is Malleable Reality?', 'What is the observer?', 'Show me the modules', 'Where do I start?'] },
-            site: { triggers: ['malleable reality', 'what is this about', 'this place', 'this site', 'purpose'], text: `Malleable Reality is a framework for understanding that the world you experience isn't fixed — it's a projection shaped by your internal state and focus. The site has 9 learning modules that break this down: identity, perception, free will, discipline, the nature of consciousness. A philosophical operating system for the self.`, chips: ['Show me the modules', 'What is frequency?', 'What is the observer?'] },
+            site: { triggers: ['malleable reality', 'what is this about', 'this place', 'this site', 'purpose'], text: `Malleable Reality is a framework for understanding that the world you experience isn't fixed — it's a projection shaped by your internal state and focus. The site has 9 learning modules that break this down: identity, perception, free will, discipline, the nature of consciousness. A philosophical operating system for the self.`, chips: ['Show me the modules', 'What is frequency', 'What is the observer'] },
             modules: { triggers: ['modules', 'topics', 'subjects', 'curriculum', 'what can i learn', 'all modules', 'list'], text: `There are 9 modules:\n• The Mask of Identity\n• The Cosmic Organism\n• The Eternal Frame\n• Spiritual Alchemy\n• The Field Observer\n• The Invisible Gate\n• The Pure Observer\n• The Architecture of Discipline\n• The Signal You Broadcast\n\nHead to the <a href="modules.html">Modules page</a> to explore them. Where does your interest land?`, chips: ['Tell me about identity', 'What is the observer?', 'How does discipline work here?'] },
             observer: { triggers: ['observer', 'awareness', 'thoughts', 'not my thoughts', 'watcher', 'witness', 'consciousness'], text: `You are not your thoughts — you are the awareness watching them. That gap between you and mental activity is where freedom lives. The Pure Observer module goes deep on this.`, chips: ['How do I practice this?', 'Tell me about identity', 'What is the ego?'] },
-            fallback: { text: `I'm running in offline mode right now — add a Gemini API key to unlock full conversation. In the meantime, try asking: "What is the observer?", "Show me the modules", or "What is frequency?"`, chips: ['What is this site?', 'Show me the modules', 'What is the observer?', 'What is frequency?'] }
+            fallback: { text: `I'm running in offline mode right now — add a Gemini API key to unlock full conversation. In the meantime, try asking: "What is the observer?", "Show me the modules", or "What is frequency?"`, chips: ['What is this site?', 'Show me the modules', 'What is the observer', 'What is frequency'] }
         };
 
         function fallbackResponse(query) {
@@ -706,7 +706,7 @@ The Malleable Reality organization has two wings:
                 // restore links (safe since SYSTEM controls output)
                 .split('\n\n')
                 .map(para => `<p>${para
-                    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*\*(.+)\*\*/g, '<strong>$1</strong>')
                     .replace(/\n/g, '<br>')
                     }</p>`)
                 .join('');
@@ -785,7 +785,7 @@ The Malleable Reality organization has two wings:
             }
 
             const data = await res.json();
-            const reply = data?.choices?.[0]?.message?.content;
+            const reply = data?.choices?.[0].message.content;
             if (!reply) throw new Error('Empty response from AI');
 
             // Add assistant turn to history
@@ -840,7 +840,7 @@ The Malleable Reality organization has two wings:
                 `Signal established. Whether you're completely new to this or already deep in it — I can meet you where you are. What's on your mind?`
             ];
             const opener = openers[Math.floor(Math.random() * openers.length)];
-            addMessage('Nexus', opener, 'ai', ['What is this site?', 'Show me the modules', 'What is the observer?', 'Where do I start?']);
+            addMessage('Nexus', opener, 'ai', ['What is this site?', 'Show me the modules', 'What is the observer', 'Where do I start']);
         })();
     </script>
 
