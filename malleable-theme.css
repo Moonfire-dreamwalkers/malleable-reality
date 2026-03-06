@@ -131,13 +131,23 @@ body.mr-theme {
    ========================================================================== */
 
 @keyframes mr-float-global {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-8px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-15px);
+    }
 }
 
 @keyframes mr-star-drift {
-    0% { transform: translateY(0) translateX(0); }
-    100% { transform: translateY(-300px) translateX(-100px); }
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+
+    100% {
+        transform: translateY(-300px) translateX(-100px);
+    }
 }
 
 .mr-starfield {
@@ -148,49 +158,45 @@ body.mr-theme {
     height: 200vh;
     z-index: -1;
     pointer-events: none;
-    opacity: 0.6;
-    animation: mr-star-drift 180s linear infinite;
-    /* Basic scattered stars using box-shadow on a 2px pseudo element */
-    background: transparent;
-}
-
-.mr-starfield::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 2px;
-    height: 2px;
-    background: transparent;
-    box-shadow: 
-        10vw 20vh #fff, 20vw 80vh rgba(255,204,0,0.8), 30vw 10vh #fff, 40vw 60vh rgba(255,255,255,0.4),
-        50vw 30vh #fff, 60vw 90vh rgba(255,204,0,0.6), 70vw 20vh #fff, 80vw 70vh rgba(255,255,255,0.5),
-        90vw 40vh #fff, 10vw 90vh rgba(255,204,0,0.4), 25vw 35vh #fff, 45vw 85vh rgba(255,255,255,0.7),
-        65vw 15vh #fff, 85vw 55vh rgba(255,204,0,0.5), 95vw 75vh #fff, 5vw 45vh rgba(255,255,255,0.6),
-        15vw 65vh #fff, 35vw 25vh rgba(255,204,0,0.7), 55vw 5vh #fff,  75vw 45vh rgba(255,255,255,0.8),
-        120vw 30vh #fff, 150vw 80vh rgba(255,204,0,0.6), 180vw 20vh #fff, 130vw 60vh rgba(255,255,255,0.5),
-        110vw 10vh #fff, 140vw 90vh rgba(255,204,0,0.4), 170vw 40vh #fff, 190vw 70vh rgba(255,255,255,0.7),
-        25vw 120vh #fff, 75vw 150vh rgba(255,204,0,0.8), 45vw 180vh #fff, 85vw 130vh rgba(255,255,255,0.6),
-        15vw 160vh #fff, 65vw 190vh rgba(255,204,0,0.5), 95vw 110vh #fff, 35vw 140vh rgba(255,255,255,0.4),
-        130vw 120vh #fff, 170vw 150vh rgba(255,204,0,0.7), 110vw 180vh #fff, 180vw 120vh rgba(255,255,255,0.8),
-        190vw 190vh #fff, 140vw 160vh rgba(255,204,0,0.6), 160vw 110vh #fff, 150vw 140vh rgba(255,255,255,0.5);
+    opacity: 0.85;
+    animation: mr-star-drift 150s linear infinite;
+    will-change: transform;
+    /* Performant, infinite tiled gold stars */
+    background-image:
+        radial-gradient(1px 1px at 20px 30px, rgba(255, 204, 0, 0.9), transparent),
+        radial-gradient(1.5px 1.5px at 60px 80px, rgba(255, 230, 100, 0.6), transparent),
+        radial-gradient(1px 1px at 100px 15px, rgba(255, 204, 0, 0.8), transparent),
+        radial-gradient(2px 2px at 140px 110px, rgba(255, 240, 150, 0.9), transparent),
+        radial-gradient(1px 1px at 180px 45px, rgba(255, 204, 0, 0.5), transparent),
+        radial-gradient(1.5px 1.5px at 220px 140px, rgba(255, 215, 60, 0.7), transparent),
+        radial-gradient(1px 1px at 250px 70px, rgba(255, 204, 0, 0.4), transparent),
+        radial-gradient(1px 1px at 280px 170px, rgba(255, 230, 100, 0.8), transparent);
+    background-size: 300px 200px;
+    background-repeat: repeat;
 }
 
 /* Base floating classes for components */
 .mr-floating {
     animation: mr-float-global 6s ease-in-out infinite alternate;
+    will-change: transform;
 }
+
 .mr-floating-delay-1 {
     animation: mr-float-global 6.5s ease-in-out infinite alternate;
     animation-delay: -1s;
+    will-change: transform;
 }
+
 .mr-floating-delay-2 {
     animation: mr-float-global 5.5s ease-in-out infinite alternate;
     animation-delay: -2.5s;
+    will-change: transform;
 }
+
 .mr-floating-delay-3 {
     animation: mr-float-global 7s ease-in-out infinite alternate;
     animation-delay: -4s;
+    will-change: transform;
 }
 
 
