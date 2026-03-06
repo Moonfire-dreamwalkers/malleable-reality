@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Malleable Reality Theme Core - Hypnotic Abyssal Edition
  * A modular, dynamic CSS theme built on actively shifting gradients, 
  * rotating void colors, and hypnotic pulse effects.
@@ -125,6 +125,74 @@ body.mr-theme {
 .mr-text-muted {
     color: var(--mr-text-muted);
 }
+
+/* ==========================================================================
+   Universe Elements (Starfield & Floating)
+   ========================================================================== */
+
+@keyframes mr-float-global {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-8px); }
+}
+
+@keyframes mr-star-drift {
+    0% { transform: translateY(0) translateX(0); }
+    100% { transform: translateY(-300px) translateX(-100px); }
+}
+
+.mr-starfield {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200vw;
+    height: 200vh;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+    animation: mr-star-drift 180s linear infinite;
+    /* Basic scattered stars using box-shadow on a 2px pseudo element */
+    background: transparent;
+}
+
+.mr-starfield::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: 
+        10vw 20vh #fff, 20vw 80vh rgba(255,204,0,0.8), 30vw 10vh #fff, 40vw 60vh rgba(255,255,255,0.4),
+        50vw 30vh #fff, 60vw 90vh rgba(255,204,0,0.6), 70vw 20vh #fff, 80vw 70vh rgba(255,255,255,0.5),
+        90vw 40vh #fff, 10vw 90vh rgba(255,204,0,0.4), 25vw 35vh #fff, 45vw 85vh rgba(255,255,255,0.7),
+        65vw 15vh #fff, 85vw 55vh rgba(255,204,0,0.5), 95vw 75vh #fff, 5vw 45vh rgba(255,255,255,0.6),
+        15vw 65vh #fff, 35vw 25vh rgba(255,204,0,0.7), 55vw 5vh #fff,  75vw 45vh rgba(255,255,255,0.8),
+        120vw 30vh #fff, 150vw 80vh rgba(255,204,0,0.6), 180vw 20vh #fff, 130vw 60vh rgba(255,255,255,0.5),
+        110vw 10vh #fff, 140vw 90vh rgba(255,204,0,0.4), 170vw 40vh #fff, 190vw 70vh rgba(255,255,255,0.7),
+        25vw 120vh #fff, 75vw 150vh rgba(255,204,0,0.8), 45vw 180vh #fff, 85vw 130vh rgba(255,255,255,0.6),
+        15vw 160vh #fff, 65vw 190vh rgba(255,204,0,0.5), 95vw 110vh #fff, 35vw 140vh rgba(255,255,255,0.4),
+        130vw 120vh #fff, 170vw 150vh rgba(255,204,0,0.7), 110vw 180vh #fff, 180vw 120vh rgba(255,255,255,0.8),
+        190vw 190vh #fff, 140vw 160vh rgba(255,204,0,0.6), 160vw 110vh #fff, 150vw 140vh rgba(255,255,255,0.5);
+}
+
+/* Base floating classes for components */
+.mr-floating {
+    animation: mr-float-global 6s ease-in-out infinite alternate;
+}
+.mr-floating-delay-1 {
+    animation: mr-float-global 6.5s ease-in-out infinite alternate;
+    animation-delay: -1s;
+}
+.mr-floating-delay-2 {
+    animation: mr-float-global 5.5s ease-in-out infinite alternate;
+    animation-delay: -2.5s;
+}
+.mr-floating-delay-3 {
+    animation: mr-float-global 7s ease-in-out infinite alternate;
+    animation-delay: -4s;
+}
+
 
 /* ==========================================================================
    Structural Elements
@@ -496,14 +564,14 @@ body.mr-theme {
 }
 
 /* ==========================================================================
-   Responsive Breakpoints — Tablet & Mobile
+   Responsive Breakpoints â€” Tablet & Mobile
    All rules below are scoped to media queries; desktop is untouched.
    ========================================================================== */
 
-/* ── Tablet (≤ 900px) ─────────────────────────────────────────────────────── */
+/* â”€â”€ Tablet (â‰¤ 900px) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 900px) {
 
-    /* Hub grid: 2 cols → 1 col */
+    /* Hub grid: 2 cols â†’ 1 col */
     main[style*="grid"] {
         display: block !important;
     }
@@ -536,7 +604,7 @@ body.mr-theme {
     }
 }
 
-/* ── Mobile (≤ 600px) ─────────────────────────────────────────────────────── */
+/* â”€â”€ Mobile (â‰¤ 600px) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 600px) {
 
     /* Tighter container padding */
@@ -601,7 +669,7 @@ body.mr-theme {
         padding: 1rem 1.25rem;
     }
 
-    /* Quiz header row — stack icon below headline on very narrow screens */
+    /* Quiz header row â€” stack icon below headline on very narrow screens */
     .mr-slide>div[style*="justify-content: space-between"] {
         flex-direction: column;
         align-items: flex-start;
