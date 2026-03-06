@@ -89,6 +89,7 @@
         .alchemy-listen-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.6rem;
             padding: 0.7rem 1.25rem;
             background: rgba(30, 215, 96, 0.08);
@@ -100,7 +101,7 @@
             font-weight: 700;
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
-            width: fit-content;
+            width: 100%;
         }
 
         .alchemy-listen-btn:hover {
@@ -128,6 +129,15 @@
             border: 1px solid rgba(217, 28, 28, 0.18);
             border-radius: 8px;
             padding: 0.9rem 1rem;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .oracle-entry:hover {
+            background: rgba(217, 28, 28, 0.12);
+            border-color: rgba(217, 28, 28, 0.4);
+            transform: translateY(-2px);
         }
 
         .oracle-entry strong {
@@ -408,83 +418,35 @@
                         goes in order. Five of the twelve Oracles are profiled below.</p>
 
                     <div class="alchemy-oracle-lore">
-                        <div class="oracle-entry">
+                        <a href="https://open.spotify.com/album/6jt5yQsBmCbuiLbm2217FU" target="_blank"
+                            class="oracle-entry">
                             <strong>Shadowland</strong>
                             <p>The collapsed dimension itself. A threshold between all realms where time dissolves and
                                 dreams become the terrain.</p>
-                        </div>
-                        <div class="oracle-entry">
+                        </a>
+                        <a href="https://open.spotify.com/album/2GYmZR5WjBULVsGftcNmoY" target="_blank"
+                            class="oracle-entry">
                             <strong>Book of Time</strong>
                             <p>An artifact that anchors reality by dictating which futures can be remembered. Written in
                                 events, not words.</p>
-                        </div>
-                        <div class="oracle-entry">
+                        </a>
+                        <a href="https://open.spotify.com/album/1FWsC4RZol50Z2BNaKwgwp" target="_blank"
+                            class="oracle-entry">
                             <strong>Izu</strong>
                             <p>The great annihilator, born from the abyss. Primal dominance and consuming chaos given
                                 form. He does not sleep. He waits.</p>
-                        </div>
-                        <div class="oracle-entry">
+                        </a>
+                        <a href="https://open.spotify.com/album/2W13QJoZ5PlXysGlWQwIKu" target="_blank"
+                            class="oracle-entry">
                             <strong>Parasuva</strong>
                             <p>Once a war goddess, now mournful myth. Her presence can freeze time and unravel minds. A
                                 lesson in suffering and transformation.</p>
-                        </div>
-                        <div class="oracle-entry" style="grid-column: 1 / -1;">
+                        </a>
+                        <a href="https://open.spotify.com/album/47GuUjsSYymeK8NLC29834" target="_blank"
+                            class="oracle-entry" style="grid-column: 1 / -1;">
                             <strong>Neculai</strong>
                             <p>Keeper of The End's Keep. A figure who became a god by refusing to leave his kingdom of
                                 sorrow. He listens to your darkest confessions and guards The Void.</p>
-                        </div>
-                    </div>
-
-                    <div class="multi-link-row">
-                        <a href="https://open.spotify.com/album/6jt5yQsBmCbuiLbm2217FU" target="_blank"
-                            class="alchemy-listen-btn"
-                            style="border-color: rgba(217,28,28,0.3); color: var(--mr-primary); background: rgba(217,28,28,0.07); font-size: 0.82rem; padding: 0.6rem 1rem;">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                style="fill: var(--mr-primary);">
-                                <path
-                                    d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
-                            </svg>
-                            Oracle I
-                        </a>
-                        <a href="https://open.spotify.com/album/2GYmZR5WjBULVsGftcNmoY" target="_blank"
-                            class="alchemy-listen-btn"
-                            style="border-color: rgba(217,28,28,0.3); color: var(--mr-primary); background: rgba(217,28,28,0.07); font-size: 0.82rem; padding: 0.6rem 1rem;">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                style="fill: var(--mr-primary);">
-                                <path
-                                    d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
-                            </svg>
-                            Oracle II
-                        </a>
-                        <a href="https://open.spotify.com/album/1FWsC4RZol50Z2BNaKwgwp" target="_blank"
-                            class="alchemy-listen-btn"
-                            style="border-color: rgba(217,28,28,0.3); color: var(--mr-primary); background: rgba(217,28,28,0.07); font-size: 0.82rem; padding: 0.6rem 1rem;">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                style="fill: var(--mr-primary);">
-                                <path
-                                    d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
-                            </svg>
-                            Oracle III
-                        </a>
-                        <a href="https://open.spotify.com/album/2W13QJoZ5PlXysGlWQwIKu" target="_blank"
-                            class="alchemy-listen-btn"
-                            style="border-color: rgba(217,28,28,0.3); color: var(--mr-primary); background: rgba(217,28,28,0.07); font-size: 0.82rem; padding: 0.6rem 1rem;">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                style="fill: var(--mr-primary);">
-                                <path
-                                    d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
-                            </svg>
-                            Oracle IV
-                        </a>
-                        <a href="https://open.spotify.com/album/47GuUjsSYymeK8NLC29834" target="_blank"
-                            class="alchemy-listen-btn"
-                            style="border-color: rgba(217,28,28,0.3); color: var(--mr-primary); background: rgba(217,28,28,0.07); font-size: 0.82rem; padding: 0.6rem 1rem;">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                style="fill: var(--mr-primary);">
-                                <path
-                                    d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
-                            </svg>
-                            Oracle V
                         </a>
                     </div>
                 </div>
