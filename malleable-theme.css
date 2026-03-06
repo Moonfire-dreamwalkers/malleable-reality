@@ -492,3 +492,163 @@ body.mr-theme {
 .mystic-eye:hover .pupil {
     transform: scaleY(1.2);
 }
+
+/* ==========================================================================
+   Responsive Breakpoints — Tablet & Mobile
+   All rules below are scoped to media queries; desktop is untouched.
+   ========================================================================== */
+
+/* ── Tablet (≤ 900px) ─────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+
+    /* Hub grid: 2 cols → 1 col */
+    main[style*="grid"] {
+        display: block !important;
+    }
+
+    /* Reduce panel padding slightly */
+    .mr-panel {
+        padding: 2rem;
+        min-height: auto;
+    }
+
+    /* Module container can use full width */
+    .mr-module-container {
+        max-width: 100%;
+    }
+
+    /* Navbar links tighten up */
+    .mr-navbar {
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+    }
+
+    .mr-nav-link {
+        font-size: 1.1rem;
+    }
+
+    /* Slightly smaller quiz buttons */
+    .mr-quiz-btn {
+        font-size: 1.05rem;
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* ── Mobile (≤ 600px) ─────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+
+    /* Tighter container padding */
+    .mr-container {
+        padding: 1.5rem 1rem;
+    }
+
+    /* Panels: single-column tight layout */
+    .mr-panel {
+        padding: 1.5rem;
+        border-radius: 10px;
+        min-height: auto;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Hover scale effect too aggressive on touch devices */
+    .mr-panel:hover {
+        transform: none;
+    }
+
+    /* Navbar stacks vertically on very small screens */
+    .mr-navbar {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        justify-content: center;
+    }
+
+    .mr-nav-link {
+        font-size: 1rem;
+        padding: 0.4rem 0.75rem;
+    }
+
+    /* Hero headings scale down */
+    .mr-theme h1 {
+        font-size: 2rem !important;
+    }
+
+    .mr-theme h2 {
+        font-size: 1.5rem !important;
+    }
+
+    /* Module slide headings */
+    .mr-slide h2 {
+        font-size: 1.6rem !important;
+    }
+
+    /* Essay text tighter */
+    .mr-essay-text,
+    .mr-text-main {
+        font-size: 1rem !important;
+        line-height: 1.7;
+    }
+
+    /* Quiz buttons full width, stacked, comfortable tap size */
+    .mr-quiz-options {
+        gap: 0.75rem;
+    }
+
+    .mr-quiz-btn {
+        font-size: 1rem;
+        padding: 1rem 1.25rem;
+    }
+
+    /* Quiz header row — stack icon below headline on very narrow screens */
+    .mr-slide>div[style*="justify-content: space-between"] {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    /* Action links more tappable */
+    .mr-action-link {
+        font-size: 1.05rem;
+        padding: 0.85rem 0;
+    }
+
+    /* Watcher eye: smaller + moved in from edges */
+    div[style*="position: fixed"][style*="top: 1.5rem"][style*="right: 2rem"] {
+        top: 0.75rem !important;
+        right: 0.75rem !important;
+    }
+
+    /* Slide images: reduce height on mobile */
+    .mr-slide img[style*="height: 280px"] {
+        height: 180px !important;
+    }
+
+    /* Module hub cards: don't let card image be too tall */
+    .mr-panel div[style*="height: 250px"] {
+        height: 180px !important;
+    }
+
+    /* Completion screen eye: shrink proportionally */
+    #slide-10 .mystic-eye {
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    #slide-10 .mystic-eye .pupil {
+        width: 16px !important;
+        height: 46px !important;
+    }
+
+    #slide-10 h2 {
+        font-size: 2rem !important;
+    }
+
+    #slide-10 p {
+        font-size: 1.05rem !important;
+    }
+
+    /* Button in completion CTA panel */
+    #slide-10 .mr-panel {
+        padding: 2rem 1.25rem;
+    }
+}
