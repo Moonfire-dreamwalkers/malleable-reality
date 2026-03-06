@@ -315,29 +315,25 @@ body.mr-theme {
     transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+@keyframes mr-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .mr-slide {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
-        transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
-        visibility 0s linear 0.6s;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    pointer-events: none;
+    display: none;
 }
 
 .mr-slide.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
-        transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
-        visibility 0s linear 0s;
-    position: relative;
-    pointer-events: auto;
+    display: block;
+    animation: mr-slide-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .mr-quiz-options {
