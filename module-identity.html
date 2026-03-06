@@ -282,19 +282,25 @@
             fill.style.width = percentage + '%';
         }
 
+        function shuffleButtons(slideEl) {
+            slideEl.querySelectorAll('.mr-quiz-options').forEach(container => {
+                const buttons = Array.from(container.querySelectorAll('.mr-quiz-btn'));
+                buttons.sort(() => Math.random() - 0.5).forEach(b => container.appendChild(b));
+            });
+        }
+
         function nextSlide(slideNumber) {
             const current = document.querySelector('.mr-slide.active');
-            if (current) {
-                current.classList.remove('active');
-            }
+            if (current) current.classList.remove('active');
 
             setTimeout(() => {
                 const next = document.getElementById('slide-' + slideNumber);
                 if (next) {
                     next.classList.add('active');
                     updateProgress(slideNumber);
+                    shuffleButtons(next);
                 }
-            }, 300); // Wait for fade out
+            }, 300);
         }
 
         function checkAnswer(btn, isCorrect, nextSlideNum) {
@@ -337,6 +343,7 @@
         // Initial init
         document.addEventListener("DOMContentLoaded", () => {
             updateProgress(1);
+            document.querySelectorAll('.mr-slide').forEach(slide => shuffleButtons(slide));
         });
     </script>
 </body>
