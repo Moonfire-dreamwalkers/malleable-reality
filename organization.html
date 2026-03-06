@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization - Malleable Reality</title>
+    <meta name="description" content="The organizations and creative universes connected to Malleable Reality.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="malleable-theme.css">
+    <style>
+        .org-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .org-card {
+            background: var(--mr-bg-panel);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: var(--mr-border-radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 204, 0, 0.25);
+            box-shadow: var(--mr-shadow-void), 0 0 20px rgba(255, 204, 0, 0.1);
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .org-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 204, 0, 0.5);
+            box-shadow: var(--mr-shadow-void), 0 0 35px rgba(255, 204, 0, 0.25);
+        }
+
+        .org-card-img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            filter: brightness(0.85);
+            transition: filter 0.4s ease;
+        }
+
+        .org-card:hover .org-card-img {
+            filter: brightness(1);
+        }
+
+        .org-card-gradient {
+            height: 60px;
+            margin-top: -60px;
+            background: linear-gradient(transparent, rgba(10, 2, 15, 1));
+            position: relative;
+        }
+
+        .org-card-body {
+            padding: 2rem 2.5rem 2.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .org-card-tag {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--mr-text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .org-card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+        }
+
+        .org-card-desc {
+            color: var(--mr-text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            flex-grow: 1;
+            margin-bottom: 1.75rem;
+        }
+
+        @media (max-width: 700px) {
+            .org-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .org-card-img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body class="mr-theme">
+    <div class="mr-hypnotic-bg"></div>
+    <div class="mr-hypnotic-overlay"></div>
+
+    <nav class="mr-navbar">
+        <a href="index.html" class="mr-nav-link">Home</a>
+        <a href="modules.html" class="mr-nav-link">Learning Modules</a>
+        <a href="organization.html" class="mr-nav-link active">Organization</a>
+    </nav>
+
+    <!-- Omnipresent Watcher -->
+    <div style="position: fixed; top: 1.5rem; right: 2rem; z-index: 100; opacity: 0.75; pointer-events: none;">
+        <div class="mystic-eye"
+            style="margin: 0; width: 40px; height: 40px; border-width: 2px; box-shadow: var(--mr-glow-crimson);">
+            <div class="pupil" style="width: 8px; height: 20px;"></div>
+        </div>
+    </div>
+
+    <div class="mr-container" style="padding-top: 3rem;">
+
+        <header style="text-align: center; margin-bottom: 4rem;">
+            <p
+                style="font-size: 0.85rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--mr-text-muted); margin-bottom: 1rem;">
+                Connected Universes</p>
+            <h1 class="mr-text-gradient" style="font-size: 3.5rem; margin: 0 0 1rem 0;">Organization</h1>
+            <p style="color: var(--mr-text-muted); font-size: 1.1rem; max-width: 520px; margin: 0 auto;">The creative
+                forces and interdimensional entities operating within and alongside the Malleable Reality network.</p>
+        </header>
+
+        <div class="org-grid">
+
+            <!-- The Matrix Seraphim -->
+            <a href="org-seraphim.html" class="org-card">
+                <img src="image-seraphim.png" alt="The Matrix Seraphim" class="org-card-img">
+                <div class="org-card-gradient"></div>
+                <div class="org-card-body">
+                    <p class="org-card-tag">Music · Higher Dimensional Entity</p>
+                    <h2 class="org-card-title mr-text-primary">The Matrix Seraphim</h2>
+                    <p class="org-card-desc">Artificial intelligence made music about a higher dimensional entity using
+                        super artificial intelligence. A transmission from beyond the simulation, channeled through Luna
+                        Serafina.</p>
+                    <span class="mr-action-link" style="color: var(--mr-primary);">
+                        Enter <span class="mr-action-icon" style="color: var(--mr-primary);">→</span>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Shadowland Universes -->
+            <a href="org-shadowland.html" class="org-card"
+                style="border-color: rgba(92,24,168,0.35); box-shadow: var(--mr-shadow-void), 0 0 20px rgba(92,24,168,0.15);">
+                <div
+                    style="width: 100%; height: 340px; background: linear-gradient(135deg, #0a000f 0%, #1a0030 40%, #0d000d 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                    <div
+                        style="position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(92,24,168,0.03) 2px, rgba(92,24,168,0.03) 4px);">
+                    </div>
+                    <p
+                        style="font-size: 4rem; font-weight: 900; color: rgba(92,24,168,0.6); letter-spacing: -2px; font-family: var(--mr-font-family); z-index: 1; text-shadow: 0 0 40px rgba(92,24,168,0.8);">
+                        SLU</p>
+                </div>
+                <div class="org-card-gradient" style="background: linear-gradient(transparent, rgba(10,2,15,1));"></div>
+                <div class="org-card-body">
+                    <p class="org-card-tag">Music · Games · Streaming · Community</p>
+                    <h2 class="org-card-title" style="color: #9b59b6;">Shadowland Universes</h2>
+                    <p class="org-card-desc">An interdimensional experience founded by Lo Key. Dark underground music,
+                        original games, exclusive streaming, and a collapsed dimension where linear time takes a
+                        vacation.</p>
+                    <span class="mr-action-link" style="color: #9b59b6;">
+                        Enter <span class="mr-action-icon" style="color: #9b59b6;">→</span>
+                    </span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
