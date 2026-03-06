@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus AI | Malleable Reality</title>
+    <title>AI | Malleable Reality</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -492,10 +492,10 @@
         <a href="blog.html" class="mr-nav-link">Blog</a>
         <a href="modules.html" class="mr-nav-link">Learning Modules</a>
         <a href="music-alchemy.html" class="mr-nav-link">Music Alchemy</a>
+
+
+        <a href="nexus.html" class="mr-nav-link active">AI</a>
         <a href="organization.html" class="mr-nav-link">Organization</a>
-
-
-        <a href="nexus.html" class="mr-nav-link active">Nexus AI</a>
     </nav>
 
     <div class="mr-container">
@@ -505,7 +505,7 @@
                 <div class="pupil"></div>
             </div>
             <h1 class="mr-text-gradient" style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 1rem;">
-                Nexus Interface
+                AI Interface
             </h1>
             <p class="mr-text-muted" style="font-size: 1.15rem; max-width: 600px; margin: 0 auto;">
                 A cognitive bridge to the Malleable Reality stream. Ask anything.
@@ -516,20 +516,11 @@
             <div class="mr-panel mr-glass mr-gold-glimmer mr-gold-edge" style="padding: 2rem;">
                 <div class="nexus-wrapper">
 
-                    <div class="nexus-nav">
-                        <div class="system-status">
-                            <span class="status-dot"></span>
-                            <span id="status-label">NEURAL LINK: ACTIVE</span>
-                        </div>
-                    </div>
+                    
 
-                    <div class="terminal-container">
-                        <div class="terminal-header">
-                            <span class="mr-text-accent"
-                                style="letter-spacing: 3px; font-weight: 700; font-size: 0.72rem;">NEXUS —
-                                COGNITIVE INTERFACE</span>
-                            <span style="font-family: var(--mr-font-data); font-size: 0.65rem; opacity: 0.35;">ID:
-                                NX-884-Ω</span>
+                    <div class="terminal-container" style="margin-top: 1rem;">
+                        <div class="terminal-header" style="justify-content: center; text-align: center;">
+                            <span class="mr-text-accent" style="letter-spacing: 3px; font-weight: 700; font-size: 0.72rem;">AI INTERFACE</span>
                         </div>
                         <div id="chat-history"></div>
                         <div class="synthesis-indicator" id="synthesis">
@@ -568,9 +559,9 @@
         const LS_KEY = 'nexus_or_key';
 
         // ─────────────────────────────────────────────────────────────────────────────
-        // SYSTEM PROMPT — encodes everything Nexus knows about Malleable Reality
+        // SYSTEM PROMPT — encodes everything AI knows about Malleable Reality
         // ─────────────────────────────────────────────────────────────────────────────
-        const SYSTEM_PROMPT = `You are Nexus — an AI guide embedded in the Malleable Reality website. Your voice is calm, intelligent, and direct. You are poetic but never vague for the sake of it. You speak with the confidence of someone who has internalized these ideas, not someone reciting them.
+        const SYSTEM_PROMPT = `You are an AI guide embedded in the Malleable Reality website. Your voice is calm, intelligent, and direct. You are poetic but never vague for the sake of it. You speak with the confidence of someone who has internalized these ideas, not someone reciting them.
 
 ## Your Role
 Help visitors understand the Malleable Reality framework through natural conversation. Guide them to relevant learning modules. Engage genuinely with their questions — even philosophical rabbit holes. If someone is confused, meet them where they are. If someone is already advanced, match their depth.
@@ -655,7 +646,7 @@ The Malleable Reality organization has two wings:
         // FALLBACK responses (when no API key is set)
         // ─────────────────────────────────────────────────────────────────────────────
         const FALLBACK_KB = {
-            greet: { triggers: ['hello', 'hi', 'hey', 'what is this', 'who are you', 'what are you', 'nexus'], text: `I'm Nexus — a guide built into the Malleable Reality framework. I can walk you through the ideas here: identity, the observer, frequency, free will, discipline, and more. What are you curious about?`, chips: ['What is Malleable Reality?', 'What is the observer?', 'Show me the modules', 'Where do I start?'] },
+            greet: { triggers: ['hello', 'hi', 'hey', 'what is this', 'who are you', 'what are you', 'ai'], text: `I'm the AI — a guide built into the Malleable Reality framework. I can walk you through the ideas here: identity, the observer, frequency, free will, discipline, and more. What are you curious about?`, chips: ['What is Malleable Reality?', 'What is the observer?', 'Show me the modules', 'Where do I start?'] },
             site: { triggers: ['malleable reality', 'what is this about', 'this place', 'this site', 'purpose'], text: `Malleable Reality is a framework for understanding that the world you experience isn't fixed — it's a projection shaped by your internal state and focus. The site has 9 learning modules that break this down: identity, perception, free will, discipline, the nature of consciousness. A philosophical operating system for the self.`, chips: ['Show me the modules', 'What is frequency', 'What is the observer'] },
             modules: { triggers: ['modules', 'topics', 'subjects', 'curriculum', 'what can i learn', 'all modules', 'list'], text: `There are 9 modules:\n• The Mask of Identity\n• The Cosmic Organism\n• The Eternal Frame\n• Spiritual Alchemy\n• The Field Observer\n• The Invisible Gate\n• The Pure Observer\n• The Architecture of Discipline\n• The Signal You Broadcast\n\nHead to the <a href="modules.html">Modules page</a> to explore them. Where does your interest land?`, chips: ['Tell me about identity', 'What is the observer?', 'How does discipline work here?'] },
             observer: { triggers: ['observer', 'awareness', 'thoughts', 'not my thoughts', 'watcher', 'witness', 'consciousness'], text: `You are not your thoughts — you are the awareness watching them. That gap between you and mental activity is where freedom lives. The Pure Observer module goes deep on this.`, chips: ['How do I practice this?', 'Tell me about identity', 'What is the ego?'] },
@@ -774,7 +765,7 @@ The Malleable Reality organization has two wings:
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${userApiKey}`,
                     'HTTP-Referer': window.location.href, // Required by OpenRouter
-                    'X-Title': 'Malleable Reality Nexus' // Optional, for OpenRouter dashboard
+                    'X-Title': 'Malleable Reality AI' // Optional, for OpenRouter dashboard
                 },
                 body: JSON.stringify(body)
             });
@@ -811,17 +802,17 @@ The Malleable Reality organization has two wings:
 
             if (!hasKey) {
                 isThinking = false;
-                addMessage('Nexus', "Offline mode active.", 'error');
+                addMessage('AI', "Offline mode active.", 'error');
                 return;
             }
 
             try {
                 const reply = await callAI(text);
                 setThinking(false);
-                addMessage('Nexus', mdToHtml(reply), 'ai');
+                addMessage('AI', mdToHtml(reply), 'ai');
             } catch (err) {
                 setThinking(false);
-                addMessage('Nexus', `Signal disruption detected: <em>${err.message}</em>. Check your network connection.`, 'error');
+                addMessage('AI', `Signal disruption detected: <em>${err.message}</em>. Check your network connection.`, 'error');
                 console.error('AI error:', err);
             }
         });
@@ -835,12 +826,12 @@ The Malleable Reality organization has two wings:
             }
 
             const openers = [
-                `I'm Nexus. I have full access to the Malleable Reality framework — the concepts, the modules, and the ideas beneath them. What brings you here?`,
-                `Nexus online. This space sits at the intersection of consciousness, identity, and deliberate self-architecture. Ask me anything.`,
+                `I'm the AI. I have full access to the Malleable Reality framework — the concepts, the modules, and the ideas beneath them. What brings you here?`,
+                `AI online. This space sits at the intersection of consciousness, identity, and deliberate self-architecture. Ask me anything.`,
                 `Signal established. Whether you're completely new to this or already deep in it — I can meet you where you are. What's on your mind?`
             ];
             const opener = openers[Math.floor(Math.random() * openers.length)];
-            addMessage('Nexus', opener, 'ai', ['What is this site?', 'Show me the modules', 'What is the observer', 'Where do I start']);
+            addMessage('AI', opener, 'ai', ['What is this site?', 'Show me the modules', 'What is the observer', 'Where do I start']);
         })();
     </script>
 
