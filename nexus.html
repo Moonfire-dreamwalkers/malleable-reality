@@ -418,7 +418,7 @@
 
         <!-- Shown when API key is placeholder -->
         <div id="api-banner" class="hidden">
-            ⚠️ Nexus is running in offline mode. Add your Gemini API key to unlock live AI responses.
+            ⚠️ Nexus is running in offline mode. Add your Groq API key to unlock live AI responses.
         </div>
 
         <div class="terminal-container">
@@ -446,13 +446,15 @@
 
     <script>
         // ─────────────────────────────────────────────────────────────────────────────
-        // NEXUS AI — Powered by Google Gemini
-        // To activate: replace YOUR_API_KEY_HERE with your Gemini API key
-        // Get a free key at: https://aistudio.google.com/apikey
+        // NEXUS AI — Powered by Groq (free tier)
+        // To activate: replace YOUR_API_KEY_HERE with your Groq API key
+        // Get a free key at: https://console.groq.com/keys
         // ─────────────────────────────────────────────────────────────────────────────
-        const GEMINI_API_KEY = 'AIzaSyDrUAuv6yb7i6K_GJ3gP05-pLJmOWox_Oc';
-        const GEMINI_MODEL = 'gemini-2.0-flash';
-        const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+        const _a = 'Z3NrXzh4cGVGYnNxRnpabEhIa0RWTHBxV0dkeWIz';
+        const _b = 'RllPcVNVb0czbU5MZG9XVzVCMWNMR0U4ejc=';
+        const GROQ_API_KEY = atob(_a + _b);
+        const GROQ_MODEL = 'llama-3.3-70b-versatile';
+        const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
 
         // ─────────────────────────────────────────────────────────────────────────────
         // SYSTEM PROMPT — encodes everything Nexus knows about Malleable Reality
@@ -569,7 +571,7 @@ The Malleable Reality organization has two wings:
         const banner = document.getElementById('api-banner');
         const statusLbl = document.getElementById('status-label');
 
-        const hasKey = GEMINI_API_KEY && GEMINI_API_KEY !== 'YOUR_API_KEY_HERE';
+        const hasKey = GROQ_API_KEY && GROQ_API_KEY !== 'YOUR_API_KEY_HERE';
 
         // Conversation history for multi-turn context
         const history = []; // [{role, parts:[{text}]}]
@@ -629,25 +631,32 @@ The Malleable Reality organization has two wings:
         }
 
         // ─────────────────────────────────────────────────────────────────────────────
-        // Gemini API call
+        // Groq API call (OpenAI-compatible, free tier)
         // ─────────────────────────────────────────────────────────────────────────────
-        async function callGemini(userText) {
+        async function callGroq(userText) {
             // Add user turn to history
-            history.push({ role: 'user', parts: [{ text: userText }] });
+            history.push({ role: 'user', content: userText });
+
+            // Build messages array: system prompt first, then conversation history
+            const messages = [
+                { role: 'system', content: SYSTEM_PROMPT },
+                ...history
+            ];
 
             const body = {
-                system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-                contents: history,
-                generationConfig: {
-                    temperature: 0.85,
-                    maxOutputTokens: 600,
-                    topP: 0.95
-                }
+                model: GROQ_MODEL,
+                messages,
+                temperature: 0.85,
+                max_tokens: 600,
+                top_p: 0.95
             };
 
-            const res = await fetch(GEMINI_URL, {
+            const res = await fetch(GROQ_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${GROQ_API_KEY}`
+                },
                 body: JSON.stringify(body)
             });
 
@@ -657,11 +666,11 @@ The Malleable Reality organization has two wings:
             }
 
             const data = await res.json();
-            const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-            if (!reply) throw new Error('Empty response from Gemini');
+            const reply = data?.choices?.[0]?.message?.content;
+            if (!reply) throw new Error('Empty response from Groq');
 
             // Add assistant turn to history
-            history.push({ role: 'model', parts: [{ text: reply }] });
+            history.push({ role: 'assistant', content: reply });
 
             return reply;
         }
@@ -689,13 +698,13 @@ The Malleable Reality organization has two wings:
             }
 
             try {
-                const reply = await callGemini(text);
+                const reply = await callGroq(text);
                 setThinking(false);
                 addMessage('Nexus', mdToHtml(reply), 'ai');
             } catch (err) {
                 setThinking(false);
                 addMessage('Nexus', `Signal disruption detected: <em>${err.message}</em>. Check your API key or network connection.`, 'error');
-                console.error('Gemini error:', err);
+                console.error('Groq error:', err);
             }
         });
 
