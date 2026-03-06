@@ -14,19 +14,11 @@
     <link rel="stylesheet" href="malleable-theme.css">
 
     <style>
-        body {
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-            background: var(--mr-void-1);
-            font-family: var(--mr-font-family);
-            color: var(--mr-text-main);
-        }
-
         .nexus-wrapper {
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            min-height: 600px;
+            height: 100%;
             padding: 1.5rem 2rem 2rem;
             max-width: 1100px;
             margin: 0 auto;
@@ -501,7 +493,7 @@
         <a href="modules.html" class="mr-nav-link">Learning Modules</a>
         <a href="music-alchemy.html" class="mr-nav-link">Music Alchemy</a>
         <a href="organization.html" class="mr-nav-link">Organization</a>
-        <a href="apps.html" class="mr-nav-link">Apps</a>
+
         <a href="nexus.html" class="mr-nav-link active">Nexus AI</a>
     </nav>
 
@@ -570,7 +562,7 @@
         // NEXUS AI — Powered by OpenRouter (free models, key stored in localStorage)
         // Get a free key at: https://openrouter.ai/keys
         // ─────────────────────────────────────────────────────────────────────────────
-        const OR_MODEL = 'google/gemini-2.0-flash-exp:free';
+        const OR_MODEL = 'stepfun/step-3.5-flash:free';
         const OR_URL = 'https://openrouter.ai/api/v1/chat/completions';
         const LS_KEY = 'nexus_or_key';
 
@@ -647,7 +639,6 @@ The Malleable Reality organization has two wings:
 ## Other Site Sections
 - **Blog** (blog.html): Written essays including "The Cosmic Organism" and "The Mask of Identity"
 - **Music Alchemy** (music-alchemy.html): Curated music as a tool to modulate internal state. Sound bypasses the rational filter and directly shifts the internal environment.
-- **Apps** (apps.html): Interactive tools — quiz, crossword, and Nexus (this interface)
 
 ## How to Respond
 - Be conversational, not encyclopedic. Engage like a guide who genuinely cares.
