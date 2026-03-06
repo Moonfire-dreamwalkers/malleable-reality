@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Malleable Reality</title>
+    <meta name="description"
+        content="Read deep dives, conceptual teardowns, and articles exploring the malleability of reality, system mechanics, and identity detachment.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="malleable-theme.css">
+
+    <style>
+        .blog-hero {
+            text-align: center;
+            padding: 6rem 1rem 3rem;
+            position: relative;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: var(--mr-bg-panel);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 204, 0, 0.25);
+            border-radius: var(--mr-border-radius);
+            padding: 2rem;
+            box-shadow: var(--mr-shadow-void), 0 0 20px rgba(255, 204, 0, 0.1);
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: rgba(255, 204, 0, 0.6);
+            box-shadow: var(--mr-shadow-void), 0 0 40px rgba(255, 204, 0, 0.25);
+        }
+
+        .blog-card-date {
+            font-size: 0.85rem;
+            color: var(--mr-accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            line-height: 1.3;
+            color: var(--mr-text);
+        }
+
+        .blog-card-excerpt {
+            color: var(--mr-text-muted);
+            line-height: 1.6;
+            margin: 0 0 1.5rem 0;
+            flex-grow: 1;
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- SEO Optimization -->
+    <link rel="canonical" href="https://malleable-reality.com/blog.html" />
+    <meta name="theme-color" content="#0a020f">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://malleable-reality.com/blog.html">
+    <meta property="og:title" content="Blog - Malleable Reality">
+    <meta property="og:description" content="Read deep dives, conceptual teardowns, and articles exploring the malleability of reality, system mechanics, and identity detachment.">
+    <meta property="og:image" content="https://malleable-reality.com/mr-og-image.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://malleable-reality.com/blog.html">
+    <meta property="twitter:title" content="Blog - Malleable Reality">
+    <meta property="twitter:description" content="Read deep dives, conceptual teardowns, and articles exploring the malleability of reality, system mechanics, and identity detachment.">
+    <meta property="twitter:image" content="https://malleable-reality.com/mr-og-image.webp">
+</head>
+
+<body>
+
+    <nav class="mr-nav">
+        <a href="index.html" class="mr-nav-logo">MR</a>
+        <div class="mr-nav-links">
+            <a href="index.html">Home</a>
+            <a href="modules.html">Modules</a>
+            <a href="music-alchemy.html">Alchemy</a>
+            <a href="organization.html">Network</a>
+            <a href="blog.html" style="color: var(--mr-text);">Blog</a>
+        </div>
+    </nav>
+
+    <div class="mr-container">
+        <header class="blog-hero">
+            <h1 class="mr-text-gradient" style="font-size: 3.5rem; margin: 0 0 1rem 0; line-height: 1.1;">Archives &
+                Articles</h1>
+            <div class="mr-page-accent"></div>
+            <p
+                style="color: var(--mr-text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.7;">
+                Deep dives into the mechanics of reality, ego detachment, systems thinking, and the architecture of the
+                mind. Read, index, and untangle.</p>
+        </header>
+
+        <main class="blog-grid">
+            <!-- Article 1 -->
+            <a href="blog-mask-of-identity.html" class="blog-card">
+                <span class="blog-card-date">Identity & Ego</span>
+                <h2 class="blog-card-title">The Mask of Identity: Escaping Rigid Definitions</h2>
+                <p class="blog-card-excerpt">Explore how the ego constructs absolute identities, why "I am" statements
+                    trap you in deterministic loops, and how to objectify your thoughts to achieve true freedom of
+                    action.</p>
+                <div class="mr-action-link" style="margin-top: auto;">
+                    Read Article
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Article 2 -->
+            <a href="blog-cosmic-organism.html" class="blog-card">
+                <span class="blog-card-date">Systems & Consciousness</span>
+                <h2 class="blog-card-title">The Cosmic Organism vs. The Machine</h2>
+                <p class="blog-card-excerpt">A breakdown of systems thinking. Discover why viewing the universe as a
+                    dead, segmented machine limits your potential, and why shifting to a holistic, interdependent
+                    worldview changes everything.</p>
+                <div class="mr-action-link" style="margin-top: auto;">
+                    Read Article
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </a>
+        </main>
+    </div>
+
+    <!-- Background fixed elements -->
+    <div style="position: fixed; inset: 0; pointer-events: none; z-index: -1;">
+        <div
+            style="position: absolute; top: -10%; right: -10%; width: 50%; height: 50%; background: radial-gradient(circle, rgba(255, 204, 0, 0.05) 0%, transparent 70%);">
+        </div>
+        <div
+            style="position: absolute; bottom: -20%; left: -10%; width: 60%; height: 60%; background: radial-gradient(circle, rgba(92, 24, 168, 0.08) 0%, transparent 70%);">
+        </div>
+    </div>
+
+</body>
+
+</html>
