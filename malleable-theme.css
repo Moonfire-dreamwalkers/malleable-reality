@@ -1,0 +1,219 @@
+/*
+ * Malleable Reality Theme Core
+ * A modular, reusable CSS theme based on swirling psychedelic colors 
+ * (Deep Purples, Vibrant Oranges, Crimson Reds, and Bright Yellows).
+ * 
+ * Usage: Import this file and apply .mr-* classes to your HTML elements.
+ */
+
+:root {
+  /* Core Color Palette */
+  --mr-bg-dark: #0a0118;
+  --mr-bg-panel: rgba(30, 8, 54, 0.6);
+  --mr-primary: #ff7b00; /* Swirling Orange */
+  --mr-secondary: #7b1fa2; /* Deep Purple */
+  --mr-accent: #e50000; /* Eye Red */
+  --mr-highlight: #ffea00; /* Bright Yellow */
+  --mr-text-main: #f3e5f5;
+  --mr-text-muted: #ce93d8;
+  
+  /* Gradients */
+  --mr-grad-primary: linear-gradient(135deg, var(--mr-primary), var(--mr-secondary));
+  --mr-grad-accent: linear-gradient(135deg, var(--mr-accent), var(--mr-primary));
+  --mr-grad-bg: radial-gradient(circle at 50% 50%, #1a0530 0%, var(--mr-bg-dark) 100%);
+  
+  /* Shadows & Glows */
+  --mr-glow-primary: 0 0 15px rgba(255, 123, 0, 0.5);
+  --mr-glow-secondary: 0 0 15px rgba(123, 31, 162, 0.5);
+  --mr-glow-accent: 0 0 20px rgba(229, 0, 0, 0.6);
+  --mr-shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
+  /* Elements */
+  --mr-border-glass: 1px solid rgba(255, 255, 255, 0.1);
+  --mr-border-radius: 12px;
+  
+  /* Typography */
+  --mr-font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+}
+
+/* ==========================================================================
+   Base Reset & Styling
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body.mr-theme {
+  margin: 0;
+  padding: 0;
+  font-family: var(--mr-font-family);
+  background: var(--mr-grad-bg);
+  background-color: var(--mr-bg-dark);
+  color: var(--mr-text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  background-attachment: fixed;
+}
+
+/* ==========================================================================
+   Typography Utilities
+   ========================================================================== */
+.mr-theme h1, .mr-theme h2, .mr-theme h3, 
+.mr-theme h4, .mr-theme h5, .mr-theme h6 {
+  font-weight: 700;
+  margin-top: 0;
+  letter-spacing: 0.5px;
+}
+
+.mr-text-gradient {
+  background: var(--mr-grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.mr-text-accent {
+  color: var(--mr-accent);
+  text-shadow: var(--mr-glow-accent);
+}
+
+.mr-text-muted {
+  color: var(--mr-text-muted);
+}
+
+/* ==========================================================================
+   Layout & Structure
+   ========================================================================== */
+.mr-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.mr-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.mr-grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.mr-grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+/* ==========================================================================
+   Components (Glassmorphism & Interactive)
+   ========================================================================== */
+/* Panels */
+.mr-panel {
+  background: var(--mr-bg-panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: var(--mr-border-glass);
+  border-radius: var(--mr-border-radius);
+  box-shadow: var(--mr-shadow-glass);
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mr-panel:hover {
+  box-shadow: var(--mr-glow-secondary);
+  border-color: rgba(123, 31, 162, 0.4);
+}
+
+/* Buttons */
+.mr-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--mr-font-family);
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+  background: var(--mr-grad-primary);
+  border: none;
+  border-radius: var(--mr-border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--mr-glow-secondary);
+  text-decoration: none;
+}
+
+.mr-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--mr-glow-primary);
+  background: var(--mr-grad-accent);
+}
+
+.mr-button-outline {
+  background: transparent;
+  border: 2px solid var(--mr-primary);
+  color: var(--mr-primary);
+  box-shadow: none;
+}
+
+.mr-button-outline:hover {
+  background: var(--mr-primary);
+  color: #000;
+  box-shadow: var(--mr-glow-primary);
+  transform: translateY(-2px);
+}
+
+/* Inputs */
+.mr-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--mr-secondary);
+  border-radius: var(--mr-border-radius);
+  color: var(--mr-text-main);
+  font-family: var(--mr-font-family);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.mr-input:focus {
+  outline: none;
+  border-color: var(--mr-primary);
+  box-shadow: var(--mr-glow-primary);
+}
+
+.mr-input::placeholder {
+  color: rgba(206, 147, 216, 0.5); /* muted purple */
+}
+
+/* Form Groups */
+.mr-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.mr-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--mr-text-muted);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes mr-pulse-red {
+  0% { box-shadow: 0 0 0 0 rgba(229, 0, 0, 0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(229, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(229, 0, 0, 0); }
+}
+
+@keyframes mr-float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.mr-animate-pulse {
+  animation: mr-pulse-red 2s infinite;
+}
+
+.mr-animate-float {
+  animation: mr-float 4s ease-in-out infinite;
+}

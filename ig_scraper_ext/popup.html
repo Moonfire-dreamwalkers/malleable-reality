@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <h2>IG Scraper</h2>
+  <div class="settings">
+    <label>
+      Min Delay (ms):
+      <input type="number" id="minDelay" value="1000">
+    </label>
+    <label>
+      Max Delay (ms):
+      <input type="number" id="maxDelay" value="3000">
+    </label>
+    <label>
+      Max Users:
+      <input type="number" id="maxUsers" value="100">
+    </label>
+  </div>
+  <button id="startBtn">Start Scraping</button>
+  <div id="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

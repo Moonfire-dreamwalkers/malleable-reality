@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Instagram Likes Scraper",
+  "version": "1.0",
+  "description": "Scrapes usernames that liked an Instagram post with human-like delays.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "downloads",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.instagram.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

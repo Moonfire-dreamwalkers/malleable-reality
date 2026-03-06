@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malleable Reality</title>
+    <meta name="description" content="Explore reality as flexible and dream-like. Join the Malleable Reality Discord.">
+
+    <!-- Modern Font: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- The Malleable Reality Theme Core -->
+    <link rel="stylesheet" href="malleable-theme.css">
+
+    <style>
+        /* Custom layout styling for this specific page */
+        .mr-hero {
+            text-align: center;
+            padding: 6rem 1rem 2rem;
+            position: relative;
+        }
+
+        .mystic-eye {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            background: var(--mr-grad-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--mr-glow-accent);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #000;
+            transition: transform 0.3s;
+        }
+
+        .mystic-eye:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .mystic-eye::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #000 0%, transparent 70%);
+            transform: scaleY(0.4);
+        }
+
+        .mystic-eye .pupil {
+            width: 25px;
+            height: 70px;
+            background: #000;
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+            z-index: 2;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+            transition: transform 0.3s;
+        }
+
+        .mystic-eye:hover .pupil {
+            transform: scaleY(1.2);
+        }
+
+        .mr-article {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .mr-essay-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+        }
+
+        .mr-discord-panel {
+            margin-top: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-color: rgba(255, 123, 0, 0.4);
+        }
+
+        .mr-discord-panel::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(123, 31, 162, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .mr-discord-content {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body class="mr-theme">
+
+    <div class="mr-container">
+
+        <!-- Hero / Header -->
+        <header class="mr-hero">
+            <div class="mystic-eye mr-animate-pulse mr-animate-float">
+                <div class="pupil"></div>
+            </div>
+            <h1 class="mr-text-gradient"
+                style="font-size: 4rem; line-height: 1.1; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px;">
+                Malleable Reality
+            </h1>
+            <p class="mr-text-muted" style="font-size: 1.25rem; max-width: 600px; margin: 0 auto;">
+                You are not the mask you wear. You are the observer who exists behind it.
+            </p>
+        </header>
+
+        <!-- Call to Action / Community -->
+        <main class="mr-article">
+            <div class="mr-panel mr-discord-panel">
+                <div class="mr-discord-content">
+                    <h2 class="mr-text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;">Enter The Discord</h2>
+                    <p class="mr-essay-text"
+                        style="color: var(--mr-text-main); margin-bottom: 2rem; max-width: 650px; margin-left: auto; margin-right: auto;">
+                        The Malleable Reality Discord explores reality as flexible and dream-like. Topics include
+                        magick, metaphysics, higher beings, simulation theory, consciousness models, and self-help
+                        practices. We welcome bold ideas shared in good faith and showcase creators and their work.
+                    </p>
+                    <a href="#" class="mr-button"
+                        style="padding: 1rem 2.5rem; font-size: 1.1rem; border-radius: 30px; letter-spacing: 1px;">
+                        Join the Community
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <footer style="margin-top: 6rem; text-align: center; padding-bottom: 2rem;">
+            <p class="mr-text-muted" style="font-size: 0.9rem; opacity: 0.6;">
+                Initiate sequence. Bend reality.
+            </p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
