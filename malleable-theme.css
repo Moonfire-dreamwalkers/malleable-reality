@@ -270,8 +270,9 @@ body.mr-theme {
 .mr-navbar {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    padding: 1.5rem;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
     margin-bottom: 2rem;
     border-bottom: 1px solid rgba(255, 204, 0, 0.15);
     background: rgba(10, 2, 15, 0.5);
@@ -282,11 +283,12 @@ body.mr-theme {
 .mr-nav-link {
     color: var(--mr-text-muted);
     text-decoration: none;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 600;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.25rem;
     border-radius: var(--mr-border-radius);
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .mr-nav-link:hover {
