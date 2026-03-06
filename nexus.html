@@ -89,28 +89,117 @@
             }
         }
 
-        /* API key banner */
-        #api-banner {
+        /* Key modal overlay */
+        #key-modal {
             display: none;
-            background: rgba(255, 180, 0, 0.08);
-            border: 1px solid rgba(255, 180, 0, 0.3);
-            border-radius: 10px;
-            padding: 0.75rem 1.25rem;
-            margin-bottom: 1rem;
-            font-size: 0.85rem;
-            color: rgba(255, 220, 120, 0.9);
-            flex-shrink: 0;
-            display: flex;
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 0, 15, 0.85);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
             align-items: center;
-            gap: 0.75rem;
+            justify-content: center;
         }
 
-        #api-banner.hidden {
-            display: none !important;
+        #key-modal.active {
+            display: flex;
         }
 
-        #api-banner a {
-            color: #ffd700;
+        .key-modal-box {
+            background: rgba(15, 5, 30, 0.95);
+            border: 1px solid rgba(92, 24, 168, 0.5);
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 520px;
+            width: 90%;
+            box-shadow: 0 0 80px rgba(92, 24, 168, 0.3);
+        }
+
+        .key-modal-box h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .key-modal-box p {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin: 0 0 1.5rem;
+            line-height: 1.6;
+        }
+
+        .key-modal-box p a {
+            color: rgba(180, 140, 255, 0.9);
+            text-decoration: none;
+        }
+
+        .key-modal-box p a:hover {
+            color: #fff;
+        }
+
+        #key-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(92, 24, 168, 0.4);
+            border-radius: 12px;
+            padding: 0.9rem 1.2rem;
+            color: #fff;
+            font-size: 0.9rem;
+            font-family: var(--mr-font-data);
+            outline: none;
+            box-sizing: border-box;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        #key-input:focus {
+            border-color: var(--mr-purple);
+        }
+
+        #key-save-btn {
+            width: 100%;
+            padding: 0.9rem;
+            background: var(--mr-purple);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: var(--mr-glow-purple);
+        }
+
+        #key-save-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 40px var(--mr-purple);
+        }
+
+        .key-note {
+            text-align: center;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.2);
+            margin-top: 1rem;
+        }
+
+        /* Reset key button in nav */
+        #reset-key-btn {
+            background: none;
+            border: 1px solid rgba(92, 24, 168, 0.3);
+            border-radius: 20px;
+            color: rgba(150, 100, 220, 0.6);
+            font-size: 0.7rem;
+            padding: 0.3rem 0.8rem;
+            cursor: pointer;
+            font-family: var(--mr-font-data);
+            transition: all 0.2s;
+        }
+
+        #reset-key-btn:hover {
+            color: #fff;
+            border-color: var(--mr-purple);
         }
 
         /* Terminal */
@@ -413,12 +502,21 @@
             <div class="system-status">
                 <span class="status-dot"></span>
                 <span id="status-label">NEURAL LINK: ACTIVE</span>
+                <button id="reset-key-btn" title="Change API key">KEY</button>
             </div>
         </div>
 
-        <!-- Shown when API key is placeholder -->
-        <div id="api-banner" class="hidden">
-            ⚠️ Nexus is running in offline mode. Add your Groq API key to unlock live AI responses.
+        <!-- Key entry modal -->
+        <div id="key-modal">
+            <div class="key-modal-box">
+                <h2>⬡ Activate Nexus</h2>
+                <p>Nexus runs on <a href="https://openrouter.ai/keys" target="_blank">OpenRouter</a> — a free AI
+                    gateway. Create a free account, copy your API key, and paste it below. It's saved only in your
+                    browser.<br><br>Free models used: <strong>Gemini 2.0 Flash</strong></p>
+                <input type="password" id="key-input" placeholder="sk-or-v1-..." autocomplete="off" spellcheck="false">
+                <button id="key-save-btn">Activate Neural Link</button>
+                <div class="key-note">Key is stored locally in your browser only — never sent to our servers.</div>
+            </div>
         </div>
 
         <div class="terminal-container">
@@ -446,11 +544,12 @@
 
     <script>
         // ─────────────────────────────────────────────────────────────────────────────
-        // NEXUS AI — Powered by Pollinations.ai (free, no API key required)
-        // https://text.pollinations.ai
+        // NEXUS AI — Powered by OpenRouter (free models, key stored in localStorage)
+        // Get a free key at: https://openrouter.ai/keys
         // ─────────────────────────────────────────────────────────────────────────────
-        const AI_MODEL = 'openai-large'; // GPT-4o class, free
-        const AI_URL = 'https://text.pollinations.ai/openai';
+        const OR_MODEL = 'google/gemini-2.0-flash-exp:free';
+        const OR_URL = 'https://openrouter.ai/api/v1/chat/completions';
+        const LS_KEY = 'nexus_or_key';
 
         // ─────────────────────────────────────────────────────────────────────────────
         // SYSTEM PROMPT — encodes everything Nexus knows about Malleable Reality
@@ -567,7 +666,14 @@ The Malleable Reality organization has two wings:
         const banner = document.getElementById('api-banner');
         const statusLbl = document.getElementById('status-label');
 
-        const hasKey = true; // Pollinations.ai is always available — no key needed
+        // Key Modal DOM
+        const keyModal = document.getElementById('key-modal');
+        const keyInput = document.getElementById('key-input');
+        const keySaveBtn = document.getElementById('key-save-btn');
+        const resetKeyBtn = document.getElementById('reset-key-btn');
+
+        let userApiKey = localStorage.getItem(LS_KEY) || '';
+        let hasKey = !!userApiKey;
 
         // Conversation history for multi-turn context
         const history = []; // [{role, parts:[{text}]}]
@@ -627,7 +733,7 @@ The Malleable Reality organization has two wings:
         }
 
         // ─────────────────────────────────────────────────────────────────────────────
-        // Pollinations.ai API call (free, no auth required)
+        // OpenRouter API call
         // ─────────────────────────────────────────────────────────────────────────────
         async function callAI(userText) {
             // Add user turn to history
@@ -640,17 +746,21 @@ The Malleable Reality organization has two wings:
             ];
 
             const body = {
-                model: AI_MODEL,
+                model: OR_MODEL,
                 messages,
                 temperature: 0.85,
                 max_tokens: 600,
-                top_p: 0.95,
-                private: true    // don't log/display in Pollinations public feed
+                top_p: 0.95
             };
 
-            const res = await fetch(AI_URL, {
+            const res = await fetch(OR_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${userApiKey}`,
+                    'HTTP-Referer': window.location.href, // Required by OpenRouter
+                    'X-Title': 'Malleable Reality Nexus' // Optional, for OpenRouter dashboard
+                },
                 body: JSON.stringify(body)
             });
 
@@ -670,6 +780,49 @@ The Malleable Reality organization has two wings:
         }
 
         // ─────────────────────────────────────────────────────────────────────────────
+        // Key Management Handlers
+        // ─────────────────────────────────────────────────────────────────────────────
+        function showKeyModal() {
+            keyModal.classList.add('active');
+            if (userApiKey) keyInput.value = userApiKey;
+            setTimeout(() => keyInput.focus(), 100);
+        }
+
+        function hideKeyModal() {
+            keyModal.classList.remove('active');
+        }
+
+        keySaveBtn.addEventListener('click', () => {
+            const val = keyInput.value.trim();
+            if (val) {
+                userApiKey = val;
+                localStorage.setItem(LS_KEY, val);
+                hasKey = true;
+                hideKeyModal();
+                statusLbl.textContent = 'NEURAL LINK: ACTIVE';
+            } else {
+                // If they clear it, revert to OFFLINE MODE
+                userApiKey = '';
+                localStorage.removeItem(LS_KEY);
+                hasKey = false;
+                hideKeyModal();
+                statusLbl.textContent = 'OFFLINE MODE';
+            }
+        });
+
+        // Allow pressing Enter in the key input
+        keyInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') keySaveBtn.click();
+        });
+
+        resetKeyBtn.addEventListener('click', showKeyModal);
+
+        // Close modal if clicking outside the box
+        keyModal.addEventListener('click', (e) => {
+            if (e.target === keyModal) hideKeyModal();
+        });
+
+        // ─────────────────────────────────────────────────────────────────────────────
         // Submit handler
         // ─────────────────────────────────────────────────────────────────────────────
         formEl.addEventListener('submit', async (e) => {
@@ -683,11 +836,11 @@ The Malleable Reality organization has two wings:
             setThinking(true);
 
             if (!hasKey) {
-                // Offline fallback mode
-                await new Promise(r => setTimeout(r, 700 + Math.random() * 600));
-                const fb = fallbackResponse(text);
-                setThinking(false);
-                addMessage('Nexus', fb.text.replace(/\n/g, '<br>'), 'ai', fb.chips || []);
+                // Intercept and ask for key if they try to chat in offline mode
+                isThinking = false;
+                showKeyModal();
+                // Optionally give a fallback answer but they might be annoyed, so just ask for key.
+                addMessage('Nexus', 'Please provide an OpenRouter API key to activate the neural link and process that query.', 'error');
                 return;
             }
 
@@ -707,8 +860,9 @@ The Malleable Reality organization has two wings:
         // ─────────────────────────────────────────────────────────────────────────────
         (function init() {
             if (!hasKey) {
-                banner.classList.remove('hidden');
                 statusLbl.textContent = 'OFFLINE MODE';
+                // Show modal automatically on first visit if no key
+                setTimeout(showKeyModal, 1500);
             }
 
             const openers = [
