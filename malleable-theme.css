@@ -154,29 +154,15 @@ body.mr-theme {
     /* Animated breathing effect on panels */
     transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.6s ease, box-shadow 0.6s ease;
 
-    /* Subtle gold edge and micro-glimmer */
-    border: 1px solid rgba(255, 204, 0, 0.15);
-    animation: mr-micro-glimmer 4s ease-in-out infinite alternate;
-}
-
-@keyframes mr-micro-glimmer {
-    0% {
-        border-color: rgba(255, 204, 0, 0.1);
-        box-shadow: var(--mr-shadow-void), inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 5px rgba(255, 204, 0, 0.05);
-    }
-
-    100% {
-        border-color: rgba(255, 204, 0, 0.4);
-        box-shadow: var(--mr-shadow-void), inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 204, 0, 0.2);
-    }
+    /* Persistent gold glowing trim */
+    border: 1px solid rgba(255, 204, 0, 0.5);
+    box-shadow: var(--mr-shadow-void), inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 204, 0, 0.3);
 }
 
 .mr-panel:hover {
     transform: translateY(-5px) scale(1.01);
-    border-color: rgba(255, 204, 0, 0.6);
-    box-shadow: var(--mr-shadow-void), inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 204, 0, 0.4);
-    /* Stop glimmer on hover so it glows fully */
-    animation: none;
+    border-color: rgba(255, 204, 0, 0.7);
+    box-shadow: var(--mr-shadow-void), inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 204, 0, 0.5);
 }
 
 /* ==========================================================================
