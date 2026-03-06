@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Module: The Architecture of Discipline - Malleable Reality</title>
+    <meta name="description"
+        content="Interactive reading experience on discipline as structural design, removing friction, and aligning internal state with high output.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="malleable-theme.css">
+</head>
+
+<body class="mr-theme">
+    <div class="mr-hypnotic-bg"></div>
+    <div class="mr-hypnotic-overlay"></div>
+
+    <nav class="mr-navbar">
+        <a href="index.html" class="mr-nav-link">Home</a>
+        <a href="modules.html" class="mr-nav-link active">Learning Modules</a>
+    </nav>
+
+    <!-- Omnipresent Watcher -->
+    <div style="position: fixed; top: 1.5rem; right: 2rem; z-index: 100; opacity: 0.75; pointer-events: none;">
+        <div class="mystic-eye"
+            style="margin: 0; width: 40px; height: 40px; border-width: 2px; box-shadow: var(--mr-glow-crimson);">
+            <div class="pupil" style="width: 8px; height: 20px;"></div>
+        </div>
+    </div>
+
+    <div class="mr-container" style="padding-top: 2rem;">
+        <div class="mr-panel mr-module-container">
+            <div class="mr-progress-bar">
+                <div class="mr-progress-fill" id="progressFill"></div>
+            </div>
+
+            <!-- Slide 1 -->
+            <div class="mr-slide active" id="slide-1">
+                <img src="image-discipline.png" alt="The Architecture of Discipline"
+                    style="width: 100%; height: 280px; object-fit: contain; background: rgba(5,1,10,1); border-radius: var(--mr-border-radius); border: 1px solid rgba(255,204,0,0.3); margin-bottom: 2rem;">
+                <h2 class="mr-text-gradient" style="font-size: 2.2rem; margin-bottom: 1rem;">The Architecture of
+                    Discipline</h2>
+                <div class="mr-essay-text" style="color: var(--mr-text-main); font-size: 1.15rem; line-height: 1.8;">
+                    <p>Most people think discipline is about willpower — white-knuckling through resistance, forcing
+                        themselves to do what they don't want to do through sheer mental strength. But that model is
+                        exhausting and it eventually breaks.</p>
+                    <p>What the framework describes is something entirely different. Discipline is not the act of
+                        fighting yourself. It is what naturally happens when you have removed enough friction from the
+                        path that movement becomes the easiest option available. You don't need motivation when the
+                        environment is designed well enough.</p>
+                </div>
+                <div style="text-align: right; margin-top: 2rem;">
+                    <button class="mr-action-link" onclick="nextSlide(2)">Continue <span
+                            class="mr-action-icon">→</span></button>
+                </div>
+            </div>
+
+            <!-- Slide 2 (Knowledge Check) -->
+            <div class="mr-slide" id="slide-2">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <h2 class="mr-text-accent" style="font-size: 2rem; margin: 0;">Knowledge Check</h2>
+                    <img src="image-quiz.png" alt="Quiz"
+                        style="width: 60px; height: 60px; border-radius: 50%; opacity: 0.8;">
+                </div>
+                <p class="mr-essay-text" style="font-size: 1.2rem; font-weight: 600;">What is discipline, according to
+                    this framework?</p>
+                <div class="mr-quiz-options">
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">The mental strength to push through
+                        resistance and override your own reluctance through sustained willpower.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, true, 3)">What naturally happens when enough
+                        friction has been removed from the path — movement becomes the easiest option and motivation
+                        becomes unnecessary.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">A habit formed by consistent
+                        repetition until the behavior becomes automatic and no longer requires conscious
+                        effort.</button>
+                </div>
+                <p class="mr-feedback"></p>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="mr-slide" id="slide-3">
+                <img src="image-field.png" alt="Structure Carries You"
+                    style="width: 100%; height: 280px; object-fit: contain; background: rgba(5,1,10,1); border-radius: var(--mr-border-radius); border: 1px solid rgba(217,28,28,0.3); margin-bottom: 2rem;">
+                <h2 class="mr-text-gradient" style="font-size: 2.2rem; margin-bottom: 1rem;">Structure Carries You</h2>
+                <div class="mr-essay-text" style="color: var(--mr-text-main); font-size: 1.15rem; line-height: 1.8;">
+                    <p>The shift happens when you stop relying on how you feel and start relying on how things are
+                        structured. Clear sequences mean you never have to decide what comes next. Built-in recovery
+                        means you never run yourself into the ground. Predictable resets mean that when you fall off,
+                        you know exactly where to return to without drama or self-punishment.</p>
+                    <p>The system absorbs the pressure so you don't have to. You just show up and the structure carries
+                        you through what willpower alone never could have sustained.</p>
+                </div>
+                <div style="text-align: right; margin-top: 2rem;">
+                    <button class="mr-action-link" onclick="nextSlide(4)">Continue <span
+                            class="mr-action-icon">→</span></button>
+                </div>
+            </div>
+
+            <!-- Slide 4 (Knowledge Check) -->
+            <div class="mr-slide" id="slide-4">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <h2 class="mr-text-accent" style="font-size: 2rem; margin: 0;">Knowledge Check</h2>
+                    <img src="image-quiz.png" alt="Quiz"
+                        style="width: 60px; height: 60px; border-radius: 50%; opacity: 0.8;">
+                </div>
+                <p class="mr-essay-text" style="font-size: 1.2rem; font-weight: 600;">What role does a "predictable
+                    reset" serve in a well-designed system?</p>
+                <div class="mr-quiz-options">
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">It eliminates failure entirely by
+                        creating perfect consistency that prevents any deviation from the plan.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">It provides a punishment mechanism
+                        that creates accountability when you fall off the plan.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, true, 5)">It gives you a clear, drama-free
+                        return point when you fall off — so the system absorbs the disruption instead of requiring
+                        willpower to recover from it.</button>
+                </div>
+                <p class="mr-feedback"></p>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="mr-slide" id="slide-5">
+                <img src="image-observer.png" alt="Alignment Before Action"
+                    style="width: 100%; height: 280px; object-fit: contain; background: rgba(5,1,10,1); border-radius: var(--mr-border-radius); border: 1px solid rgba(92,24,168,0.4); margin-bottom: 2rem;">
+                <h2 class="mr-text-gradient" style="font-size: 2.2rem; margin-bottom: 1rem;">Alignment Before Action
+                </h2>
+                <div class="mr-essay-text" style="color: var(--mr-text-main); font-size: 1.15rem; line-height: 1.8;">
+                    <p>This is also why alignment matters before action. When your internal state is chaotic, even
+                        simple tasks feel heavy. But when your focus is stable and your mind is clear, high output stops
+                        feeling like strain.</p>
+                    <p>The same volume of work that used to drain you starts to feel like rhythm. Intensity no longer
+                        triggers stress because you are moving with the current rather than against it. You end up doing
+                        more than you ever did before and somehow feeling less in the process. That is not a trick. That
+                        is what it looks like when structure and inner clarity finally meet.</p>
+                </div>
+                <div style="text-align: right; margin-top: 2rem;">
+                    <button class="mr-action-link" onclick="nextSlide(6)">Continue <span
+                            class="mr-action-icon">→</span></button>
+                </div>
+            </div>
+
+            <!-- Slide 6 (Knowledge Check) -->
+            <div class="mr-slide" id="slide-6">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <h2 class="mr-text-accent" style="font-size: 2rem; margin: 0;">Knowledge Check</h2>
+                    <img src="image-quiz.png" alt="Quiz"
+                        style="width: 60px; height: 60px; border-radius: 50%; opacity: 0.8;">
+                </div>
+                <p class="mr-essay-text" style="font-size: 1.2rem; font-weight: 600;">Why does the same volume of work
+                    feel effortless when internal alignment is present but draining when it isn't?</p>
+                <div class="mr-quiz-options">
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">Because physical energy levels vary
+                        day to day, and alignment simply corresponds to days when energy happens to be high.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, true, 7)">Because internal clarity removes
+                        the friction between intention and action — you move with the current instead of against it, so
+                        intensity stops generating stress and output becomes rhythm.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">Because aligned people naturally
+                        choose easier tasks on a given day, making the work feel lighter without actually doing the same
+                        volume.</button>
+                </div>
+                <p class="mr-feedback"></p>
+            </div>
+
+            <!-- Slide 7 (Scenario 1) -->
+            <div class="mr-slide" id="slide-7">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <h2 class="mr-text-accent" style="font-size: 2rem; margin: 0;">Scenario 1: The Motivation Crash</h2>
+                    <img src="image-quiz.png" alt="Quiz"
+                        style="width: 60px; height: 60px; border-radius: 50%; opacity: 0.8;">
+                </div>
+                <p class="mr-essay-text" style="font-size: 1.15rem; font-weight: 600;">Someone starts a new workout
+                    routine with high energy and excitement. After two weeks the motivation fades and they start
+                    skipping sessions. They decide the solution is to get more motivated — they watch videos, write in
+                    their journal, set new goals. But the pattern keeps repeating. What does the Architecture of
+                    Discipline model say is the actual problem?</p>
+                <div class="mr-quiz-options">
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">They genuinely lack the discipline
+                        gene and need to work on their character before sustainable action is possible.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, true, 8)">The system is relying on motivation
+                        — a feeling — rather than structure. When the feeling fades, nothing carries them forward. The
+                        fix is removing friction and building sequences, not generating more motivational
+                        energy.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">The routine they chose is simply too
+                        hard and should be scaled back until consistency is established first.</button>
+                </div>
+                <p class="mr-feedback"></p>
+            </div>
+
+            <!-- Slide 8 (Scenario 2) -->
+            <div class="mr-slide" id="slide-8">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <h2 class="mr-text-accent" style="font-size: 2rem; margin: 0;">Scenario 2: The Derailment Spiral
+                    </h2>
+                    <img src="image-quiz.png" alt="Quiz"
+                        style="width: 60px; height: 60px; border-radius: 50%; opacity: 0.8;">
+                </div>
+                <p class="mr-essay-text" style="font-size: 1.15rem; font-weight: 600;">You have a structured writing
+                    practice. One week a family crisis completely derails you — you miss every session. Afterward you
+                    feel behind, guilty, and unsure where to restart. The disruption has made the whole practice feel
+                    heavy and uncertain. What does this framework prescribe?</p>
+                <div class="mr-quiz-options">
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">Accept that the practice is broken
+                        and start fresh with a completely new system reset from scratch.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">Increase the intensity of the next
+                        session to make up for the missed time and restore the feeling of momentum.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, true, 9)">Return to the predictable reset
+                        point — the exact known starting position — without drama or self-punishment. The system was
+                        designed to absorb this. You just show up at the return point and the structure carries you from
+                        there.</button>
+                </div>
+                <p class="mr-feedback"></p>
+            </div>
+
+            <!-- Slide 9 (Scenario 3) -->
+            <div class="mr-slide" id="slide-9">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <h2 class="mr-text-accent" style="font-size: 2rem; margin: 0;">Scenario 3: The Chaotic Day</h2>
+                    <img src="image-quiz.png" alt="Quiz"
+                        style="width: 60px; height: 60px; border-radius: 50%; opacity: 0.8;">
+                </div>
+                <p class="mr-essay-text" style="font-size: 1.15rem; font-weight: 600;">You have a highly productive
+                    period where you're outputting work with ease, feeling focused, and accomplishing more than usual —
+                    yet arriving at the end of the day less drained than before. A colleague asks how you're sustaining
+                    such high output without burning out. What is the real explanation?</p>
+                <div class="mr-quiz-options">
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">You've built up enough discipline
+                        over time that high output is now automatic and no longer costs anything.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">You're in a temporary peak state and
+                        should bank the output now because the crash is coming soon.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, true, 10)">Internal alignment and structure
+                        have converged — you're moving with the current, not against it. Intensity no longer triggers
+                        stress. The same work that once drained you now feels like rhythm because friction has been
+                        removed from both the system and the internal state.</button>
+                </div>
+                <p class="mr-feedback"></p>
+            </div>
+
+            <!-- Slide 10 (Completion) -->
+            <div class="mr-slide" id="slide-10"
+                style="text-align: center; flex-direction: column; align-items: center; justify-content: center; min-height: 400px;">
+                <div class="mystic-eye"
+                    style="margin: 0 auto 2rem auto; width: 120px; height: 120px; border-width: 4px; box-shadow: 0 0 40px rgba(217, 28, 28, 0.6), inset 0 0 20px rgba(0,0,0,0.8);">
+                    <div class="pupil" style="width: 25px; height: 70px; background: rgba(10, 2, 15, 0.9);"></div>
+                </div>
+                <h2 class="mr-text-gradient" style="font-size: 3rem; margin-bottom: 1rem;">The Current Is Yours</h2>
+                <p class="mr-essay-text"
+                    style="max-width: 500px; margin: 0 auto 3rem auto; color: var(--mr-text-muted); font-size: 1.25rem;">
+                    Willpower was never the answer. Design the path. Clear the friction. Show up. The structure does the
+                    rest.
+                </p>
+                <div class="mr-panel"
+                    style="width: 100%; max-width: 600px; padding: 3rem 2rem; border-color: rgba(217, 28, 28, 0.5); background: linear-gradient(180deg, rgba(10,2,15,0.8), rgba(28, 0, 54, 0.6)); box-shadow: 0 10px 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(217, 28, 28, 0.1); margin-bottom: 2rem; position: relative; overflow: hidden; min-height: auto;">
+                    <div
+                        style="position: absolute; top: 50%; left: 50%; width: 200px; height: 200px; background: rgba(217, 28, 28, 0.2); filter: blur(60px); transform: translate(-50%, -50%); border-radius: 50%; z-index: 0; pointer-events: none;">
+                    </div>
+                    <div style="position: relative; z-index: 1;">
+                        <h3 class="mr-text-accent" style="margin-bottom: 1rem; font-size: 1.8rem;">The Network Awaits
+                        </h3>
+                        <p class="mr-text-main" style="margin-bottom: 2.5rem; font-size: 1.15rem; line-height: 1.6;">
+                            Share your revelations. Question the consensus. Join the Malleable Reality collective to
+                            discuss these modules with others exploring the architecture of their minds.</p>
+                        <a href="https://discord.gg/FyUNaHssjq" target="_blank" class="mr-action-link"
+                            style="font-size: 1.25rem;">
+                            Enter the Discord <span class="mr-action-icon">↗</span>
+                        </a>
+                    </div>
+                </div>
+                <a href="modules.html" class="mr-action-link" style="margin-top: 1rem;">Return to Hub <span
+                        class="mr-action-icon">↩</span></a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const totalSlides = 10;
+
+        function updateProgress(currentSlide) {
+            const fill = document.getElementById('progressFill');
+            const percentage = ((currentSlide - 1) / (totalSlides - 1)) * 100;
+            fill.style.width = percentage + '%';
+        }
+
+        function shuffleButtons(slideEl) {
+            slideEl.querySelectorAll('.mr-quiz-options').forEach(container => {
+                const buttons = Array.from(container.querySelectorAll('.mr-quiz-btn'));
+                buttons.sort(() => Math.random() - 0.5).forEach(b => container.appendChild(b));
+            });
+        }
+
+        function nextSlide(slideNumber) {
+            const current = document.querySelector('.mr-slide.active');
+            if (current) current.classList.remove('active');
+            const next = document.getElementById('slide-' + slideNumber);
+            if (next) {
+                next.classList.add('active');
+                updateProgress(slideNumber);
+                shuffleButtons(next);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function checkAnswer(btn, isCorrect, nextSlideNum) {
+            const parent = btn.closest('.mr-quiz-options');
+            const buttons = parent.querySelectorAll('.mr-quiz-btn');
+            const feedback = btn.closest('.mr-slide').querySelector('.mr-feedback');
+
+            buttons.forEach(b => {
+                b.style.pointerEvents = 'none';
+                if (b !== btn) b.style.opacity = '0.5';
+            });
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                feedback.style.color = '#2ecc71';
+                feedback.innerText = 'Correct! The transition to the next block is initiating...';
+                setTimeout(() => { nextSlide(nextSlideNum); }, 2000);
+            } else {
+                btn.classList.add('wrong');
+                feedback.style.color = '#d91c1c';
+                feedback.innerText = 'Incorrect assumption. Observe your thoughts and try again.';
+                setTimeout(() => {
+                    btn.classList.remove('wrong');
+                    buttons.forEach(b => {
+                        b.style.pointerEvents = 'auto';
+                        b.style.opacity = '1';
+                    });
+                    feedback.innerText = '';
+                }, 2000);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            updateProgress(1);
+            document.querySelectorAll('.mr-slide').forEach(slide => shuffleButtons(slide));
+        });
+    </script>
+</body>
+
+</html>
