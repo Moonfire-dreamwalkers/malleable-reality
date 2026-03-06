@@ -28,13 +28,14 @@
         }
 
         .blog-card {
+            --card-glow: rgba(255, 204, 0, 0.6);
             background: var(--mr-bg-panel);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 204, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: var(--mr-border-radius);
             padding: 2rem;
-            box-shadow: var(--mr-shadow-void), 0 0 20px rgba(255, 204, 0, 0.1);
+            box-shadow: var(--mr-shadow-void);
             transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s ease, box-shadow 0.4s ease;
             display: flex;
             flex-direction: column;
@@ -44,8 +45,8 @@
 
         .blog-card:hover {
             transform: translateY(-5px) scale(1.02);
-            border-color: rgba(255, 204, 0, 0.6);
-            box-shadow: var(--mr-shadow-void), 0 0 40px rgba(255, 204, 0, 0.25);
+            border-color: var(--card-glow);
+            box-shadow: var(--mr-shadow-void), 0 0 40px var(--card-glow);
         }
 
         .blog-card-date {
@@ -82,19 +83,21 @@
     <!-- SEO Optimization -->
     <link rel="canonical" href="https://malleable-reality.com/blog.html" />
     <meta name="theme-color" content="#0a020f">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://malleable-reality.com/blog.html">
     <meta property="og:title" content="Blog - Malleable Reality">
-    <meta property="og:description" content="Read deep dives, conceptual teardowns, and articles exploring the malleability of reality, system mechanics, and identity detachment.">
+    <meta property="og:description"
+        content="Read deep dives, conceptual teardowns, and articles exploring the malleability of reality, system mechanics, and identity detachment.">
     <meta property="og:image" content="https://malleable-reality.com/mr-og-image.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://malleable-reality.com/blog.html">
     <meta property="twitter:title" content="Blog - Malleable Reality">
-    <meta property="twitter:description" content="Read deep dives, conceptual teardowns, and articles exploring the malleability of reality, system mechanics, and identity detachment.">
+    <meta property="twitter:description"
+        content="Read deep dives, conceptual teardowns, and articles exploring the malleability of reality, system mechanics, and identity detachment.">
     <meta property="twitter:image" content="https://malleable-reality.com/mr-og-image.webp">
 </head>
 
@@ -172,9 +175,3 @@
 </body>
 
 </html>
-
-
-
-
-
-

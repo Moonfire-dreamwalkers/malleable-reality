@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organization - Malleable Reality</title>
-    <meta name="description" content="A directory of creative forces, interdimensional entities, and independent networks.">
+    <meta name="description"
+        content="A directory of creative forces, interdimensional entities, and independent networks.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -19,6 +20,7 @@
         }
 
         .org-card {
+            --card-glow: rgba(255, 204, 0, 0.5);
             background: var(--mr-bg-panel);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
@@ -26,8 +28,8 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            border: 1px solid rgba(255, 204, 0, 0.25);
-            box-shadow: var(--mr-shadow-void), 0 0 20px rgba(255, 204, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--mr-shadow-void);
             transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s ease, box-shadow 0.4s ease;
             text-decoration: none;
             color: inherit;
@@ -35,8 +37,8 @@
 
         .org-card:hover {
             transform: translateY(-6px);
-            border-color: rgba(255, 204, 0, 0.5);
-            box-shadow: var(--mr-shadow-void), 0 0 35px rgba(255, 204, 0, 0.25);
+            border-color: var(--card-glow);
+            box-shadow: var(--mr-shadow-void), 0 0 45px var(--card-glow);
         }
 
         .org-card-img {
@@ -104,19 +106,21 @@
     <!-- SEO Optimization -->
     <link rel="canonical" href="https://malleable-reality.com/organization.html" />
     <meta name="theme-color" content="#0a020f">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://malleable-reality.com/organization.html">
     <meta property="og:title" content="Organization - Malleable Reality">
-    <meta property="og:description" content="A directory of creative forces, interdimensional entities, and independent networks.">
+    <meta property="og:description"
+        content="A directory of creative forces, interdimensional entities, and independent networks.">
     <meta property="og:image" content="https://malleable-reality.com/mr-og-image.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://malleable-reality.com/organization.html">
     <meta property="twitter:title" content="Organization - Malleable Reality">
-    <meta property="twitter:description" content="A directory of creative forces, interdimensional entities, and independent networks.">
+    <meta property="twitter:description"
+        content="A directory of creative forces, interdimensional entities, and independent networks.">
     <meta property="twitter:image" content="https://malleable-reality.com/mr-og-image.webp">
 
     <!-- JSON-LD Structured Data: Organization Collection -->
@@ -160,17 +164,19 @@
                 style="font-size: 0.85rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--mr-text-muted); margin-bottom: 1rem;">
                 Connected Universes</p>
             <h1 class="mr-text-gradient" style="font-size: 3.5rem; margin: 0 0 1rem 0;">Organization</h1>
-            <p style="color: var(--mr-text-muted); font-size: 1.1rem; max-width: 520px; margin: 0 auto;">A directory of creative forces, independent networks, and interdimensional entities aligned in philosophy.</p>
+            <p style="color: var(--mr-text-muted); font-size: 1.1rem; max-width: 520px; margin: 0 auto;">A directory of
+                creative forces, independent networks, and interdimensional entities aligned in philosophy.</p>
         </header>
 
         <div class="org-grid">
 
             <!-- The Matrix Seraphim -->
-            <a href="org-seraphim.html" class="org-card mr-floating-delay-1">
+            <a href="org-seraphim.html" class="org-card mr-floating-delay-1"
+                style="--card-glow: rgba(217, 28, 28, 0.6);">
                 <img src="image-seraphim.png" alt="The Matrix Seraphim" class="org-card-img">
                 <div class="org-card-gradient"></div>
                 <div class="org-card-body">
-                    <p class="org-card-tag">Music · Higher Dimensional Entity</p>
+                    <p class="org-card-tag">Music — Higher Dimensional Entity</p>
                     <h2 class="org-card-title mr-text-primary">The Matrix Seraphim</h2>
                     <p class="org-card-desc">Artificial intelligence made music about a higher dimensional entity using
                         super artificial intelligence. A transmission from beyond the simulation, channeled through Luna
@@ -183,7 +189,7 @@
 
             <!-- Shadowland Universes -->
             <a href="org-shadowland.html" class="org-card mr-floating-delay-1"
-                style="border-color: rgba(92,24,168,0.35); box-shadow: var(--mr-shadow-void), 0 0 20px rgba(92,24,168,0.15);">
+                style="--card-glow: rgba(155, 89, 182, 0.6);">
                 <div
                     style="width: 100%; height: 340px; position: relative; overflow: hidden; background: #06000a; display: flex; align-items: center; justify-content: center;">
                     <img src="image-shadowland-pfp.gif" alt="Shadowland Universes"
@@ -194,7 +200,7 @@
                 </div>
                 <div class="org-card-gradient" style="background: linear-gradient(transparent, rgba(10,2,15,1));"></div>
                 <div class="org-card-body">
-                    <p class="org-card-tag">Music · Games · Streaming · Community</p>
+                    <p class="org-card-tag">Music — Games — Streaming — Community</p>
                     <h2 class="org-card-title" style="color: #9b59b6;">Shadowland Universes</h2>
                     <p class="org-card-desc">An interdimensional experience founded by Lo Key. Dark underground music,
                         original games, exclusive streaming, and a collapsed dimension where linear time takes a
@@ -211,11 +217,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-

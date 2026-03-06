@@ -20,12 +20,13 @@
         }
 
         .alchemy-card {
+            --card-glow: rgba(255, 204, 0, 0.5);
             background: var(--mr-bg-panel);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-radius: var(--mr-border-radius);
-            border: 1px solid rgba(255, 204, 0, 0.2);
-            box-shadow: var(--mr-shadow-void), 0 0 15px rgba(255, 204, 0, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--mr-shadow-void);
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -34,8 +35,8 @@
 
         .alchemy-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(255, 204, 0, 0.4);
-            box-shadow: var(--mr-shadow-void), 0 0 30px rgba(255, 204, 0, 0.15);
+            border-color: var(--card-glow);
+            box-shadow: var(--mr-shadow-void), 0 0 45px var(--card-glow);
         }
 
         .alchemy-card-header {
@@ -184,19 +185,21 @@
     <!-- SEO Optimization -->
     <link rel="canonical" href="https://malleable-reality.com/music-alchemy.html" />
     <meta name="theme-color" content="#0a020f">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://malleable-reality.com/music-alchemy.html">
     <meta property="og:title" content="Music Alchemy - Malleable Reality">
-    <meta property="og:description" content="A curated collection of music that shifts perception, rewires internal frameworks, and accelerates conscious evolution.">
+    <meta property="og:description"
+        content="A curated collection of music that shifts perception, rewires internal frameworks, and accelerates conscious evolution.">
     <meta property="og:image" content="https://malleable-reality.com/mr-og-image.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://malleable-reality.com/music-alchemy.html">
     <meta property="twitter:title" content="Music Alchemy - Malleable Reality">
-    <meta property="twitter:description" content="A curated collection of music that shifts perception, rewires internal frameworks, and accelerates conscious evolution.">
+    <meta property="twitter:description"
+        content="A curated collection of music that shifts perception, rewires internal frameworks, and accelerates conscious evolution.">
     <meta property="twitter:image" content="https://malleable-reality.com/mr-og-image.webp">
 </head>
 
@@ -239,8 +242,7 @@
         <div class="alchemy-grid">
 
             <!-- CARD 1: Tool -->
-            <div class="alchemy-card"
-                style="border-color: rgba(92,24,168,0.3); box-shadow: var(--mr-shadow-void), 0 0 15px rgba(92,24,168,0.08);">
+            <div class="alchemy-card" style="--card-glow: rgba(155, 89, 182, 0.6);">
                 <div
                     style="width: 100%; height: 240px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(92,24,168,0.15);">
                     <img src="music-tool.jpg" alt="Tool"
@@ -273,8 +275,7 @@
             </div>
 
             <!-- CARD 2: Magdalena Bay - Imaginal Disk -->
-            <div class="alchemy-card"
-                style="border-color: rgba(255,100,200,0.25); box-shadow: var(--mr-shadow-void), 0 0 15px rgba(255,100,200,0.06);">
+            <div class="alchemy-card" style="--card-glow: rgba(255, 100, 200, 0.5);">
                 <div
                     style="width: 100%; height: 240px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(255,100,200,0.15);">
                     <img src="music-magdalena.jpg" alt="Magdalena Bay"
@@ -310,8 +311,7 @@
             </div>
 
             <!-- CARD 3: GODHANDUSA -->
-            <div class="alchemy-card"
-                style="border-color: rgba(217,28,28,0.3); box-shadow: var(--mr-shadow-void), 0 0 15px rgba(217,28,28,0.08);">
+            <div class="alchemy-card" style="--card-glow: rgba(217, 28, 28, 0.6);">
                 <div
                     style="width: 100%; height: 240px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(217,28,28,0.15);">
                     <img src="music-godhand.jpg" alt="GODHANDUSA"
@@ -345,8 +345,7 @@
             </div>
 
             <!-- CARD 4: Qveen Herby -->
-            <div class="alchemy-card"
-                style="border-color: rgba(255,180,0,0.3); box-shadow: var(--mr-shadow-void), 0 0 15px rgba(255,180,0,0.07);">
+            <div class="alchemy-card">
                 <div
                     style="width: 100%; height: 240px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(255,180,0,0.15);">
                     <img src="music-qveen.jpg" alt="Qveen Herby"
@@ -380,8 +379,7 @@
             </div>
 
             <!-- CARD 5: Something Outta Nothing - Grant Us Eyes -->
-            <div class="alchemy-card"
-                style="border-color: rgba(100,80,140,0.3); box-shadow: var(--mr-shadow-void), 0 0 15px rgba(100,80,140,0.08);">
+            <div class="alchemy-card">
                 <div
                     style="width: 100%; height: 240px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(100,80,140,0.15);">
                     <img src="music-son.jpg" alt="Something Outta Nothing"
@@ -416,8 +414,7 @@
             </div>
 
             <!-- CARD 6: Lo Key - The 12 Oracles -->
-            <div class="alchemy-card"
-                style="border-color: rgba(217,28,28,0.35); box-shadow: var(--mr-shadow-void), 0 0 20px rgba(217,28,28,0.1);">
+            <div class="alchemy-card" style="--card-glow: rgba(217, 28, 28, 0.6);">
                 <div
                     style="width: 100%; height: 240px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(217,28,28,0.15);">
                     <img src="music-lokey.jpg" alt="Lo Key - Shadowland"
@@ -479,8 +476,3 @@
 </body>
 
 </html>
-
-
-
-
-

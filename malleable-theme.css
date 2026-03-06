@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Malleable Reality Theme Core - Hypnotic Abyssal Edition
  * A modular, dynamic CSS theme built on actively shifting gradients, 
  * rotating void colors, and hypnotic pulse effects.
@@ -296,15 +296,16 @@ body.mr-theme {
     /* Animated breathing effect on panels */
     transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.6s ease, box-shadow 0.6s ease;
 
-    /* Persistent gold glowing trim */
-    border: 1px solid rgba(255, 204, 0, 0.5);
-    box-shadow: var(--mr-shadow-void), inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 204, 0, 0.3);
+    /* Persistent gold glowing trim by default, can be overridden via --panel-glow */
+    --panel-glow: rgba(255, 204, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--mr-shadow-void), inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .mr-panel:hover {
     transform: translateY(-5px) scale(1.01);
-    border-color: rgba(255, 204, 0, 0.7);
-    box-shadow: var(--mr-shadow-void), inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 204, 0, 0.5);
+    border-color: var(--panel-glow);
+    box-shadow: var(--mr-shadow-void), inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 35px var(--panel-glow);
 }
 
 /* ==========================================================================
@@ -639,14 +640,14 @@ body.mr-theme {
 }
 
 /* ==========================================================================
-   Responsive Breakpoints â€” Tablet & Mobile
+   Responsive Breakpoints — Tablet & Mobile
    All rules below are scoped to media queries; desktop is untouched.
    ========================================================================== */
 
-/* â”€â”€ Tablet (â‰¤ 900px) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Tablet (≤ 900px) ─────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
 
-    /* Hub grid: 2 cols â†’ 1 col */
+    /* Hub grid: 2 cols → 1 col */
     main[style*="grid"] {
         display: block !important;
     }
@@ -679,7 +680,7 @@ body.mr-theme {
     }
 }
 
-/* â”€â”€ Mobile (â‰¤ 600px) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── Mobile (≤ 600px) ─────────────────────────────────────────────────────── */
 @media (max-width: 600px) {
 
     /* Tighter container padding */
@@ -744,7 +745,7 @@ body.mr-theme {
         padding: 1rem 1.25rem;
     }
 
-    /* Quiz header row â€” stack icon below headline on very narrow screens */
+    /* Quiz header row — stack icon below headline on very narrow screens */
     .mr-slide>div[style*="justify-content: space-between"] {
         flex-direction: column;
         align-items: flex-start;
