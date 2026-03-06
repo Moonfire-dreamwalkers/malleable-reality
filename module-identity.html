@@ -27,6 +27,15 @@
         <a href="modules.html" class="mr-nav-link active">Learning Modules</a>
     </nav>
 
+    <!-- Omnipresent Watcher -->
+    <div class="mr-omnipresent-watcher"
+        style="position: fixed; top: 1.5rem; right: 2rem; z-index: 100; opacity: 0.75; pointer-events: none;">
+        <div class="mystic-eye"
+            style="margin: 0; width: 40px; height: 40px; border-width: 2px; box-shadow: var(--mr-glow-crimson);">
+            <div class="pupil" style="width: 8px; height: 20px;"></div>
+        </div>
+    </div>
+
     <div class="mr-container" style="padding-top: 2rem;">
 
         <div class="mr-panel mr-module-container">
@@ -36,6 +45,8 @@
 
             <!-- Slide 1 -->
             <div class="mr-slide active" id="slide-1">
+                <img src="image-trap.png" alt="Trap of Identification"
+                    style="width: 100%; height: 220px; object-fit: cover; border-radius: var(--mr-border-radius); border: 1px solid rgba(217,28,28,0.3); margin-bottom: 2rem;">
                 <h2 class="mr-text-gradient" style="font-size: 2.2rem; margin-bottom: 1rem;">The Trap of Identification
                 </h2>
                 <div class="mr-essay-text" style="color: var(--mr-text-main); font-size: 1.15rem; line-height: 1.8;">
@@ -54,7 +65,11 @@
 
             <!-- Slide 2 (Question for Slide 1) -->
             <div class="mr-slide" id="slide-2">
-                <h2 class="mr-text-accent" style="font-size: 2rem; margin-bottom: 1rem;">Knowledge Check</h2>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <h2 class="mr-text-accent" style="font-size: 2rem; margin: 0;">Knowledge Check</h2>
+                    <img src="image-quiz.png" alt="Quiz Symbol"
+                        style="width: 60px; height: 60px; border-radius: 50%; opacity: 0.8;">
+                </div>
                 <p class="mr-essay-text" style="font-size: 1.2rem; font-weight: 600;">What happens when you anchor
                     yourself to a specific concept of who you are?</p>
                 <div class="mr-quiz-options">
@@ -70,6 +85,8 @@
 
             <!-- Slide 3 -->
             <div class="mr-slide" id="slide-3">
+                <img src="image-thoughts.png" alt="Objectifying Thoughts"
+                    style="width: 100%; height: 220px; object-fit: cover; object-position: center 20%; border-radius: var(--mr-border-radius); border: 1px solid rgba(92,24,168,0.4); margin-bottom: 2rem;">
                 <h2 class="mr-text-gradient" style="font-size: 2.2rem; margin-bottom: 1rem;">Objectifying Thoughts</h2>
                 <div class="mr-essay-text" style="color: var(--mr-text-main); font-size: 1.15rem; line-height: 1.8;">
                     <p>The process of objectifying your thoughts allows you to step back from this cycle and observe
@@ -87,7 +104,11 @@
 
             <!-- Slide 4 (Question for Slide 3) -->
             <div class="mr-slide" id="slide-4">
-                <h2 class="mr-text-accent" style="font-size: 2rem; margin-bottom: 1rem;">Knowledge Check</h2>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <h2 class="mr-text-accent" style="font-size: 2rem; margin: 0;">Knowledge Check</h2>
+                    <img src="image-quiz.png" alt="Quiz Symbol"
+                        style="width: 60px; height: 60px; border-radius: 50%; opacity: 0.8;">
+                </div>
                 <p class="mr-essay-text" style="font-size: 1.2rem; font-weight: 600;">How does viewing thoughts as
                     external objects help you?</p>
                 <div class="mr-quiz-options">
@@ -103,6 +124,8 @@
 
             <!-- Slide 5 -->
             <div class="mr-slide" id="slide-5">
+                <img src="image-fluid.png" alt="Fluid Mask"
+                    style="width: 100%; height: 220px; object-fit: cover; object-position: center 80%; border-radius: var(--mr-border-radius); border: 1px solid rgba(255,204,0,0.3); margin-bottom: 2rem;">
                 <h2 class="mr-text-gradient" style="font-size: 2.2rem; margin-bottom: 1rem;">Fluidity of the Mask</h2>
                 <div class="mr-essay-text" style="color: var(--mr-text-main); font-size: 1.15rem; line-height: 1.8;">
                     <p>Gaining this perspective grants you significantly more leverage in your choices by allowing you
@@ -120,7 +143,11 @@
 
             <!-- Slide 6 (Question for Slide 5) -->
             <div class="mr-slide" id="slide-6">
-                <h2 class="mr-text-accent" style="font-size: 2rem; margin-bottom: 1rem;">Knowledge Check</h2>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <h2 class="mr-text-accent" style="font-size: 2rem; margin: 0;">Knowledge Check</h2>
+                    <img src="image-quiz.png" alt="Quiz Symbol"
+                        style="width: 60px; height: 60px; border-radius: 50%; opacity: 0.8;">
+                </div>
                 <p class="mr-essay-text" style="font-size: 1.2rem; font-weight: 600;">What does recognizing a persona as
                     a tool allow you to do?</p>
                 <div class="mr-quiz-options">
@@ -136,16 +163,27 @@
 
             <!-- Slide 7 -->
             <div class="mr-slide" id="slide-7" style="text-align: center;">
-                <div class="mystic-eye" style="margin-top: 2rem; margin-bottom: 2rem; width: 80px; height: 80px;">
+                <div class="mystic-eye" style="margin-top: 1rem; margin-bottom: 2rem; width: 80px; height: 80px;">
                     <div class="pupil" style="width: 15px; height: 45px;"></div>
                 </div>
                 <h2 class="mr-text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;">Module Complete</h2>
-                <p class="mr-essay-text" style="margin-bottom: 3rem; color: var(--mr-text-muted);">
+                <p class="mr-essay-text" style="margin-bottom: 2rem; color: var(--mr-text-muted);">
                     You have successfully completed this interactive reading experience. By objectifying your thoughts
                     and treating your identity as a fluid mask, you open yourself to a significantly wider range of
                     realities.
                 </p>
-                <a href="index.html" class="mr-button mr-button-small">Return to Home</a>
+                <div class="mr-panel"
+                    style="padding: 2rem; border-color: rgba(255, 123, 0, 0.4); background: rgba(10,2,15,0.7); margin-bottom: 2rem;">
+                    <h3 class="mr-text-accent" style="margin-bottom: 1rem; font-size: 1.5rem;">Join the Conversation
+                    </h3>
+                    <p class="mr-text-main" style="margin-bottom: 1.5rem;">Join the Malleable Reality Discord to give
+                        feedback on this module and share your thoughts with others exploring their internal landscapes.
+                    </p>
+                    <a href="https://discord.gg/FyUNaHssjq" target="_blank" class="mr-button mr-button-small">
+                        Join the Discord
+                    </a>
+                </div>
+                <a href="modules.html" class="mr-nav-link" style="display: inline-block;">Return to Modules</a>
             </div>
 
         </div>

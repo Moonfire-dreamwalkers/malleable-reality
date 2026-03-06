@@ -191,12 +191,12 @@ body.mr-theme {
     font-weight: 700;
     font-size: 1.25rem;
     color: #fff;
-    background: linear-gradient(135deg, var(--mr-primary), var(--mr-purple));
-    border: none;
+    background: linear-gradient(135deg, rgba(217, 28, 28, 0.8), rgba(92, 24, 168, 0.8));
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 40px;
     cursor: pointer;
     transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-    box-shadow: var(--mr-glow-crimson), inset 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--mr-glow-crimson), inset 0 0 15px rgba(0, 0, 0, 0.8);
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -219,9 +219,11 @@ body.mr-theme {
 
 .mr-button:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: var(--mr-glow-purple), 0 15px 30px rgba(0, 0, 0, 0.8);
-    background: linear-gradient(135deg, var(--mr-purple), var(--mr-secondary));
+    border-color: rgba(255, 204, 0, 0.6);
+    box-shadow: var(--mr-glow-gold), 0 15px 30px rgba(0, 0, 0, 0.9);
+    background: linear-gradient(135deg, rgba(92, 24, 168, 0.9), rgba(217, 28, 28, 0.9));
     letter-spacing: 4px;
+    color: var(--mr-accent);
 }
 
 .mr-button:hover::after {
@@ -340,14 +342,14 @@ body.mr-theme {
     right: 3rem;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(20px);
-    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(30px) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .mr-slide.active {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     position: relative;
     top: 0;
     left: 0;
@@ -362,8 +364,8 @@ body.mr-theme {
 }
 
 .mr-quiz-btn {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 204, 0, 0.15);
+    background: rgba(10, 2, 15, 0.6);
+    border: 1px solid rgba(255, 204, 0, 0.2);
     color: var(--mr-text-main);
     padding: 1.25rem 2rem;
     text-align: left;
@@ -371,13 +373,14 @@ body.mr-theme {
     cursor: pointer;
     font-family: var(--mr-font-family);
     font-size: 1.15rem;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 .mr-quiz-btn:hover {
-    background: rgba(255, 204, 0, 0.1);
+    background: rgba(255, 204, 0, 0.05);
     border-color: var(--mr-accent);
-    transform: translateX(5px);
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.2);
+    transform: translateX(8px);
 }
 
 .mr-quiz-btn.correct {
