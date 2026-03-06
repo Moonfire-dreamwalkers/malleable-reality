@@ -28,11 +28,11 @@
             height: 120px;
             margin: 0 auto 2rem;
             border-radius: 50%;
-            background: var(--mr-grad-accent);
+            background: radial-gradient(ellipse at center, #ff1a1a 0%, #8a0000 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: var(--mr-glow-accent);
+            box-shadow: var(--mr-glow-crimson);
             position: relative;
             overflow: hidden;
             border: 3px solid #000;
@@ -109,10 +109,6 @@
 
 <body class="mr-theme">
 
-    <!-- Hypnotic Animated Background Elements -->
-    <div class="mr-hypnotic-bg"></div>
-    <div class="mr-hypnotic-overlay"></div>
-
     <div class="mr-container">
 
         <!-- Hero / Header -->
@@ -128,6 +124,22 @@
                 You are not the mask you wear. You are the observer who exists behind it.
             </p>
         </header>
+
+        <!-- Interactive Modules -->
+        <section class="mr-article" style="margin-bottom: 3rem;">
+            <div class="mr-panel" style="text-align: center; border-color: rgba(46, 204, 113, 0.4);">
+                <h2 class="mr-text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;">The Mask of Identity</h2>
+                <p class="mr-essay-text"
+                    style="color: var(--mr-text-main); margin-bottom: 2rem; max-width: 650px; margin-left: auto; margin-right: auto;">
+                    Dive into our new interactive learning module. Explore the fluid nature of identity and the process
+                    of objectifying your thoughts.
+                </p>
+                <a href="module-identity.html" class="mr-button"
+                    style="padding: 1.25rem 3rem; font-size: 1.25rem; border-radius: 40px; box-shadow: 0 0 25px rgba(46, 204, 113, 0.4); border: 2px solid rgba(46, 204, 113, 0.4); background: linear-gradient(135deg, #1abc9c, #2ecc71);">
+                    Start Experience
+                </a>
+            </div>
+        </section>
 
         <!-- Call to Action / Community -->
         <main class="mr-article">

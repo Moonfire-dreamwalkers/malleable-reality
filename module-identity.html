@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Module: The Mask of Identity - Malleable Reality</title>
+    <meta name="description" content="Interactive reading experience on identity and objectifying thoughts.">
+
+    <!-- Modern Font: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- The Malleable Reality Theme Core -->
+    <link rel="stylesheet" href="malleable-theme.css">
+
+</head>
+
+<body class="mr-theme">
+
+    <div class="mr-hypnotic-bg"></div>
+    <div class="mr-hypnotic-overlay"></div>
+
+    <div class="mr-container" style="padding-top: 6rem;">
+
+        <div class="mr-panel mr-module-container">
+            <div class="mr-progress-bar">
+                <div class="mr-progress-fill" id="progressFill"></div>
+            </div>
+
+            <!-- Slide 1 -->
+            <div class="mr-slide active" id="slide-1">
+                <h2 class="mr-text-gradient" style="font-size: 2.2rem; margin-bottom: 1rem;">The Trap of Identification
+                </h2>
+                <div class="mr-essay-text" style="color: var(--mr-text-main); font-size: 1.15rem; line-height: 1.8;">
+                    <p>Identification functions as a rigid form of determinism where every previous association biases
+                        future interactions and perceptions. When you anchor yourself to a specific concept of who you
+                        are you inadvertently limit the range of experiences the universe can bring to you because the
+                        environment must maintain logical continuity with that established persona.</p>
+                    <p>This creates a feedback loop where you are effectively trapped by the weight of your own history
+                        and the reflexive habits that have conditioned your current state of being.</p>
+                </div>
+                <div style="text-align: right;">
+                    <button class="mr-button mr-button-small" onclick="nextSlide(2)">Continue to Knowledge
+                        Check</button>
+                </div>
+            </div>
+
+            <!-- Slide 2 (Question for Slide 1) -->
+            <div class="mr-slide" id="slide-2">
+                <h2 class="mr-text-accent" style="font-size: 2rem; margin-bottom: 1rem;">Knowledge Check</h2>
+                <p class="mr-essay-text" style="font-size: 1.2rem; font-weight: 600;">What happens when you anchor
+                    yourself to a specific concept of who you are?</p>
+                <div class="mr-quiz-options">
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">It expands the range of experiences
+                        available to you by building a strong core.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, true, 3)">It limits the range of experiences
+                        the universe can bring to you because of logical continuity.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">It allows you to form new,
+                        spontaneous daily habits seamlessly without resistance.</button>
+                </div>
+                <p class="mr-feedback"></p>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="mr-slide" id="slide-3">
+                <h2 class="mr-text-gradient" style="font-size: 2.2rem; margin-bottom: 1rem;">Objectifying Thoughts</h2>
+                <div class="mr-essay-text" style="color: var(--mr-text-main); font-size: 1.15rem; line-height: 1.8;">
+                    <p>The process of objectifying your thoughts allows you to step back from this cycle and observe
+                        your inner landscape without becoming entangled in it.</p>
+                    <p>By viewing your first instincts and emerging thoughts as external objects rather than essential
+                        parts of yourself you break the deep associations that usually drive your reactions. This
+                        detachment provides the necessary distance to see that the identity you project is merely a mask
+                        you have been wearing rather than the observer who exists behind it.</p>
+                </div>
+                <div style="text-align: right;">
+                    <button class="mr-button mr-button-small" onclick="nextSlide(4)">Continue to Knowledge
+                        Check</button>
+                </div>
+            </div>
+
+            <!-- Slide 4 (Question for Slide 3) -->
+            <div class="mr-slide" id="slide-4">
+                <h2 class="mr-text-accent" style="font-size: 2rem; margin-bottom: 1rem;">Knowledge Check</h2>
+                <p class="mr-essay-text" style="font-size: 1.2rem; font-weight: 600;">How does viewing thoughts as
+                    external objects help you?</p>
+                <div class="mr-quiz-options">
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, true, 5)">It breaks the deep associations
+                        that usually drive your reflexive reactions.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">It traps you in a feedback loop of
+                        analyzing external validations from others.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">It forces you to wear multiple masks
+                        simultaneously to protect your core identity.</button>
+                </div>
+                <p class="mr-feedback"></p>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="mr-slide" id="slide-5">
+                <h2 class="mr-text-gradient" style="font-size: 2.2rem; margin-bottom: 1rem;">Fluidity of the Mask</h2>
+                <div class="mr-essay-text" style="color: var(--mr-text-main); font-size: 1.15rem; line-height: 1.8;">
+                    <p>Gaining this perspective grants you significantly more leverage in your choices by allowing you
+                        to create the mask instead of being ruled by it.</p>
+                    <p>When you recognize that a persona is simply a tool for engagement you can put it on or take it
+                        off to facilitate different forms of perception as needed. This fluidity ensures that you are no
+                        longer a slave to previous associations which ultimately expands your scope of reality and
+                        prevents any single identity from dictating the direction of your focus.</p>
+                </div>
+                <div style="text-align: right;">
+                    <button class="mr-button mr-button-small" onclick="nextSlide(6)">Continue to Knowledge
+                        Check</button>
+                </div>
+            </div>
+
+            <!-- Slide 6 (Question for Slide 5) -->
+            <div class="mr-slide" id="slide-6">
+                <h2 class="mr-text-accent" style="font-size: 2rem; margin-bottom: 1rem;">Knowledge Check</h2>
+                <p class="mr-essay-text" style="font-size: 1.2rem; font-weight: 600;">What does recognizing a persona as
+                    a tool allow you to do?</p>
+                <div class="mr-quiz-options">
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">To always remain the silent observer
+                        and never engage.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">To rigidly enforce a specific
+                        identity onto other people.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, true, 7)">To put the persona on or take it
+                        off as needed to facilitate different forms of perception.</button>
+                </div>
+                <p class="mr-feedback"></p>
+            </div>
+
+            <!-- Slide 7 -->
+            <div class="mr-slide" id="slide-7" style="text-align: center;">
+                <div class="mystic-eye" style="margin-top: 2rem; margin-bottom: 2rem; width: 80px; height: 80px;">
+                    <div class="pupil" style="width: 15px; height: 45px;"></div>
+                </div>
+                <h2 class="mr-text-gradient" style="font-size: 2.5rem; margin-bottom: 1rem;">Module Complete</h2>
+                <p class="mr-essay-text" style="margin-bottom: 3rem; color: var(--mr-text-muted);">
+                    You have successfully completed this interactive reading experience. By objectifying your thoughts
+                    and treating your identity as a fluid mask, you open yourself to a significantly wider range of
+                    realities.
+                </p>
+                <a href="index.html" class="mr-button mr-button-small">Return to Home</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const totalSlides = 7;
+
+        function updateProgress(currentSlide) {
+            const fill = document.getElementById('progressFill');
+            const percentage = ((currentSlide - 1) / (totalSlides - 1)) * 100;
+            fill.style.width = percentage + '%';
+        }
+
+        function nextSlide(slideNumber) {
+            const current = document.querySelector('.mr-slide.active');
+            if (current) {
+                current.classList.remove('active');
+            }
+
+            setTimeout(() => {
+                const next = document.getElementById('slide-' + slideNumber);
+                if (next) {
+                    next.classList.add('active');
+                    updateProgress(slideNumber);
+                }
+            }, 300); // Wait for fade out
+        }
+
+        function checkAnswer(btn, isCorrect, nextSlideNum) {
+            const parent = btn.closest('.mr-quiz-options');
+            const buttons = parent.querySelectorAll('.mr-quiz-btn');
+            const feedback = btn.closest('.mr-slide').querySelector('.mr-feedback');
+
+            // Disable all options
+            buttons.forEach(b => {
+                b.style.pointerEvents = 'none';
+                if (b !== btn) b.style.opacity = '0.5';
+            });
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                feedback.style.color = '#2ecc71';
+                feedback.innerText = 'Correct! The transition to the next block is initiating...';
+
+                // Show next button or proceed automatically
+                setTimeout(() => {
+                    nextSlide(nextSlideNum);
+                }, 2000);
+            } else {
+                btn.classList.add('wrong');
+                feedback.style.color = '#e74c3c';
+                feedback.innerText = 'Incorrect assumption. Observe your thoughts and try again.';
+
+                // Allow retry after short delay
+                setTimeout(() => {
+                    btn.classList.remove('wrong');
+                    buttons.forEach(b => {
+                        b.style.pointerEvents = 'auto';
+                        b.style.opacity = '1';
+                    });
+                    feedback.innerText = '';
+                }, 2000);
+            }
+        }
+
+        // Initial init
+        document.addEventListener("DOMContentLoaded", () => {
+            updateProgress(1);
+        });
+    </script>
+</body>
+
+</html>
