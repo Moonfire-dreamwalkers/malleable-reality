@@ -179,6 +179,143 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* --- Music Modal Styles --- */
+        .mr-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 2, 15, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .mr-modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mr-modal-content {
+            background: var(--mr-bg-panel);
+            border: 1px solid rgba(255, 204, 0, 0.25);
+            box-shadow: var(--mr-shadow-void), 0 0 30px rgba(255, 204, 0, 0.1);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 400px;
+            padding: 2rem;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .mr-modal-overlay.active .mr-modal-content {
+            transform: translateY(0);
+        }
+
+        .mr-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            background: none;
+            border: none;
+            color: var(--mr-text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .mr-modal-close:hover {
+            color: var(--mr-text);
+        }
+
+        .mr-modal-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 0 1.5rem 0;
+            text-align: center;
+        }
+
+        .platform-btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+        }
+
+        .platform-btn:last-child {
+            margin-bottom: 0;
+        }
+
+        .platform-btn svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .btn-spotify {
+            background: rgba(30, 215, 96, 0.08);
+            border: 1px solid rgba(30, 215, 96, 0.3);
+            color: #1ed760;
+        }
+
+        .btn-spotify:hover {
+            background: rgba(30, 215, 96, 0.15);
+            border-color: #1ed760;
+            transform: translateX(4px);
+        }
+
+        .btn-spotify svg {
+            fill: #1ed760;
+        }
+
+        .btn-apple {
+            background: rgba(250, 36, 60, 0.08);
+            border: 1px solid rgba(250, 36, 60, 0.3);
+            color: #fa243c;
+        }
+
+        .btn-apple:hover {
+            background: rgba(250, 36, 60, 0.15);
+            border-color: #fa243c;
+            transform: translateX(4px);
+        }
+
+        .btn-apple svg {
+            fill: #fa243c;
+        }
+
+        .btn-youtube {
+            background: rgba(255, 0, 0, 0.08);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: #ff0000;
+        }
+
+        .btn-youtube:hover {
+            background: rgba(255, 0, 0, 0.15);
+            border-color: #ff0000;
+            transform: translateX(4px);
+        }
+
+        .btn-youtube svg {
+            fill: #ff0000;
+        }
+
+        .cursor-pointer {
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -240,13 +377,13 @@
                         articulate but definitely feel. Lateralus is a map of personal disintegration and reconstruction
                         encoded in sound. 10,000 Days is a reckoning with loss, transformation, and the Saturn Return.
                         You do not simply listen to Tool. You survive it.</p>
-                    <a href="https://open.spotify.com/artist/2yEwvVSSSUkcLeSTNyHKh8" target="_blank"
-                        class="alchemy-listen-btn">
+                    <a onclick="openMusicModal('https://open.spotify.com/artist/2yEwvVSSSUkcLeSTNyHKh8', 'https://music.apple.com/us/artist/tool/78411267', 'https://music.youtube.com/channel/UC1mXhX5uE9Ehyu1Yw2dItTQ')"
+                        class="alchemy-listen-btn cursor-pointer">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
                         </svg>
-                        Listen on Spotify
+                        Listen Now
                     </a>
                 </div>
             </div>
@@ -276,14 +413,14 @@
                         character named True, who receives an implanted Imaginal Disk meant to construct her ideal self,
                         rejects it, and has to figure out who she actually is. The question it keeps asking: how much of
                         you is you, and how much is programming?</p>
-                    <a href="https://open.spotify.com/album/2Htq1sHgmdGffojIBM6Q1s" target="_blank"
-                        class="alchemy-listen-btn"
+                    <a onclick="openMusicModal('https://open.spotify.com/album/2Htq1sHgmdGffojIBM6Q1s', 'https://music.apple.com/us/album/imaginal-disk/1745775899', 'https://music.youtube.com/playlist?list=OLAK5uy_kK3o-X2sL7X5Z5gU0T8C0X0-e_Zc-U4wA')"
+                        class="alchemy-listen-btn cursor-pointer"
                         style="border-color: rgba(255,100,200,0.3); color: #f4a7d9; background: rgba(255,100,200,0.07);">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: #f4a7d9;">
                             <path
                                 d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
                         </svg>
-                        Listen on Spotify
+                        Listen Now
                     </a>
                 </div>
             </div>
@@ -311,14 +448,14 @@
                         violence, identity, and the collapse of societal pretense. GODHAND is not trying to land on a
                         playlist. It is trying to reach a specific kind of person who doesn't yet know they're looking
                         for it. Four volumes of escalating intensity and no apologies for any of it.</p>
-                    <a href="https://open.spotify.com/artist/52XZBIfTRn9iyM7QLf6DmX" target="_blank"
-                        class="alchemy-listen-btn"
+                    <a onclick="openMusicModal('https://open.spotify.com/artist/52XZBIfTRn9iyM7QLf6DmX', 'https://music.apple.com/us/artist/godhandusa/1741122849', 'https://music.youtube.com/channel/UC4ZlP3z_-zH8vXg8V9r0i9Q')"
+                        class="alchemy-listen-btn cursor-pointer"
                         style="border-color: rgba(217,28,28,0.3); color: var(--mr-primary); background: rgba(217,28,28,0.07);">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: var(--mr-primary);">
                             <path
                                 d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
                         </svg>
-                        Listen on Spotify
+                        Listen Now
                     </a>
                 </div>
             </div>
@@ -346,14 +483,14 @@
                         structurally about something much harder to name: alignment with your own power, without
                         flinching from what you are. The speed-rap sections hit different when you realize the speed
                         itself is the point. She is not in a hurry. She is just already there.</p>
-                    <a href="https://open.spotify.com/artist/4o4tLTIJ3eWMFerz73atcT" target="_blank"
-                        class="alchemy-listen-btn"
+                    <a onclick="openMusicModal('https://open.spotify.com/artist/4o4tLTIJ3eWMFerz73atcT', 'https://music.apple.com/us/artist/qveen-herby/1243763690', 'https://music.youtube.com/channel/UC96y-J1bE64xLqJ4y-eN_9Q')"
+                        class="alchemy-listen-btn cursor-pointer"
                         style="border-color: rgba(255,204,0,0.3); color: var(--mr-accent); background: rgba(255,204,0,0.06);">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: var(--mr-accent);">
                             <path
                                 d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
                         </svg>
-                        Listen on Spotify
+                        Listen Now
                     </a>
                 </div>
             </div>
@@ -382,14 +519,14 @@
                         the way that honest things are dark. It does not gesture at heaviness for style points. The
                         imagery is vivid and uncomfortable because it is accurate. This is music for the part of you
                         that already knows how bad it can get and refuses to pretend otherwise.</p>
-                    <a href="https://open.spotify.com/album/6IOEnuQXPIEvsQEbakPDrg" target="_blank"
-                        class="alchemy-listen-btn"
+                    <a onclick="openMusicModal('https://open.spotify.com/album/6IOEnuQXPIEvsQEbakPDrg', 'https://music.apple.com/us/album/grant-us-eyes/1572912447', 'https://music.youtube.com/search?q=Something+Outta+Nothing+Grant+Us+Eyes')"
+                        class="alchemy-listen-btn cursor-pointer"
                         style="border-color: rgba(100,80,140,0.35); color: #b0a0d8; background: rgba(100,80,140,0.08);">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: #b0a0d8;">
                             <path
                                 d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
                         </svg>
-                        Listen on Spotify
+                        Listen Now
                     </a>
                 </div>
             </div>
@@ -418,32 +555,32 @@
                         goes in order. Five of the twelve Oracles are profiled below.</p>
 
                     <div class="alchemy-oracle-lore">
-                        <a href="https://open.spotify.com/album/6jt5yQsBmCbuiLbm2217FU" target="_blank"
-                            class="oracle-entry">
+                        <a onclick="openMusicModal('https://open.spotify.com/album/6jt5yQsBmCbuiLbm2217FU', 'https://music.apple.com/us/album/shadowland/476307186', 'https://music.youtube.com/search?q=Lo+Key+Shadowland+album')"
+                            class="oracle-entry cursor-pointer">
                             <strong>Shadowland</strong>
                             <p>The collapsed dimension itself. A threshold between all realms where time dissolves and
                                 dreams become the terrain.</p>
                         </a>
-                        <a href="https://open.spotify.com/album/2GYmZR5WjBULVsGftcNmoY" target="_blank"
-                            class="oracle-entry">
+                        <a onclick="openMusicModal('https://open.spotify.com/album/2GYmZR5WjBULVsGftcNmoY', 'https://music.apple.com/us/search?term=Lo%20Key%20Book%20of%20Time', 'https://music.youtube.com/search?q=Lo+Key+Book+of+Time')"
+                            class="oracle-entry cursor-pointer">
                             <strong>Book of Time</strong>
                             <p>An artifact that anchors reality by dictating which futures can be remembered. Written in
                                 events, not words.</p>
                         </a>
-                        <a href="https://open.spotify.com/album/1FWsC4RZol50Z2BNaKwgwp" target="_blank"
-                            class="oracle-entry">
+                        <a onclick="openMusicModal('https://open.spotify.com/album/1FWsC4RZol50Z2BNaKwgwp', 'https://music.apple.com/us/search?term=Lo%20Key%20Izu', 'https://music.youtube.com/search?q=Lo+Key+Izu')"
+                            class="oracle-entry cursor-pointer">
                             <strong>Izu</strong>
                             <p>The great annihilator, born from the abyss. Primal dominance and consuming chaos given
                                 form. He does not sleep. He waits.</p>
                         </a>
-                        <a href="https://open.spotify.com/album/2W13QJoZ5PlXysGlWQwIKu" target="_blank"
-                            class="oracle-entry">
+                        <a onclick="openMusicModal('https://open.spotify.com/album/2W13QJoZ5PlXysGlWQwIKu', 'https://music.apple.com/us/search?term=Lo%20Key%20Parasuva', 'https://music.youtube.com/search?q=Lo+Key+Parasuva')"
+                            class="oracle-entry cursor-pointer">
                             <strong>Parasuva</strong>
                             <p>Once a war goddess, now mournful myth. Her presence can freeze time and unravel minds. A
                                 lesson in suffering and transformation.</p>
                         </a>
-                        <a href="https://open.spotify.com/album/47GuUjsSYymeK8NLC29834" target="_blank"
-                            class="oracle-entry" style="grid-column: 1 / -1;">
+                        <a onclick="openMusicModal('https://open.spotify.com/album/47GuUjsSYymeK8NLC29834', 'https://music.apple.com/us/search?term=Lo%20Key%20Neculai', 'https://music.youtube.com/search?q=Lo+Key+Neculai')"
+                            class="oracle-entry cursor-pointer" style="grid-column: 1 / -1;">
                             <strong>Neculai</strong>
                             <p>Keeper of The End's Keep. A figure who became a god by refusing to leave his kingdom of
                                 sorrow. He listens to your darkest confessions and guards The Void.</p>
@@ -455,6 +592,57 @@
         </div>
     </div>
 
+    <!-- Music Platform Modal -->
+    <div class="mr-modal-overlay" id="musicModal" onclick="closeMusicModal()">
+        <div class="mr-modal-content" onclick="event.stopPropagation()">
+            <button class="mr-modal-close" onclick="closeMusicModal()">×</button>
+            <h3 class="mr-modal-title">Choose Platform</h3>
+
+            <a href="#" id="spotifyLink" target="_blank" class="platform-btn btn-spotify">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
+                </svg>
+                Spotify
+            </a>
+
+            <a href="#" id="appleLink" target="_blank" class="platform-btn btn-apple">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 11.233c0-2.072 1.693-3.074 1.768-3.123-1.006-1.464-2.583-1.664-3.14-1.69-1.352-.136-2.639.794-3.33.794-.69 0-1.748-.773-2.85-.753-1.432.022-2.756.834-3.494 2.115-1.492 2.585-.382 6.42 1.077 8.527.712 1.034 1.554 2.193 2.668 2.148 1.076-.048 1.487-.697 2.783-.697 1.295 0 1.666.697 2.784.676 1.155-.022 1.884-1.054 2.593-2.087.82-1.2 1.157-2.365 1.176-2.428-.026-.011-2.271-.871-2.271-3.435L12 11.233zm-1.896-4.97c.594-.716.993-1.714.882-2.712-.857.034-1.893.57-2.499 1.285-.54.636-1.002 1.643-.872 2.626.963.074 1.896-.484 2.489-1.199z" />
+                </svg>
+                Apple Music
+            </a>
+
+            <a href="#" id="youtubeLink" target="_blank" class="platform-btn btn-youtube">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 0C5.372 0 0 5.373 0 12s5.372 12 12 12 12-5.373 12-12S18.628 0 12 0zm0 18.006c-3.321 0-6.002-2.684-6.002-6.006S8.679 5.996 12 5.996c3.322 0 6.001 2.683 6.001 6.004S15.322 18.006 12 18.006zm-1.638-8.879l4.493 2.875-4.493 2.873V9.127z" />
+                </svg>
+                YouTube Music
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function openMusicModal(spotifyUrl, appleUrl, youtubeUrl) {
+            document.getElementById('spotifyLink').href = spotifyUrl;
+            document.getElementById('appleLink').href = appleUrl;
+            document.getElementById('youtubeLink').href = youtubeUrl;
+            document.getElementById('musicModal').classList.add('active');
+        }
+
+        function closeMusicModal() {
+            document.getElementById('musicModal').classList.remove('active');
+        }
+
+        // Ensure pressing Escape closes the modal
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeMusicModal();
+            }
+        });
+    </script>
 </body>
 
 </html>
