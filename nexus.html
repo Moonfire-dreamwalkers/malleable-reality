@@ -495,51 +495,91 @@
     <div class="mr-hypnotic-bg"></div>
     <div class="mr-hypnotic-overlay"></div>
 
-    <div class="nexus-wrapper">
+    <nav class="mr-navbar">
+        <a href="index.html" class="mr-nav-link">Home</a>
+        <a href="blog.html" class="mr-nav-link">Blog</a>
+        <a href="modules.html" class="mr-nav-link">Learning Modules</a>
+        <a href="music-alchemy.html" class="mr-nav-link">Music Alchemy</a>
+        <a href="organization.html" class="mr-nav-link">Organization</a>
+        <a href="apps.html" class="mr-nav-link">Apps</a>
+        <a href="nexus.html" class="mr-nav-link active">Nexus AI</a>
+    </nav>
 
-        <div class="nexus-nav">
-            <a href="apps.html" class="exit-link"><span>←</span> Disconnect Nexus</a>
-            <div class="system-status">
-                <span class="status-dot"></span>
-                <span id="status-label">NEURAL LINK: ACTIVE</span>
-                <button id="reset-key-btn" title="Change API key">KEY</button>
+    <div class="mr-container">
+        <!-- Hero / Header -->
+        <header class="mr-hero mr-floating-delay-3" style="text-align: center; margin-bottom: 2rem;">
+            <div class="mystic-eye mr-animate-pulse mr-animate-float">
+                <div class="pupil"></div>
             </div>
-        </div>
+            <h1 class="mr-text-gradient" style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 1rem;">
+                Nexus Interface
+            </h1>
+            <p class="mr-text-muted" style="font-size: 1.15rem; max-width: 600px; margin: 0 auto;">
+                A cognitive bridge to the Malleable Reality stream. Ask anything.
+            </p>
+        </header>
 
-        <!-- Key entry modal -->
-        <div id="key-modal">
-            <div class="key-modal-box">
-                <h2>⬡ Activate Nexus</h2>
-                <p>Nexus runs on <a href="https://openrouter.ai/keys" target="_blank">OpenRouter</a> — a free AI
-                    gateway. Create a free account, copy your API key, and paste it below. It's saved only in your
-                    browser.<br><br>Free models used: <strong>Gemini 2.0 Flash</strong></p>
-                <input type="password" id="key-input" placeholder="sk-or-v1-..." autocomplete="off" spellcheck="false">
-                <button id="key-save-btn">Activate Neural Link</button>
-                <div class="key-note">Key is stored locally in your browser only — never sent to our servers.</div>
-            </div>
-        </div>
+        <main class="mr-article">
+            <div class="mr-panel mr-glass mr-gold-glimmer mr-gold-edge" style="padding: 2rem;">
+                <div class="nexus-wrapper">
 
-        <div class="terminal-container">
-            <div class="terminal-header">
-                <span class="mr-text-accent" style="letter-spacing: 3px; font-weight: 700; font-size: 0.72rem;">NEXUS —
-                    COGNITIVE INTERFACE</span>
-                <span style="font-family: var(--mr-font-data); font-size: 0.65rem; opacity: 0.35;">ID: NX-884-Ω</span>
-            </div>
-            <div id="chat-history"></div>
-            <div class="synthesis-indicator" id="synthesis">
-                <div class="typing-dots"><span></span><span></span><span></span></div>
-                <span>Synthesizing...</span>
-            </div>
-        </div>
+                    <div class="nexus-nav">
+                        <div class="system-status">
+                            <span class="status-dot"></span>
+                            <span id="status-label">NEURAL LINK: ACTIVE</span>
+                            <button id="reset-key-btn" title="Change API key">KEY</button>
+                        </div>
+                    </div>
 
-        <form class="input-area" id="nexus-form">
-            <input type="text" id="user-input" placeholder="Ask anything about this reality..." autocomplete="off">
-            <button type="submit" class="send-btn" id="send-btn">
-                <svg viewBox="0 0 24 24">
-                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-                </svg>
-            </button>
-        </form>
+                    <!-- Key entry modal -->
+                    <div id="key-modal">
+                        <div class="key-modal-box">
+                            <h2>⬡ Activate Nexus</h2>
+                            <p>Nexus runs on <a href="https://openrouter.ai/keys" target="_blank">OpenRouter</a> — a
+                                free AI gateway. Create a free account, copy your API key, and paste it below. It's
+                                saved only in your browser.<br><br>Free models used: <strong>Gemini 2.0 Flash</strong>
+                            </p>
+                            <input type="password" id="key-input" placeholder="sk-or-v1-..." autocomplete="off"
+                                spellcheck="false">
+                            <button id="key-save-btn">Activate Neural Link</button>
+                            <div class="key-note">Key is stored locally in your browser only — never sent to our
+                                servers.</div>
+                        </div>
+                    </div>
+
+                    <div class="terminal-container">
+                        <div class="terminal-header">
+                            <span class="mr-text-accent"
+                                style="letter-spacing: 3px; font-weight: 700; font-size: 0.72rem;">NEXUS —
+                                COGNITIVE INTERFACE</span>
+                            <span style="font-family: var(--mr-font-data); font-size: 0.65rem; opacity: 0.35;">ID:
+                                NX-884-Ω</span>
+                        </div>
+                        <div id="chat-history"></div>
+                        <div class="synthesis-indicator" id="synthesis">
+                            <div class="typing-dots"><span></span><span></span><span></span></div>
+                            <span>Synthesizing...</span>
+                        </div>
+                    </div>
+
+                    <form class="input-area" id="nexus-form">
+                        <input type="text" id="user-input" placeholder="Ask anything about this reality..."
+                            autocomplete="off">
+                        <button type="submit" class="send-btn" id="send-btn">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer style="margin-top: 4rem; text-align: center; padding-bottom: 2rem;">
+            <p class="mr-text-muted" style="font-size: 0.9rem; opacity: 0.6;">
+                Reality is data. The Hub is your interface.
+            </p>
+        </footer>
     </div>
 
     <script>
