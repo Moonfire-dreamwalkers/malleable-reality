@@ -161,8 +161,74 @@
                 <p class="mr-feedback"></p>
             </div>
 
-            <!-- Slide 7 -->
-            <div class="mr-slide" id="slide-7" style="text-align: center;">
+            <!-- Slide 7 (Scenario 1) -->
+            <div class="mr-slide" id="slide-7">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <h2 class="mr-text-accent" style="font-size: 2rem; margin: 0;">Scenario 1: The Creative Block</h2>
+                    <img src="image-quiz.png" alt="Quiz Symbol"
+                        style="width: 60px; height: 60px; border-radius: 50%; opacity: 0.8;">
+                </div>
+                <p class="mr-essay-text" style="font-size: 1.15rem; font-weight: 600;">You are struggling to solve a
+                    complex coding problem. You typically see yourself as a "logical, methodical thinker" and keep
+                    trying the same brute-force approach, refusing to take a break because "that's giving up." How
+                    should you apply the concept of fluid identity?</p>
+                <div class="mr-quiz-options">
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">Double down on your methodical
+                        identity because changing approaches means losing your core self.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, true, 8)">Objectify your frustration, take
+                        off the "methodical coder" mask, and fluidly adopt the persona of a "curious beginner" to see
+                        the problem from a new angle.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">Wait for the universe to align with
+                        your logical thought process.</button>
+                </div>
+                <p class="mr-feedback"></p>
+            </div>
+
+            <!-- Slide 8 (Scenario 2) -->
+            <div class="mr-slide" id="slide-8">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <h2 class="mr-text-accent" style="font-size: 2rem; margin: 0;">Scenario 2: The Argument</h2>
+                    <img src="image-quiz.png" alt="Quiz Symbol"
+                        style="width: 60px; height: 60px; border-radius: 50%; opacity: 0.8;">
+                </div>
+                <p class="mr-essay-text" style="font-size: 1.15rem; font-weight: 600;">During a heated debate, someone
+                    criticizes your opinion. Your first instinct is anger, as you strongly identify with your
+                    viewpoints. How can you break this feedback loop?</p>
+                <div class="mr-quiz-options">
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, true, 9)">Observe your rising anger as an
+                        external object, realizing your opinion is just a mask, not the observer behind it.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">Defend your opinion aggressively to
+                        maintain logical continuity with your established persona.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">Completely change your opinion
+                        immediately to appease them and adopt their mask.</button>
+                </div>
+                <p class="mr-feedback"></p>
+            </div>
+
+            <!-- Slide 9 (Scenario 3) -->
+            <div class="mr-slide" id="slide-9">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <h2 class="mr-text-accent" style="font-size: 2rem; margin: 0;">Scenario 3: The Career Shift</h2>
+                    <img src="image-quiz.png" alt="Quiz Symbol"
+                        style="width: 60px; height: 60px; border-radius: 50%; opacity: 0.8;">
+                </div>
+                <p class="mr-essay-text" style="font-size: 1.15rem; font-weight: 600;">You have worked as an accountant
+                    for 10 years but want to become an artist. You feel paralyzed, thinking, "I'm just a numbers person,
+                    I can't do art." What is happening here?</p>
+                <div class="mr-quiz-options">
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">You accurately realize that artistic
+                        pursuits are objectively outside your natural capabilities.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, false)">The universe is protecting you from
+                        making a bad career choice based on previous logic.</button>
+                    <button class="mr-quiz-btn" onclick="checkAnswer(this, true, 10)">Identification is acting as rigid
+                        determinism. Your past association as an "accountant" is limiting the experiences the universe
+                        can bring you.</button>
+                </div>
+                <p class="mr-feedback"></p>
+            </div>
+
+            <!-- Slide 10 (Completion) -->
+            <div class="mr-slide" id="slide-10" style="text-align: center;">
                 <div class="mystic-eye" style="margin-top: 1rem; margin-bottom: 2rem; width: 80px; height: 80px;">
                     <div class="pupil" style="width: 15px; height: 45px;"></div>
                 </div>
@@ -190,7 +256,7 @@
     </div>
 
     <script>
-        const totalSlides = 7;
+        const totalSlides = 10;
 
         function updateProgress(currentSlide) {
             const fill = document.getElementById('progressFill');
