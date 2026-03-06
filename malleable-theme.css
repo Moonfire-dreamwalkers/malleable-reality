@@ -274,10 +274,47 @@ body.mr-theme {
    Interactive Learning Module
    ========================================================================== */
 .mr-module-container {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
     position: relative;
-    min-height: 550px;
+    min-height: 600px;
+}
+
+/* ==========================================================================
+   Navigation Bar
+   ========================================================================== */
+.mr-navbar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 204, 0, 0.15);
+    background: rgba(10, 2, 15, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.mr-nav-link {
+    color: var(--mr-text-muted);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0.5rem 1rem;
+    border-radius: var(--mr-border-radius);
+    transition: all 0.3s ease;
+}
+
+.mr-nav-link:hover {
+    color: var(--mr-text-main);
+    background: rgba(255, 204, 0, 0.1);
+}
+
+.mr-nav-link.active {
+    color: var(--mr-accent);
+    text-shadow: var(--mr-glow-gold);
 }
 
 .mr-progress-bar {
