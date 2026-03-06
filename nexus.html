@@ -446,15 +446,11 @@
 
     <script>
         // ─────────────────────────────────────────────────────────────────────────────
-        // NEXUS AI — Powered by Groq (free tier)
-        // To activate: replace YOUR_API_KEY_HERE with your Groq API key
-        // Get a free key at: https://console.groq.com/keys
+        // NEXUS AI — Powered by Pollinations.ai (free, no API key required)
+        // https://text.pollinations.ai
         // ─────────────────────────────────────────────────────────────────────────────
-        const _a = 'Z3NrXzh4cGVGYnNxRnpabEhIa0RWTHBxV0dkeWIz';
-        const _b = 'RllPcVNVb0czbU5MZG9XVzVCMWNMR0U4ejc=';
-        const GROQ_API_KEY = atob(_a + _b);
-        const GROQ_MODEL = 'llama-3.3-70b-versatile';
-        const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
+        const AI_MODEL = 'openai-large'; // GPT-4o class, free
+        const AI_URL = 'https://text.pollinations.ai/';
 
         // ─────────────────────────────────────────────────────────────────────────────
         // SYSTEM PROMPT — encodes everything Nexus knows about Malleable Reality
@@ -571,7 +567,7 @@ The Malleable Reality organization has two wings:
         const banner = document.getElementById('api-banner');
         const statusLbl = document.getElementById('status-label');
 
-        const hasKey = GROQ_API_KEY && GROQ_API_KEY !== 'YOUR_API_KEY_HERE';
+        const hasKey = true; // Pollinations.ai is always available — no key needed
 
         // Conversation history for multi-turn context
         const history = []; // [{role, parts:[{text}]}]
@@ -631,9 +627,9 @@ The Malleable Reality organization has two wings:
         }
 
         // ─────────────────────────────────────────────────────────────────────────────
-        // Groq API call (OpenAI-compatible, free tier)
+        // Pollinations.ai API call (free, no auth required)
         // ─────────────────────────────────────────────────────────────────────────────
-        async function callGroq(userText) {
+        async function callAI(userText) {
             // Add user turn to history
             history.push({ role: 'user', content: userText });
 
@@ -644,19 +640,17 @@ The Malleable Reality organization has two wings:
             ];
 
             const body = {
-                model: GROQ_MODEL,
+                model: AI_MODEL,
                 messages,
                 temperature: 0.85,
                 max_tokens: 600,
-                top_p: 0.95
+                top_p: 0.95,
+                private: true    // don't log/display in Pollinations public feed
             };
 
-            const res = await fetch(GROQ_URL, {
+            const res = await fetch(AI_URL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${GROQ_API_KEY}`
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body)
             });
 
@@ -667,7 +661,7 @@ The Malleable Reality organization has two wings:
 
             const data = await res.json();
             const reply = data?.choices?.[0]?.message?.content;
-            if (!reply) throw new Error('Empty response from Groq');
+            if (!reply) throw new Error('Empty response from AI');
 
             // Add assistant turn to history
             history.push({ role: 'assistant', content: reply });
@@ -698,13 +692,13 @@ The Malleable Reality organization has two wings:
             }
 
             try {
-                const reply = await callGroq(text);
+                const reply = await callAI(text);
                 setThinking(false);
                 addMessage('Nexus', mdToHtml(reply), 'ai');
             } catch (err) {
                 setThinking(false);
-                addMessage('Nexus', `Signal disruption detected: <em>${err.message}</em>. Check your API key or network connection.`, 'error');
-                console.error('Groq error:', err);
+                addMessage('Nexus', `Signal disruption detected: <em>${err.message}</em>. Check your network connection.`, 'error');
+                console.error('AI error:', err);
             }
         });
 
