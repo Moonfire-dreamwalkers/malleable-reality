@@ -389,41 +389,81 @@
             box-shadow: 0 8px 25px rgba(92, 24, 168, 0.2), 0 0 15px rgba(92, 24, 168, 0.1);
         }
 
-        #user-input:disabled {
-            opacity: 0.5;
-        }
-
         .send-btn {
             width: 56px;
             height: 56px;
             border-radius: 50%;
             background: var(--mr-purple);
             border: none;
-            color: #fff;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
             transition: all 0.3s;
             box-shadow: var(--mr-glow-purple);
             flex-shrink: 0;
         }
 
         .send-btn:hover {
-            transform: scale(1.1) rotate(8deg);
             box-shadow: 0 0 35px var(--mr-purple);
+            transform: scale(1.05);
+        }
+
+        .send-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff;
         }
 
         .send-btn:disabled {
             opacity: 0.4;
-            transform: none;
             cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
         }
 
-        .send-btn svg {
-            width: 22px;
-            height: 22px;
-            fill: currentColor;
+        #user-input:disabled {
+            opacity: 0.5;
+        }
+
+        /* Responsive UI for Mobile */
+        @media (max-width: 768px) {
+            .nexus-wrapper {
+                padding: 1rem 0.75rem 1.5rem;
+            }
+
+            .terminal-header {
+                padding: 0.8rem 1rem;
+            }
+
+            #chat-history {
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .message {
+                max-width: 90%;
+                padding: 1rem 1.2rem;
+                font-size: 0.95rem;
+            }
+
+            .input-area {
+                gap: 0.75rem;
+            }
+
+            #user-input {
+                padding: 1rem 1.25rem;
+                font-size: 0.95rem;
+            }
+
+            .send-btn {
+                width: 52px;
+                height: 52px;
+            }
+
+            .system-status span:last-child {
+                display: none;
+            }
         }
 
         /* Typing indicator */
@@ -518,11 +558,12 @@
             <div class="mr-panel mr-glass mr-gold-glimmer mr-gold-edge" style="padding: 2rem;">
                 <div class="nexus-wrapper">
 
-                    
+
 
                     <div class="terminal-container" style="margin-top: 1rem;">
                         <div class="terminal-header" style="justify-content: center; text-align: center;">
-                            <span class="mr-text-accent" style="letter-spacing: 3px; font-weight: 700; font-size: 0.72rem;">AI INTERFACE</span>
+                            <span class="mr-text-accent"
+                                style="letter-spacing: 3px; font-weight: 700; font-size: 0.72rem;">AI INTERFACE</span>
                         </div>
                         <div id="chat-history"></div>
                         <div class="synthesis-indicator" id="synthesis">
