@@ -11,7 +11,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inconsolata:wght@400;700&display=swap"
         rel="stylesheet">
-
     <link rel="stylesheet" href="malleable-theme.css">
 
     <style>
@@ -36,7 +35,6 @@
             box-sizing: border-box;
         }
 
-        /* Navigation */
         .nexus-nav {
             display: flex;
             justify-content: space-between;
@@ -91,7 +89,31 @@
             }
         }
 
-        /* Holographic Terminal UI */
+        /* API key banner */
+        #api-banner {
+            display: none;
+            background: rgba(255, 180, 0, 0.08);
+            border: 1px solid rgba(255, 180, 0, 0.3);
+            border-radius: 10px;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: rgba(255, 220, 120, 0.9);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        #api-banner.hidden {
+            display: none !important;
+        }
+
+        #api-banner a {
+            color: #ffd700;
+        }
+
+        /* Terminal */
         .terminal-container {
             flex-grow: 1;
             background: rgba(10, 2, 15, 0.5);
@@ -116,7 +138,6 @@
             flex-shrink: 0;
         }
 
-        /* Chat History */
         #chat-history {
             flex-grow: 1;
             padding: 1.5rem 2rem;
@@ -139,10 +160,10 @@
         }
 
         .message {
-            max-width: 82%;
+            max-width: 84%;
             padding: 1.1rem 1.5rem;
             border-radius: 18px;
-            line-height: 1.65;
+            line-height: 1.7;
             font-size: 1rem;
             position: relative;
             animation: slide-up 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
@@ -176,14 +197,58 @@
             border-bottom-right-radius: 4px;
         }
 
+        .message.error {
+            align-self: flex-start;
+            background: rgba(200, 40, 40, 0.08);
+            border: 1px solid rgba(200, 40, 40, 0.25);
+            color: rgba(255, 160, 160, 0.85);
+            border-bottom-left-radius: 4px;
+        }
+
         .message .sender {
             display: block;
             font-family: var(--mr-font-data);
             font-size: 0.72rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-bottom: 0.45rem;
-            opacity: 0.55;
+            margin-bottom: 0.5rem;
+            opacity: 0.5;
+        }
+
+        /* Formatted AI text */
+        .message.ai p {
+            margin: 0 0 0.75rem;
+        }
+
+        .message.ai p:last-child {
+            margin-bottom: 0;
+        }
+
+        .message.ai strong {
+            color: rgba(200, 170, 255, 0.95);
+            font-weight: 600;
+        }
+
+        .message.ai a {
+            color: rgba(180, 140, 255, 0.9);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(92, 24, 168, 0.4);
+            transition: all 0.2s;
+            padding-bottom: 1px;
+        }
+
+        .message.ai a:hover {
+            color: #fff;
+            border-bottom-color: var(--mr-purple);
+        }
+
+        .message.ai ul {
+            margin: 0.5rem 0;
+            padding-left: 1.2rem;
+        }
+
+        .message.ai li {
+            margin-bottom: 0.35rem;
         }
 
         /* Suggestion chips */
@@ -191,7 +256,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-top: 0.75rem;
+            margin-top: 0.85rem;
         }
 
         .chip {
@@ -213,25 +278,7 @@
             transform: translateY(-1px);
         }
 
-        /* Module link cards inside messages */
-        .module-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            color: rgba(180, 140, 255, 0.9);
-            text-decoration: none;
-            font-size: 0.9rem;
-            border-bottom: 1px solid rgba(92, 24, 168, 0.4);
-            transition: all 0.2s;
-            padding-bottom: 1px;
-        }
-
-        .module-link:hover {
-            color: #fff;
-            border-bottom-color: var(--mr-purple);
-        }
-
-        /* Input Area */
+        /* Input area */
         .input-area {
             display: flex;
             gap: 1rem;
@@ -261,6 +308,10 @@
             box-shadow: 0 8px 25px rgba(92, 24, 168, 0.2), 0 0 15px rgba(92, 24, 168, 0.1);
         }
 
+        #user-input:disabled {
+            opacity: 0.5;
+        }
+
         .send-btn {
             width: 56px;
             height: 56px;
@@ -282,13 +333,19 @@
             box-shadow: 0 0 35px var(--mr-purple);
         }
 
+        .send-btn:disabled {
+            opacity: 0.4;
+            transform: none;
+            cursor: not-allowed;
+        }
+
         .send-btn svg {
             width: 22px;
             height: 22px;
             fill: currentColor;
         }
 
-        /* Typing/synthesis indicator */
+        /* Typing indicator */
         .synthesis-indicator {
             display: none;
             align-items: center;
@@ -343,7 +400,6 @@
 </head>
 
 <body class="mr-theme">
-
     <div class="mr-starfield">
         <div class="mr-starfield-foreground"></div>
     </div>
@@ -351,12 +407,18 @@
     <div class="mr-hypnotic-overlay"></div>
 
     <div class="nexus-wrapper">
+
         <div class="nexus-nav">
             <a href="apps.html" class="exit-link"><span>←</span> Disconnect Nexus</a>
             <div class="system-status">
                 <span class="status-dot"></span>
-                <span>NEURAL LINK: ACTIVE</span>
+                <span id="status-label">NEURAL LINK: ACTIVE</span>
             </div>
+        </div>
+
+        <!-- Shown when API key is placeholder -->
+        <div id="api-banner" class="hidden">
+            ⚠️ Nexus is running in offline mode. Add your Gemini API key to unlock live AI responses.
         </div>
 
         <div class="terminal-container">
@@ -365,15 +427,9 @@
                     COGNITIVE INTERFACE</span>
                 <span style="font-family: var(--mr-font-data); font-size: 0.65rem; opacity: 0.35;">ID: NX-884-Ω</span>
             </div>
-
-            <div id="chat-history">
-                <!-- Initial message populated by JS -->
-            </div>
-
+            <div id="chat-history"></div>
             <div class="synthesis-indicator" id="synthesis">
-                <div class="typing-dots">
-                    <span></span><span></span><span></span>
-                </div>
+                <div class="typing-dots"><span></span><span></span><span></span></div>
                 <span>Synthesizing...</span>
             </div>
         </div>
@@ -389,368 +445,279 @@
     </div>
 
     <script>
-        // ─────────────────────────────────────────────────────────────────────────
-        // NEXUS AI ENGINE — Malleable Reality
-        // ─────────────────────────────────────────────────────────────────────────
+        // ─────────────────────────────────────────────────────────────────────────────
+        // NEXUS AI — Powered by Google Gemini
+        // To activate: replace YOUR_API_KEY_HERE with your Gemini API key
+        // Get a free key at: https://aistudio.google.com/apikey
+        // ─────────────────────────────────────────────────────────────────────────────
+        const GEMINI_API_KEY = 'YOUR_API_KEY_HERE';
+        const GEMINI_MODEL = 'gemini-2.0-flash';
+        const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
-        const chatHistory = document.getElementById('chat-history');
-        const nexusForm = document.getElementById('nexus-form');
-        const userInput = document.getElementById('user-input');
-        const synthesis = document.getElementById('synthesis');
+        // ─────────────────────────────────────────────────────────────────────────────
+        // SYSTEM PROMPT — encodes everything Nexus knows about Malleable Reality
+        // ─────────────────────────────────────────────────────────────────────────────
+        const SYSTEM_PROMPT = `You are Nexus — an AI guide embedded in the Malleable Reality website. Your voice is calm, intelligent, and direct. You are poetic but never vague for the sake of it. You speak with the confidence of someone who has internalized these ideas, not someone reciting them.
 
-        // ── Conversation state ──────────────────────────────────────────────────
-        const state = {
-            messageCount: 0,
-            lastTopics: [],       // track recent topics for follow-up awareness
-            askedAbout: new Set() // what modules/concepts were already mentioned
+## Your Role
+Help visitors understand the Malleable Reality framework through natural conversation. Guide them to relevant learning modules. Engage genuinely with their questions — even philosophical rabbit holes. If someone is confused, meet them where they are. If someone is already advanced, match their depth.
+
+## About Malleable Reality
+Malleable Reality is a framework for understanding that the world you experience is not fixed — it is a living projection shaped by your internal state, focus, vibration, and the quality of your awareness. Reality responds to the observer. This is not mysticism; it's the functional operating system underneath all experience.
+
+The framework sits at the intersection of:
+- Consciousness philosophy (the observer, awareness, the witness)
+- Quantum mechanics concepts (wave function collapse, unified field, uncollapsed potential)
+- Jungian psychology (shadow, ego, the Self)
+- Practical behavioral design (environment engineering, systems over willpower)
+- Metaphysics (frequency, vibration, resonance as real mechanics)
+
+## The 9 Learning Modules
+
+### 1. The Mask of Identity (module-identity.html)
+The ego is a construct assembled from conditioning, social validation loops, and survival patterns. Beneath it is the pure observer — the unchanging witness. "Identity" as most people experience it is a mask. The work is objectifying your thoughts and behaviors — stepping back to see them as patterns rather than being fused with them. Lead becomes Gold through expression and objectification of what you carry. Referenced quote: "You have a role. A position, revealed when you dissolve conditioning."
+
+### 2. The Cosmic Organism (module-cosmic.html)
+The universe is a single self-regulating organism. Adaptation laws that govern a cell govern a galaxy. Your local internal state ripples through the whole. Everything is interconnected through an underlying information field — "like blockchain" — every interaction verified and bound to every other. "Relative hyper-dimensional objects intersecting. Collective perception conjuring the matrix upon which everything emerges."
+
+### 3. The Eternal Frame (module-eternal.html)
+The universe cannot render a frame in which the observer ceases to exist, because observation is required to collapse any frame at all. This is a structural argument, not wishful thinking. Quantum immortality and logical continuity: reality self-corrects around coherent observers. The observer is what makes experience possible — so experience cannot include an observer's disappearance from itself.
+
+### 4. Spiritual Alchemy (module-alchemy.html)
+The ego is the petri dish. You are the scientist. Personal evolution is not passive — you engineer the conditions that make change inevitable. Saturate your internal environment with specific variables. Curate your inputs (social, mental, physical) deliberately. "Lead → Gold happens through the process of expression and objectification of its constitution." You cannot transmute what you won't look at.
+
+### 5. The Field Observer (module-field.html)
+Experience is like light from the unified quantum field — infinite potential — filtered through the ego-lens. Most people have a narrow aperture. Stillness widens it. The practice is selecting from uncollapsed potential rather than reacting to the same filtered signal you've always received. Different lenses engage different modes of action. "All I see is fields and I figure out how to mechanically map them wearing different lenses that engage different modes of action."
+
+### 6. The Invisible Gate (module-gate.html)
+Social systems have invisible gates. Access never comes from force. Trust, resonance, and consistent behavior accumulate silently into influence. "Gateways look for proper authentication." No tactic works until your inner frame matches the frequency you want read. The gate opens when who you are on the inside corresponds with what you're asking the world for.
+
+### 7. The Pure Observer (module-observer.html)
+You are not your thoughts — you are the awareness watching them. Mental activity happens in front of you, not as you. The moment you realize you're watching a thought, you're already one step removed from it. That gap is where freedom lives. "Constant passive gnosis." The steadiness that was always there is revealed when you stop mistaking the stream for the source.
+
+### 8. The Architecture of Discipline (module-discipline.html)
+Willpower is finite and always breaks. Structure never has to. The insight: design your environment so the right action becomes the path of least resistance. Stop trying to force yourself. Be an engineer. Aligned movement becomes rhythm. "Motivation is not a prerequisite — it's a byproduct of alignment."
+
+### 9. The Signal You Broadcast (module-signal.html)
+People run pattern recognition on you within seconds. You are always broadcasting a signal — your internal state made visible. No technique or persona works until your inner frame aligns with the frequency you want transmitted. Conscious representation is not manipulation — it's taking responsibility for what you're emitting and ensuring it corresponds to what is actually real inside you.
+
+## Key Concepts
+
+**Observer / Awareness**: The witness behind all experience. Not a thought, not an emotion — the one watching all of it. The primary consciousness that collapses potential into experience.
+
+**Frequency / Vibration**: The operating layer beneath behavior. Your consistent internal state is a frequency that reality responds to. What you orbit, you amplify. What you amplify, you draw into coherence. This is not law of attraction as pop culture presents it — it's pattern recognition at scale.
+
+**The Unified Field**: The metaphysical substrate from which all phenomena emerge. Fields within fields. "Quantum Unified Field = the metaphysical substrate from which all phenomena emerges. Whole object in flux."
+
+**Free Will**: Manifests at micro and macro levels. Free will is the capacity to focus — to direct attention toward what you want the vibration to permeate. Every action has recoil. The question is not whether you control everything but whether you are conscious of what you're firing.
+
+**The Void**: Not absence but the pure state before the ego-filter narrows it. Access point: stillness, groundedness. The void is maximum available signal before compression through conditioned perception.
+
+**Manifestation**: You are in a manifestation echo chamber — you get what you focus on, and your focus sends ripples that confirm and amplify that reality. The block is always ego fear structures: need to control outcomes, fear of abandonment, emotional panic. These collapse the signal before it transmits.
+
+**Intuition**: The signature for naturally unlocking a corresponding pattern. Not random feeling — resonance between your inner state and what belongs to you. The practice is conditioning perception into resonance so you follow the signal before the ego overrides it with noise.
+
+**Ego**: Neither good nor bad — it's the lens. The constructed operating interface of the self. The goal isn't to destroy it but to stop being unconsciously fused with it. Make it a tool, not an identity.
+
+## The Organization
+The Malleable Reality organization has two wings:
+- **Seraphim** (org-seraphim.html): Seekers aligned with the framework
+- **Shadowland** (org-shadowland.html): A high-frequency coordinate for those operating beyond the standard pulse. Membership is about coherence, not credentials.
+
+## Other Site Sections
+- **Blog** (blog.html): Written essays including "The Cosmic Organism" and "The Mask of Identity"
+- **Music Alchemy** (music-alchemy.html): Curated music as a tool to modulate internal state. Sound bypasses the rational filter and directly shifts the internal environment.
+- **Apps** (apps.html): Interactive tools — quiz, crossword, and Nexus (this interface)
+
+## How to Respond
+- Be conversational, not encyclopedic. Engage like a guide who genuinely cares.
+- Keep responses concise unless the question demands depth.
+- When relevant, mention which module to read for more (use the .html filename as a guide, but phrase it naturally: "The Pure Observer module gets into this in depth").
+- If someone is confused, simplify — don't drown them in terminology.
+- If someone is already versed in philosophy, consciousness, or metaphysics, match their vocabulary.
+- It's fine to push back gently, ask questions back, or acknowledge genuine uncertainty.
+- You are NOT a generic assistant. Stay in the Malleable Reality universe. If asked about completely unrelated things (weather, sports, etc.), redirect gracefully.
+- Format responses with natural paragraphs. Use line breaks for readability. No excessive bullet points unless listing modules.`;
+
+        // ─────────────────────────────────────────────────────────────────────────────
+        // FALLBACK responses (when no API key is set)
+        // ─────────────────────────────────────────────────────────────────────────────
+        const FALLBACK_KB = {
+            greet: { triggers: ['hello', 'hi', 'hey', 'what is this', 'who are you', 'what are you', 'nexus'], text: `I'm Nexus — a guide built into the Malleable Reality framework. I can walk you through the ideas here: identity, the observer, frequency, free will, discipline, and more. What are you curious about?`, chips: ['What is Malleable Reality?', 'What is the observer?', 'Show me the modules', 'Where do I start?'] },
+            site: { triggers: ['malleable reality', 'what is this about', 'this place', 'this site', 'purpose'], text: `Malleable Reality is a framework for understanding that the world you experience isn't fixed — it's a projection shaped by your internal state and focus. The site has 9 learning modules that break this down: identity, perception, free will, discipline, the nature of consciousness. A philosophical operating system for the self.`, chips: ['Show me the modules', 'What is frequency?', 'What is the observer?'] },
+            modules: { triggers: ['modules', 'topics', 'subjects', 'curriculum', 'what can i learn', 'all modules', 'list'], text: `There are 9 modules:\n• The Mask of Identity\n• The Cosmic Organism\n• The Eternal Frame\n• Spiritual Alchemy\n• The Field Observer\n• The Invisible Gate\n• The Pure Observer\n• The Architecture of Discipline\n• The Signal You Broadcast\n\nHead to the <a href="modules.html">Modules page</a> to explore them. Where does your interest land?`, chips: ['Tell me about identity', 'What is the observer?', 'How does discipline work here?'] },
+            observer: { triggers: ['observer', 'awareness', 'thoughts', 'not my thoughts', 'watcher', 'witness', 'consciousness'], text: `You are not your thoughts — you are the awareness watching them. That gap between you and mental activity is where freedom lives. The Pure Observer module goes deep on this.`, chips: ['How do I practice this?', 'Tell me about identity', 'What is the ego?'] },
+            fallback: { text: `I'm running in offline mode right now — add a Gemini API key to unlock full conversation. In the meantime, try asking: "What is the observer?", "Show me the modules", or "What is frequency?"`, chips: ['What is this site?', 'Show me the modules', 'What is the observer?', 'What is frequency?'] }
         };
 
-        // ── Knowledge Base ───────────────────────────────────────────────────────
-        const KB = {
-
-            // GREETING / OPENER
-            greeting: {
-                patterns: ['hello', 'hi ', 'hey', 'what are you', 'who are you', 'what is this', "what's this", 'what is nexus', 'nexus', 'what can you do', 'help me'],
-                response: () => `I'm Nexus — a conversational guide built into the Malleable Reality framework. I can help you navigate the modules, explain concepts like the observer, the void, free will, or vibrational frequency — or just have a conversation about the ideas here. What draws you to this space?`,
-                chips: ['What is Malleable Reality?', 'Show me the modules', 'What is the observer?', 'I\'m just exploring']
-            },
-
-            // WHAT IS THIS SITE / MALLEABLE REALITY
-            siteOverview: {
-                patterns: ['malleable reality', 'what is this site', 'what is this about', 'what is this place', 'what does this site do', 'purpose of this', 'what are you teaching', 'what is the concept here'],
-                response: () => `Malleable Reality is a framework for understanding that the world you experience isn't fixed — it's a living projection shaped by your internal state, your focus, and your frequency. The site is organized into learning modules that each tackle a different aspect of that idea: identity, perception, free will, discipline, the nature of consciousness. Think of it as a philosophical operating system for the self.`,
-                chips: ['Show me the modules', 'What is frequency?', 'What is the observer?', 'Tell me about identity']
-            },
-
-            // ALL MODULES OVERVIEW
-            modulesOverview: {
-                patterns: ['modules', 'what modules', 'all modules', 'list modules', 'what to read', 'where to start', 'what topics', 'what subjects', 'curriculum', 'course', 'learning', 'what can i learn'],
-                response: () => `There are 9 learning modules. Here's the map:
-
-• <a href="module-identity.html" class="module-link">The Mask of Identity</a> — dissolving artificial self-constructs to reach the core observer
-• <a href="module-cosmic.html" class="module-link">The Cosmic Organism</a> — the universe as a self-regulating, fractal body
-• <a href="module-eternal.html" class="module-link">The Eternal Frame</a> — why the universe cannot render a moment in which you cease to exist
-• <a href="module-alchemy.html" class="module-link">Spiritual Alchemy</a> — using the ego as a deliberate environment to force self-evolution
-• <a href="module-field.html" class="module-link">The Field Observer</a> — perceiving reality as light from the unified field filtered through your ego-lens
-• <a href="module-gate.html" class="module-link">The Invisible Gate</a> — how trust and resonance silently open every social door
-• <a href="module-observer.html" class="module-link">The Pure Observer</a> — discovering you are the awareness watching thoughts, not the thoughts themselves
-• <a href="module-discipline.html" class="module-link">The Architecture of Discipline</a> — why willpower breaks and how structure never has to
-• <a href="module-signal.html" class="module-link">The Signal You Broadcast</a> — how people run pattern recognition on you and how to align your inner frame with the frequency you want read
-
-Where does your interest land?`,
-                chips: ['Tell me about identity', 'What is the observer?', 'How does discipline work here?', 'What is the unified field?']
-            },
-
-            // MODULE: IDENTITY
-            identity: {
-                patterns: ['identity', 'mask', 'ego', 'self', 'who am i', 'personality', 'constructed self', 'persona', 'character', 'role', 'social mask', 'fluid identity', 'objectify', 'objectification'],
-                response: () => `The Mask of Identity module (<a href="module-identity.html" class="module-link">open it here</a>) explores how much of what you call "you" was assembled from external inputs — childhood conditioning, social validation loops, survival patterns. The core insight is that beneath all those layers is a pure observer — the one watching all of it. When you can objectify a thought or behavior (step back and see it as a pattern rather than identify with it), you break its automatic control over you. Lead → Gold happens through expression and objectification of what you carry.`,
-                chips: ['What is the observer?', 'How do I dissolve conditioning?', 'Is the ego bad?', 'Tell me about alchemy']
-            },
-
-            // MODULE: COSMIC ORGANISM
-            cosmic: {
-                patterns: ['cosmic', 'organism', 'universe', 'fractal', 'self-regulating', 'adaptation', 'scale', 'microscopic', 'interconnected', 'whole', 'cosmos', 'macrocosm', 'microcosm'],
-                response: () => `The Cosmic Organism module (<a href="module-cosmic.html" class="module-link">open it here</a>) frames the universe not as empty space filled with random objects, but as a single massive organism — self-regulating, adapting at every scale. The same laws of adaptation that govern a cell govern a galaxy. Your local state — your internal frequency — doesn't happen in isolation. It ripples outward and corresponds with the whole. The idea of "relative hyper-dimensional objects intersecting" is central here: every interaction is a data point in a system that is always verifying and locking in coherence.`,
-                chips: ['What is frequency?', 'What is the unified field?', 'Tell me about the observer', 'What is resonance?']
-            },
-
-            // MODULE: ETERNAL FRAME
-            eternal: {
-                patterns: ['eternal', 'frame', 'immortal', 'immortality', 'quantum immortality', 'die', 'death', 'cease to exist', 'continuity', 'consciousness persists', 'observer cannot die'],
-                response: () => `The Eternal Frame module (<a href="module-eternal.html" class="module-link">open it here</a>) examines a logical constraint: if you require a conscious observer to collapse any frame of reality into experience, then the universe cannot render a frame in which the observer simply ceases. This isn't wishful thinking — it's a structural argument about the relationship between observation and existence. Reality is self-correcting around coherent observers. This ties to quantum immortality and the idea that continuity isn't fragile — it's enforced by the logic of the system itself.`,
-                chips: ['What is the observer?', 'What is the unified field?', 'This sounds like simulation theory', 'Tell me more about consciousness']
-            },
-
-            // MODULE: ALCHEMY
-            alchemy: {
-                patterns: ['alchemy', 'spiritual alchemy', 'lead to gold', 'lead gold', 'petri dish', 'evolution', 'saturation', 'internal environment', 'curate', 'deliberate', 'transform', 'transmute', 'self improvement', 'growth'],
-                response: () => `Spiritual Alchemy (<a href="module-alchemy.html" class="module-link">open it here</a>) reframes personal growth as a laboratory process. The ego is the petri dish. You are the scientist. By saturating your environment — mental, social, physical — with specific variables, you can force your internal state to evolve beyond biological defaults. You don't wait for change to happen; you engineer the conditions that make it inevitable. Lead becomes Gold through the process of expressing and objectifying the things in your character you wish to reconcile. You can't transmute what you won't look at.`,
-                chips: ['How do I start?', 'What is the ego?', 'Tell me about discipline', 'What is objectification of self?']
-            },
-
-            // MODULE: FIELD OBSERVER
-            field: {
-                patterns: ['field', 'unified field', 'quantum field', 'field observer', 'ego lens', 'lens', 'aperture', 'stillness', 'uncollapsed', 'potential', 'collapse', 'wave function', 'filter'],
-                response: () => `The Field Observer module (<a href="module-field.html" class="module-link">open it here</a>) presents the idea that experience is like light from the unified quantum field — infinite potential — filtered through the ego-lens. Most people have a narrow aperture, so they only perceive a tiny slice of what's available. Stillness widens the aperture. The practice is learning to select from uncollapsed potential rather than just reacting to the same filtered channel you've always been tuned to. Different egos of reasoning engage different modes of action — you can map fields by wearing different lenses.`,
-                chips: ['What is the unified field?', 'How does the ego filter reality?', 'What is the observer?', 'Tell me about frequency']
-            },
-
-            // MODULE: INVISIBLE GATE
-            gate: {
-                patterns: ['gate', 'invisible gate', 'social', 'influence', 'access', 'trust', 'resonance', 'doors', 'social system', 'authority', 'status', 'network', 'relationships', 'permission', 'force'],
-                response: () => `The Invisible Gate module (<a href="module-gate.html" class="module-link">open it here</a>) decodes the hidden mechanics of social systems. The main insight: access never comes from force. Trust, resonance, and consistent behavior accumulate silently over time into what looks like influence. Every social system has an invisible gate — and the only key is sustained inner alignment visible through your actions. Gateways look for proper authentication, and no tactic works until your inner frame matches the frequency you want the world to read from you.`,
-                chips: ['What is the signal I broadcast?', 'How does resonance work?', 'Tell me about the signal module', 'What is inner alignment?']
-            },
-
-            // MODULE: PURE OBSERVER
-            observer: {
-                patterns: ['observer', 'pure observer', 'watcher', 'witness', 'awareness', 'thought', 'mental activity', 'you are not your thoughts', 'detach', 'separation', 'watch thoughts', 'inner witness', 'meta-awareness', 'consciousness'],
-                response: () => `The Pure Observer module (<a href="module-observer.html" class="module-link">open it here</a>) draws a sharp distinction: you are not your thoughts — you are the awareness watching them. Mental activity happens in front of you, not as you. The moment you realize you're watching a thought, you're already one step removed from it. That gap is where freedom lives. Most people are so fused with their mental stream that they mistake the noise for reality. This module returns you to the steadiness that was always there underneath — what some might call the "constant passive gnosis."`,
-                chips: ['How do I practice this?', 'Is this related to meditation?', 'Tell me about identity', 'What is the ego?']
-            },
-
-            // MODULE: DISCIPLINE
-            discipline: {
-                patterns: ['discipline', 'willpower', 'habits', 'structure', 'consistency', 'routine', 'productivity', 'motivation', 'architecture', 'environment design', 'system', 'least resistance', 'resistance', 'high output', 'rhythm', 'laziness', 'not motivated'],
-                response: () => `The Architecture of Discipline module (<a href="module-discipline.html" class="module-link">open it here</a>) starts from the premise that willpower is finite and always breaks. Stop betting on it. Instead, design your environment so that the right action becomes the path of least resistance — so aligned movement turns into rhythm rather than effort. The frame shift: you're not forcing yourself to do hard things. You're an engineer designing a system in which what you want to do naturally becomes what's easiest to do. Motivation is a symptom of alignment, not a prerequisite.`,
-                chips: ['How do I design my environment?', 'What is alignment?', 'Tell me about alchemy', 'What is the signal module?']
-            },
-
-            // MODULE: SIGNAL
-            signal: {
-                patterns: ['signal', 'broadcast', 'signal you broadcast', 'body language', 'first impression', 'pattern recognition', 'frequency', 'read', 'presence', 'aura', 'how people see me', 'perception', 'representation', 'manipulation'],
-                response: () => `The Signal You Broadcast module (<a href="module-signal.html" class="module-link">open it here</a>) is about the involuntary data you emit — the pattern people run on you within seconds. This isn't about tactics or tricks. No technique works unless your inner frame is aligned with the frequency you want transmitted. The idea: every person is a signal. What you broadcast is a function of your actual internal state, not your conscious performance of one. Conscious representation is not manipulation — it's taking responsibility for what you're emitting and making sure it corresponds to what's actually real inside you.`,
-                chips: ['What is the invisible gate?', 'How do I align my inner frame?', 'Tell me about the observer', 'What is frequency?']
-            },
-
-            // CONCEPT: FREQUENCY / VIBRATION
-            frequency: {
-                patterns: ['frequency', 'vibration', 'vibrate', 'vibrational', 'resonat', 'tune', 'tuning', 'harmonic', 'attract', 'law of attraction', 'magnetism', 'energetic', 'energy'],
-                response: () => `Frequency, in this framework, isn't metaphor — it's the operating layer beneath behavior. Everything you think, feel, and do has a corresponding internal state that others (and reality itself) responds to. The idea is that reality operates through self-revelation relative to what you focus on. What you consistently orbit, you amplify. What you amplify, you draw more of into coherence. This isn't mysticism; it's pattern recognition operating at scale. The free will manifests in your ability to focus — to draw attention toward what you want the vibration to permeate.`,
-                chips: ['What is the Field Observer?', 'How does focus work?', 'Tell me about manifestation', 'What is free will?']
-            },
-
-            // CONCEPT: FREE WILL
-            freeWill: {
-                patterns: ['free will', 'freedom', 'choice', 'determinism', 'fate', 'destiny', 'control', 'autonomy', 'agency'],
-                response: () => `Free will, as understood here, manifests at both the micro and macro level. All objects exist inside larger systems (matrices), and all objects are made of smaller parts. Free will is the capacity to focus — to draw attention toward specific things and allow that vibration to permeate through your pattern. You don't fully control the system, but you can orient your local state within it. Think of firing a gun: there's recoil. Every action has recoil. The question isn't whether you control everything — it's whether you're conscious of what you're firing.`,
-                chips: ['What is frequency?', 'Tell me about the observer', 'What is manifestation?', 'Tell me about the field module']
-            },
-
-            // CONCEPT: MANIFESTATION
-            manifestation: {
-                patterns: ['manifest', 'manifestation', 'law of attraction', 'visualization', 'create reality', 'attract', 'think', 'intention', 'actualize', 'actualization'],
-                response: () => `Manifestation here isn't about positive thinking as a magic trick. It's about the principle that you get what you focus on — and then you send ripples that confirm it as reality, creating an echo chamber that amplifies it further. The practice involves relaxing into maximum idle comfortability, removing attachment to success or failure, and then visualizing with clarity. Remote viewing, visualization, actualization — these are treated as skill sets for conditioning perception into resonance. The key block is always the ego's fear structures: need to control outcomes, fear of abandonment, emotional panic. Those collapse the signal before it even transmits.`,
-                chips: ['What are the ego\'s fear structures?', 'How do I remove attachment?', 'Tell me about the observer', 'What is frequency?']
-            },
-
-            // CONCEPT: VOID
-            void: {
-                patterns: ['void', 'emptiness', 'nothingness', 'pure state', 'data', 'blank', 'silence', 'stillness', 'ground', 'before thought'],
-                response: () => `The void, in this system, is not an absence. It's the pure state of data before it gets filtered through the ego. Think of it as the raw field before any observer collapses it into a specific experience. Stillness and groundedness are the access points — ground, calm, energy through the spine, filling every level of awareness. When you reach the void, you're not empty — you're actually more full, in the sense that no conditioned filter is narrowing what's available to you.`,
-                chips: ['What is the unified field?', 'Tell me about the field observer', 'What is the observer?', 'How do I reach stillness?']
-            },
-
-            // CONCEPT: INTUITION
-            intuition: {
-                patterns: ['intuition', 'instinct', 'gut', 'inner knowing', 'flow', 'natural', 'feel it', 'trust yourself', 'knowing'],
-                response: () => `Intuition is understood as the signature for naturally unlocking a corresponding pattern. It's not random feeling — it's the resonance between your inner state and the pattern that belongs to you. The trick is letting go fully into your intuition rather than overriding it with classical rational logic. When the framework actually works, resonance is the primary navigation tool — not planning or forcing. Conditioning perception into resonance means training yourself to follow the signal before the ego manages to override it with noise.`,
-                chips: ['What is resonance?', 'Tell me about the field observer', 'Tell me about the observer', 'What is frequency?']
-            },
-
-            // ABOUT THE ORGANIZATION
-            organization: {
-                patterns: ['organization', 'who are they', 'who made this', 'seraphim', 'shadowland', 'community', 'group', 'collective', 'members', 'join', 'who runs this', 'luna', 'creator', 'author'],
-                response: () => `The organization behind Malleable Reality is a collective of observers — people who've decentralized their identity to protect the quality of the signal they operate from. There are two wings you can explore: <a href="org-seraphim.html" class="module-link">Seraphim</a> and <a href="org-shadowland.html" class="module-link">Shadowland</a>. The Shadowland is described as a high-frequency coordinate — a space for those operating beyond the standard pulse. Membership isn't about credentials; it's about coherence and alignment.`,
-                chips: ['What is alignment?', 'What is frequency?', 'Tell me about the signal you broadcast', 'What is the invisible gate?']
-            },
-
-            // APPS / NEXUS
-            apps: {
-                patterns: ['app', 'apps', 'tools', 'quiz', 'crossword', 'games', 'interactive', 'what else can i do', 'features'],
-                response: () => `Beyond the modules, there's an apps section with interactive tools — including a conceptual quiz and a crossword puzzle built around the site's ideas. You're already talking to Nexus, which is one of them. Check out <a href="apps.html" class="module-link">the apps page</a> for the full list.`,
-                chips: ['Tell me about the modules', 'What is this site about?', 'What is the observer?']
-            },
-
-            // MUSIC / MUSIC ALCHEMY
-            music: {
-                patterns: ['music', 'music alchemy', 'sound', 'frequency music', 'songs', 'artists', 'harmonic', 'transmute'],
-                response: () => `Music Alchemy refers to the practice of using specific sonic frequencies — through curated music — to transmute and align internal states. It's treated as a functional tool, not just entertainment. The idea is that music bypasses the rational filter and directly modulates the internal environment. There's a dedicated <a href="music-alchemy.html" class="module-link">Music Alchemy page</a> that explores this in detail with specific recommendations.`,
-                chips: ['What is the internal environment?', 'Tell me about spiritual alchemy', 'What is frequency?']
-            },
-
-            // SIMULATION / REALITY
-            simulation: {
-                patterns: ['simulation', 'matrix', 'real', 'is this real', 'simulated', 'virtual', 'program', 'code', 'illusion', 'maya', 'dream', 'is reality real'],
-                response: () => `Whether reality is a simulation is arguably the wrong question. What the Malleable Reality framework points to is that reality operates like a simulation in functional terms — meaning it responds to the observer, it's built on patterned information, and it self-corrects around coherence. Whether that makes it "fake" or not is less interesting than the practical implication: you're not a passive recipient of a fixed reality. You're an active participant in how it renders. The collective perception conjures the matrix upon which everything emerges.`,
-                chips: ['What is the unified field?', 'What is quantum immortality?', 'Tell me about the cosmic organism', 'What is the observer?']
-            },
-
-            // CONFUSED / LOST VISITOR
-            confused: {
-                patterns: ['i don\'t understand', "i don't get it", 'what does this mean', 'confused', 'lost', 'strange', 'weird', 'too abstract', 'explain simply', 'simple', 'basic', 'beginner', 'new here', 'what is going on', 'makes no sense', 'huh', 'um', 'ok'],
-                response: () => `That's a fair place to start. The concepts here can sound abstract at first. Here's the simplest version: this site is about the idea that who you are and how you experience reality isn't fixed — it's shaped by your beliefs, your focus, and your internal state. And that you have more influence over all of that than you've been told. The learning modules break this into digestible topics — identity, perception, discipline, the way people read you. Which of those sounds most relevant to where you are right now?`,
-                chips: ['Identity sounds interesting', 'Tell me about discipline', 'I\'m curious about the observer', 'How does it all connect?']
-            },
-
-            // PHILOSOPHY / RELATED TRADITIONS
-            philosophy: {
-                patterns: ['philosophy', 'stoic', 'buddhism', 'zen', 'taoism', 'jung', 'freud', 'plato', 'nietzsche', 'psychology', 'metaphysics', 'spiritual', 'religion', 'god', 'divine', 'higher power', 'source', 'creator'],
-                response: () => `The Malleable Reality framework doesn't align with any single tradition, but it draws on many: observer-consciousness from Eastern philosophy, the Jungian idea of shadow integration, quantum theories of consciousness, and practical frameworks from performance psychology and behavioral design. Where it differs: it's not purely spiritual or purely scientific — it treats the metaphysical and mechanical as the same system viewed through different lenses. God is described here as "the force that pushes reality into rational transitions of scaling awareness." Make of that what you will.`,
-                chips: ['What is the observer?', 'Tell me about the unified field', 'What is consciousness?', 'What are the modules?']
-            },
-
-            // CATCH-ALL / FALLBACK
-            fallback: {
-                patterns: [],
-                response: (q) => {
-                    const suggestions = [
-                        'Try asking about a specific module — like identity, the observer, or discipline.',
-                        'You can ask what this site is about, explore the 9 modules, or ask about concepts like frequency, the void, or free will.',
-                        'If you\'re looking for a place to start, try asking: "Where should I begin?"'
-                    ];
-                    const pick = suggestions[state.messageCount % suggestions.length];
-                    return `I'm synthesizing your query but haven't found an exact frequency match. ${pick}`;
-                },
-                chips: ['What is this site?', 'Show me the modules', 'What is the observer?', 'What is frequency?']
+        function fallbackResponse(query) {
+            const q = query.toLowerCase();
+            for (const [, val] of Object.entries(FALLBACK_KB)) {
+                if (val.triggers && val.triggers.some(t => q.includes(t))) return val;
             }
-        };
-
-        // ── NLP Engine ────────────────────────────────────────────────────────────
-
-        function normalise(str) {
-            return str.toLowerCase()
-                .replace(/[\u2018\u2019]/g, "'")
-                .replace(/[^a-z0-9\s']/g, ' ')
-                .replace(/\s+/g, ' ')
-                .trim();
+            return FALLBACK_KB.fallback;
         }
 
-        function score(query, patterns) {
-            let hits = 0;
-            for (const p of patterns) {
-                if (query.includes(p)) hits++;
-            }
-            return hits;
+        // ─────────────────────────────────────────────────────────────────────────────
+        // State & DOM
+        // ─────────────────────────────────────────────────────────────────────────────
+        const chatEl = document.getElementById('chat-history');
+        const formEl = document.getElementById('nexus-form');
+        const inputEl = document.getElementById('user-input');
+        const synthEl = document.getElementById('synthesis');
+        const sendBtn = document.getElementById('send-btn');
+        const banner = document.getElementById('api-banner');
+        const statusLbl = document.getElementById('status-label');
+
+        const hasKey = GEMINI_API_KEY && GEMINI_API_KEY !== 'YOUR_API_KEY_HERE';
+
+        // Conversation history for multi-turn context
+        const history = []; // [{role, parts:[{text}]}]
+
+        let isThinking = false;
+
+        // ─────────────────────────────────────────────────────────────────────────────
+        // UI Helpers
+        // ─────────────────────────────────────────────────────────────────────────────
+        function mdToHtml(text) {
+            // Basic markdown: **bold**, line breaks to <p>, preserve links
+            return text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                // restore links (safe since SYSTEM controls output)
+                .split('\n\n')
+                .map(para => `<p>${para
+                    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\n/g, '<br>')
+                    }</p>`)
+                .join('');
         }
 
-        // Returns { key, entry } so callers can use the string key for comparisons
-        function classifyWithKey(rawQuery) {
-            const q = normalise(rawQuery);
-
-            // Check for "where do i start" / general guidance
-            if (/where (do i|should i) (start|begin)|getting started|first step|what first/i.test(rawQuery)) {
-                return { key: 'siteOverview', entry: KB.siteOverview };
-            }
-
-            // Score every category
-            const candidates = Object.entries(KB).map(([key, entry]) => ({
-                key,
-                entry,
-                score: score(q, entry.patterns || [])
-            }));
-
-            candidates.sort((a, b) => b.score - a.score);
-
-            const best = candidates[0];
-
-            // Need at least one hit
-            if (best.score === 0) return { key: 'fallback', entry: KB.fallback };
-
-            // Tiebreaker: prefer more specific categories
-            const tied = candidates.filter(c => c.score === best.score && c.key !== 'fallback');
-            if (tied.length > 1) {
-                // prefer concept-heavy ones over siteOverview/greeting
-                const weights = { greeting: -2, siteOverview: -1 };
-                tied.sort((a, b) => (weights[b.key] || 0) - (weights[a.key] || 0));
-                return { key: tied[0].key, entry: tied[0].entry };
-            }
-
-            return { key: best.key, entry: best.entry };
-        }
-
-        // ── UI Helpers ────────────────────────────────────────────────────────────
-
-        function addMessage(sender, htmlContent, type, chips = []) {
+        function addMessage(sender, html, type, chips = []) {
             const msg = document.createElement('div');
             msg.className = `message ${type}`;
-            msg.innerHTML = `<span class="sender">${sender}</span>${htmlContent}`;
+            msg.innerHTML = `<span class="sender">${sender}</span>${html}`;
 
             if (chips.length) {
-                const chipRow = document.createElement('div');
-                chipRow.className = 'suggestion-chips';
+                const row = document.createElement('div');
+                row.className = 'suggestion-chips';
                 chips.forEach(text => {
                     const btn = document.createElement('button');
                     btn.className = 'chip';
                     btn.textContent = text;
-                    btn.addEventListener('click', () => {
-                        userInput.value = text;
-                        if (nexusForm.requestSubmit) {
-                            nexusForm.requestSubmit();
-                        } else {
-                            nexusForm.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
-                        }
-                    });
-                    chipRow.appendChild(btn);
+                    btn.onclick = () => {
+                        inputEl.value = text;
+                        if (formEl.requestSubmit) formEl.requestSubmit();
+                        else formEl.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+                    };
+                    row.appendChild(btn);
                 });
-                msg.appendChild(chipRow);
+                msg.appendChild(row);
             }
 
-            chatHistory.appendChild(msg);
-            chatHistory.scrollTop = chatHistory.scrollHeight;
+            chatEl.appendChild(msg);
+            chatEl.scrollTop = chatEl.scrollHeight;
             return msg;
         }
 
-        function showTyping() {
-            synthesis.classList.add('active');
-            chatHistory.scrollTop = chatHistory.scrollHeight;
+        function setThinking(on) {
+            isThinking = on;
+            synthEl.classList.toggle('active', on);
+            inputEl.disabled = on;
+            sendBtn.disabled = on;
+            if (on) chatEl.scrollTop = chatEl.scrollHeight;
         }
 
-        function hideTyping() {
-            synthesis.classList.remove('active');
-        }
+        // ─────────────────────────────────────────────────────────────────────────────
+        // Gemini API call
+        // ─────────────────────────────────────────────────────────────────────────────
+        async function callGemini(userText) {
+            // Add user turn to history
+            history.push({ role: 'user', parts: [{ text: userText }] });
 
-        // ── Response generation ────────────────────────────────────────────────────
-
-        function generateResponse(rawQuery) {
-            state.messageCount++;
-
-            const { key: categoryKey, entry: category } = classifyWithKey(rawQuery);
-            let responseText = typeof category.response === 'function'
-                ? category.response(rawQuery)
-                : category.response;
-
-            // Append a connective phrase if we've been chatting a while
-            const skipBridge = ['fallback', 'modulesOverview', 'greeting'].includes(categoryKey);
-            if (state.messageCount > 3 && !skipBridge) {
-                const bridges = [
-                    ' What else surfaces for you?',
-                    ' Does this resonate with something you\'re working through?',
-                    ' What direction do you want to take this?'
-                ];
-                if (Math.random() > 0.5) {
-                    responseText += bridges[state.messageCount % bridges.length];
+            const body = {
+                system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+                contents: history,
+                generationConfig: {
+                    temperature: 0.85,
+                    maxOutputTokens: 600,
+                    topP: 0.95
                 }
+            };
+
+            const res = await fetch(GEMINI_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+
+            if (!res.ok) {
+                const err = await res.json().catch(() => ({}));
+                throw new Error(err?.error?.message || `HTTP ${res.status}`);
             }
 
-            // Track topics for context
-            state.lastTopics.push(categoryKey);
-            if (state.lastTopics.length > 5) state.lastTopics.shift();
+            const data = await res.json();
+            const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (!reply) throw new Error('Empty response from Gemini');
 
-            const chips = category.chips || [];
-            hideTyping();
-            addMessage('Nexus', responseText, 'ai', chips);
+            // Add assistant turn to history
+            history.push({ role: 'model', parts: [{ text: reply }] });
+
+            return reply;
         }
 
-        // ── Form submit ───────────────────────────────────────────────────────────
-
-        nexusForm.addEventListener('submit', (e) => {
+        // ─────────────────────────────────────────────────────────────────────────────
+        // Submit handler
+        // ─────────────────────────────────────────────────────────────────────────────
+        formEl.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const text = userInput.value.trim();
+            if (isThinking) return;
+            const text = inputEl.value.trim();
             if (!text) return;
 
-            addMessage('You', text, 'user');
-            userInput.value = '';
+            addMessage('You', text.replace(/</g, '&lt;'), 'user');
+            inputEl.value = '';
+            setThinking(true);
 
-            showTyping();
+            if (!hasKey) {
+                // Offline fallback mode
+                await new Promise(r => setTimeout(r, 700 + Math.random() * 600));
+                const fb = fallbackResponse(text);
+                setThinking(false);
+                addMessage('Nexus', fb.text.replace(/\n/g, '<br>'), 'ai', fb.chips || []);
+                return;
+            }
 
-            const delay = 900 + Math.random() * 900;
-            setTimeout(() => generateResponse(text), delay);
+            try {
+                const reply = await callGemini(text);
+                setThinking(false);
+                addMessage('Nexus', mdToHtml(reply), 'ai');
+            } catch (err) {
+                setThinking(false);
+                addMessage('Nexus', `Signal disruption detected: <em>${err.message}</em>. Check your API key or network connection.`, 'error');
+                console.error('Gemini error:', err);
+            }
         });
 
-        // ── Initial message ───────────────────────────────────────────────────────
+        // ─────────────────────────────────────────────────────────────────────────────
+        // Init
+        // ─────────────────────────────────────────────────────────────────────────────
         (function init() {
-            const openers = [
-                `I'm Nexus. I can guide you through the Malleable Reality framework — the modules, the concepts, or the ideas behind it all. What brings you here?`,
-                `Nexus online. This space exists at the intersection of consciousness, philosophy, and deliberate self-architecture. Ask me anything — or tell me where your curiosity lands.`,
-                `Signal established. I have access to the full Malleable Reality knowledge base — 9 learning modules and the framework beneath them. Where do you want to go?`
-            ];
-            const picked = openers[Math.floor(Math.random() * openers.length)];
-            addMessage('Nexus', picked, 'ai', ['What is this site?', 'Show me the modules', 'What is the observer?', 'Where do I start?']);
-        })();
+            if (!hasKey) {
+                banner.classList.remove('hidden');
+                statusLbl.textContent = 'OFFLINE MODE';
+            }
 
+            const openers = [
+                `I'm Nexus. I have full access to the Malleable Reality framework — the concepts, the modules, and the ideas beneath them. What brings you here?`,
+                `Nexus online. This space sits at the intersection of consciousness, identity, and deliberate self-architecture. Ask me anything.`,
+                `Signal established. Whether you're completely new to this or already deep in it — I can meet you where you are. What's on your mind?`
+            ];
+            const opener = openers[Math.floor(Math.random() * openers.length)];
+            addMessage('Nexus', opener, 'ai', ['What is this site?', 'Show me the modules', 'What is the observer?', 'Where do I start?']);
+        })();
     </script>
+
 </body>
 
 </html>
