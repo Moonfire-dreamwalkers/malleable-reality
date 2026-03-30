@@ -357,8 +357,8 @@
             background: linear-gradient(135deg, rgba(92,24,168,0.25) 0%, rgba(15,5,25,0.75) 50%, rgba(217,28,28,0.15) 100%);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(168,85,247,0.35);
-            box-shadow: 0 0 50px rgba(168,85,247,0.2), 0 15px 40px rgba(0,0,0,0.6);
+            border: 1px solid rgba(168,85,247,0.5);
+            box-shadow: 0 0 60px rgba(168,85,247,0.35), 0 15px 40px rgba(0,0,0,0.6);
             padding: 3rem 3.5rem;
             margin-bottom: 2.5rem;
             text-decoration: none;
@@ -438,8 +438,8 @@
             background: rgba(15,5,25,0.55);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+            border: 1px solid rgba(168,85,247,0.3);
+            box-shadow: 0 0 35px rgba(168,85,247,0.22), 0 8px 24px rgba(0,0,0,0.45);
             transition: all 0.5s cubic-bezier(0.2,0.8,0.2,1);
             overflow: hidden;
         }
@@ -496,31 +496,7 @@
             .dir-sub-grid { grid-template-columns: 1fr; }
         }
 
-        /* ── Synchronized featured glow ── */
-        @keyframes dir-featured-glow {
-            0%, 100% {
-                box-shadow: 0 0 30px rgba(168,85,247,0.25), 0 0 15px rgba(217,28,28,0.1), 0 15px 40px rgba(0,0,0,0.6);
-                border-color: rgba(168,85,247,0.3);
-            }
-            50% {
-                box-shadow: 0 0 70px rgba(168,85,247,0.55), 0 0 40px rgba(217,28,28,0.25), 0 15px 40px rgba(0,0,0,0.6);
-                border-color: rgba(168,85,247,0.7);
-            }
-        }
-        .dir-super-card {
-            animation: dir-featured-glow 3s ease-in-out infinite;
-        }
-        .dir-super-card:hover {
-            animation: none;
-        }
-        .dir-sub-card {
-            animation: dir-featured-glow 3s ease-in-out infinite;
-        }
-        .dir-sub-card:hover {
-            animation: none;
-        }
-
-        /* ── About / Admin section ── */
+        /* About / Admin section */
         .dir-about-section {
             margin-top: 5rem;
             margin-bottom: 2rem;
@@ -591,16 +567,6 @@
             font-weight: 700;
         }
 
-        /* ── Synchronized Featured Glow ── */
-        @keyframes featured-glow-pulse {
-            0% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.4), 0 10px 30px rgba(0,0,0,0.5); border-color: rgba(168, 85, 247, 0.4); }
-            50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.8), 0 10px 30px rgba(0,0,0,0.5); border-color: rgba(168, 85, 247, 0.8); }
-            100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.4), 0 10px 30px rgba(0,0,0,0.5); border-color: rgba(168, 85, 247, 0.4); }
-        }
-
-        .dir-super-card, .dir-sub-card {
-            animation: featured-glow-pulse 3s infinite ease-in-out;
-        }
     </style>
 </head>
 <body class="mr-theme">
@@ -614,7 +580,7 @@
 
     <!-- Navigation -->
     <nav class="mr-navbar">
-        <a href="spiritual-server-directory.html" class="mr-nav-link active">Discord Server Directory</a>
+        <a href="index.html" class="mr-nav-link active">Discord Server Directory</a>
         <a href="music-alchemy.html" class="mr-nav-link">Music Alchemy</a>
     </nav>
 
