@@ -1,10 +1,41 @@
 {
   "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
     {
       "source": "/",
       "destination": "/discord-server-directory",
       "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/discord-server-directory",
+      "permanent": true
+    },
+    {
+      "source": "/spiritual-server-directory",
+      "destination": "/discord-server-directory",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/discord-server-directory",
+      "permanent": false
+    },
+    {
+      "source": "/modules",
+      "destination": "/discord-server-directory",
+      "permanent": false
+    },
+    {
+      "source": "/blog.html",
+      "destination": "/discord-server-directory",
+      "permanent": false
+    },
+    {
+      "source": "/modules.html",
+      "destination": "/discord-server-directory",
+      "permanent": false
     }
   ]
 }
