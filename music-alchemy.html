@@ -15,138 +15,286 @@
     <title>Occult Music & Ritual Ambient Soundscapes | Malleable Reality Music Alchemy</title>
     <meta name="description" content="Explore a curated sanctuary of occult music therapy, ritual ambient soundscapes, and dark esoteric hip-hop. Engineered for consciousness expansion, meditation, and alchemical transformation.">
     <meta name="keywords" content="occult music, ritual ambient, consciousness expansion music, dark esoteric hip-hop, music for tarot reading, alchemical soundscapes, meditation music for rituals">
+
+    <!-- SEO Optimization -->
+    <link rel="canonical" href="https://www.malleable-reality.com/music-alchemy" />
+    <meta name="theme-color" content="#0a020f">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.malleable-reality.com/music-alchemy">
+    <meta property="og:title" content="Occult Music & Esoteric Soundscapes for Consciousness Expansion | Malleable Reality">
+    <meta property="og:description" content="Explore curated occult music, ritual ambient, and dark esoteric hip-hop. Transformative soundscapes for shadow work, meditation, and consciousness expansion.">
+    <meta property="og:image" content="https://www.malleable-reality.com/mr-eye-og.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.malleable-reality.com/music-alchemy">
+    <meta property="twitter:title" content="Occult Music & Esoteric Soundscapes for Consciousness Expansion | Malleable Reality">
+    <meta property="twitter:description" content="Explore curated occult music, ritual ambient, and dark esoteric hip-hop. Transformative soundscapes for shadow work, meditation, and consciousness expansion.">
+    <meta property="twitter:image" content="https://www.malleable-reality.com/mr-eye-og.png">
+
+    <link rel="icon" type="image/svg+xml" href="mr-eye.svg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicPlaylist",
+      "name": "Music Alchemy - Curated Occult & Consciousness Sounds",
+      "description": "A collection of dark hip-hop, transformative soundscapes, and progressive metal curated for consciousness expansion and internal shift.",
+      "numTracks": 6,
+      "track": [
+        { "@type": "MusicRecording", "name": "The 12 Oracles of Shadowland", "byArtist": { "@type": "MusicGroup", "name": "Lo Key" }, "url": "https://open.spotify.com/album/6jt5yQsBmCbuiLbm2217FU" },
+        { "@type": "MusicRecording", "name": "Imaginal Disk", "byArtist": { "@type": "MusicGroup", "name": "Magdalena Bay" }, "url": "https://open.spotify.com/album/2Htq1sHgmdGffojIBM6Q1s" },
+        { "@type": "MusicRecording", "name": "GODHAND Volume I-IV", "byArtist": { "@type": "MusicGroup", "name": "GODHANDUSA" }, "url": "https://open.spotify.com/artist/52XZBIfTRn9iyM7QLf6DmX" },
+        { "@type": "MusicRecording", "name": "Discography", "byArtist": { "@type": "MusicGroup", "name": "Qveen Herby" }, "url": "https://open.spotify.com/artist/4o4tLTIJ3eWMFerz73atcT" },
+        { "@type": "MusicRecording", "name": "Grant Us Eyes", "byArtist": { "@type": "MusicGroup", "name": "Something Outta Nothing" }, "url": "https://open.spotify.com/album/6IOEnuQXPIEvsQEbakPDrg" },
+        { "@type": "MusicRecording", "name": "Lateralus / 10,000 Days", "byArtist": { "@type": "MusicGroup", "name": "Tool" }, "url": "https://open.spotify.com/artist/2yEwvVSSSUkcLeSTNyHKh8" }
+      ]
+    }
+    </script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="malleable-theme.css">
+
     <style>
-        .alchemy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        /* ── Music Hub Page Scoped Styles ── */
+        .dir-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 6rem;
+            position: relative;
+            z-index: 10;
         }
 
-        .alchemy-card {
-            --card-glow: rgba(255, 204, 0, 0.5);
-            background: var(--mr-bg-panel);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: var(--mr-border-radius);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: var(--mr-shadow-void);
-            overflow: hidden;
+        /* Hero */
+        .dir-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-top: 2rem;
+        }
+
+        .dir-eye {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            background: radial-gradient(circle, #d91c1c 20%, #4a0000 100%);
+            border-radius: 50%;
+            border: 3px solid #000;
             display: flex;
-            flex-direction: column;
-            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .alchemy-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--card-glow);
-            box-shadow: var(--mr-shadow-void), 0 0 45px var(--card-glow);
-        }
-
-        .alchemy-card-header {
-            padding: 1.75rem 1.75rem 0;
-        }
-
-        .alchemy-card-tag {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--mr-text-muted);
-            margin-bottom: 0.6rem;
-        }
-
-        .alchemy-card-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin: 0 0 0.25rem 0;
-            line-height: 1.2;
-        }
-
-        .alchemy-card-subtitle {
-            font-size: 0.9rem;
-            color: var(--mr-text-muted);
-            margin: 0 0 1.25rem 0;
-        }
-
-        .alchemy-card-body {
-            padding: 0 1.75rem 1.75rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .alchemy-card-desc {
-            color: var(--mr-text-muted);
-            font-size: 0.95rem;
-            line-height: 1.75;
-            flex-grow: 1;
-            margin-bottom: 1.5rem;
-        }
-
-        .alchemy-divider {
-            height: 1px;
-            background: rgba(255, 204, 0, 0.12);
-            margin: 0 1.75rem 1.5rem;
-        }
-
-        .alchemy-listen-btn {
-            display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.6rem;
-            padding: 0.7rem 1.25rem;
-            background: rgba(30, 215, 96, 0.08);
-            border: 1px solid rgba(30, 215, 96, 0.25);
-            border-radius: 8px;
-            color: #1ed760;
-            text-decoration: none;
-            font-size: 0.9rem;
+            box-shadow: 0 0 30px rgba(217, 28, 28, 0.5);
+            animation: dir-eye-pulse 4s ease-in-out infinite alternate;
+        }
+
+        .dir-eye .pupil {
+            width: 20px;
+            height: 58px;
+            background: #000;
+            border-radius: 50%;
+        }
+
+        @keyframes dir-eye-pulse {
+            0%  { transform: scale(1);    box-shadow: 0 0 20px rgba(217, 28, 28, 0.4); }
+            100%{ transform: scale(1.06); box-shadow: 0 0 50px rgba(217, 28, 28, 0.9); }
+        }
+
+        .dir-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #f4ecf9, #ffcc00, #ff7300);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dir-tagline {
+            font-size: 1.1rem;
+            color: var(--mr-text-muted);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* SEO intro */
+        .dir-seo-intro {
+            max-width: 800px;
+            margin: 0 auto 3.5rem;
+            text-align: center;
+        }
+
+        .dir-seo-intro p {
+            color: var(--mr-text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Grid */
+        .dir-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.75rem;
+        }
+
+        /* Cards */
+        .dir-card {
+            display: block;
+            border-radius: 18px;
+            background: rgba(15, 5, 25, 0.62);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .dir-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 22px 55px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 204, 0, 0.18);
+        }
+
+        .dir-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dir-card-inner {
+            padding: 2.25rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .dir-pfp-wrap { margin-bottom: 1.75rem; }
+
+        .dir-pfp {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            background-color: #0a020f;
+        }
+
+        /* PFP border variants */
+        .pb-purple  { border: 2px solid #A855F7; box-shadow: 0 0 14px #A855F7; }
+        .pb-gold    { border: 2px solid #ffcc00; box-shadow: 0 0 14px #ffcc00; }
+        .pb-crimson { border: 2px solid #d91c1c; box-shadow: 0 0 14px #d91c1c; }
+        .pb-blue    { border: 2px solid #3498db; box-shadow: 0 0 14px #3498db; }
+        .pb-pink    { border: 2px solid #f4a7d9; box-shadow: 0 0 14px #f4a7d9; }
+        .pb-violet  { border: 2px solid #9b59b6; box-shadow: 0 0 14px #9b59b6; }
+
+        .dir-tag {
+            font-size: 0.72rem;
             font-weight: 700;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--mr-text-muted);
+            margin-bottom: 0.4rem;
+            display: block;
         }
 
-        .alchemy-listen-btn:hover {
-            background: rgba(30, 215, 96, 0.18);
-            border-color: rgba(30, 215, 96, 0.6);
-            transform: translateX(3px);
+        .dir-card-content { display: flex; flex-direction: column; flex: 1; }
+
+        .dir-card-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+            color: #fff;
+        }
+        
+        .dir-card-subtitle {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--mr-text-muted);
+            margin-bottom: 1rem;
         }
 
-        .alchemy-listen-btn svg {
-            width: 16px;
-            height: 16px;
-            fill: #1ed760;
-            flex-shrink: 0;
+        .dir-card-desc {
+            color: var(--mr-text-muted);
+            font-size: 0.97rem;
+            margin-bottom: 1.75rem;
+            flex-grow: 1;
+            line-height: 1.6;
         }
 
+        .dir-card-action {
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            margin-top: auto;
+        }
+
+        .dir-card-action::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* Make dir-card relative so the after element spans the whole card */
+        .dir-card {
+            position: relative;
+        }
+
+        .dir-arrow { transition: transform 0.3s ease; }
+        .dir-card:hover .dir-arrow, .dir-card-action:hover .dir-arrow { transform: translateX(7px); }
+
+        /* Action color variants */
+        .ac-purple  { color: #A855F7; }
+        .ac-gold    { color: #ffcc00; }
+        .ac-crimson { color: #d91c1c; }
+        .ac-blue    { color: #3498db; }
+        .ac-pink    { color: #f4a7d9; }
+        .ac-violet  { color: #9b59b6; }
+
+        /* Oracles / Sub Features */
         .alchemy-oracle-lore {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 0.75rem;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.75rem;
+        }
+
+        @media (max-width: 760px) {
+            .alchemy-oracle-lore { grid-template-columns: 1fr; }
         }
 
         .oracle-entry {
-            background: rgba(217, 28, 28, 0.06);
-            border: 1px solid rgba(217, 28, 28, 0.18);
-            border-radius: 8px;
+            background: rgba(15, 5, 25, 0.55);
+            border: 1px solid rgba(217, 28, 28, 0.3);
+            border-radius: 12px;
             padding: 0.9rem 1rem;
             text-decoration: none;
             display: block;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2; /* Float above the stretched card link */
         }
 
         .oracle-entry:hover {
-            background: rgba(217, 28, 28, 0.12);
-            border-color: rgba(217, 28, 28, 0.4);
+            background: rgba(217, 28, 28, 0.08);
+            border-color: rgba(217, 28, 28, 0.6);
             transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4), 0 0 15px rgba(217, 28, 28, 0.15);
         }
 
         .oracle-entry span.oracle-title {
@@ -164,30 +312,6 @@
             line-height: 1.5;
         }
 
-        .multi-link-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-
-        .mr-page-accent {
-            display: inline-block;
-            width: 40px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--mr-primary), var(--mr-accent));
-            border-radius: 2px;
-            margin-bottom: 1.5rem;
-        }
-
-        @media (max-width: 760px) {
-            .alchemy-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .alchemy-oracle-lore {
-                grid-template-columns: 1fr;
-            }
-        }
         /* Hub Link Styling */
         .mr-hub-link {
             display: inline-flex;
@@ -223,336 +347,170 @@
             background: radial-gradient(circle at center, rgba(255,204,0,0.1) 0%, transparent 70%);
         }
 
-        .mr-hub-icon {
-            font-size: 1.8rem;
-            color: #fff;
-        }
-
-        .mr-hub-content {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .mr-hub-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--mr-text-muted);
-            margin-bottom: 0.2rem;
-        }
-
-        .mr-hub-title {
-            font-family: 'Cinzel Decorative', cursive;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .mr-hub-arrow {
-            transition: transform 0.3s ease;
-        }
-
-        .mr-hub-link:hover .mr-hub-arrow {
-            transform: translateX(8px);
-        }
+        .mr-hub-icon { font-size: 1.8rem; color: #fff; }
+        .mr-hub-content { display: flex; flex-direction: column; }
+        .mr-hub-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--mr-text-muted); margin-bottom: 0.2rem; }
+        .mr-hub-title { font-family: 'Cinzel Decorative', cursive; font-size: 1.15rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 0.5rem; }
+        .mr-hub-arrow { transition: transform 0.3s ease; }
+        .mr-hub-link:hover .mr-hub-arrow { transform: translateX(8px); }
     </style>
-
-    <!-- SEO Optimization -->
-    <link rel="canonical" href="https://www.malleable-reality.com/music-alchemy" />
-    <meta name="theme-color" content="#0a020f">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://malleable-reality.com/music-alchemy">
-    <meta property="og:title" content="Occult Music & Esoteric Soundscapes for Consciousness Expansion | Malleable Reality">
-    <meta property="og:description"
-        content="Explore curated occult music, ritual ambient, and dark esoteric hip-hop. Transformative soundscapes for shadow work, meditation, and consciousness expansion.">
-    <meta property="og:image" content="https://malleable-reality.com/mr-og-image.webp">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://malleable-reality.com/music-alchemy">
-    <meta property="twitter:title" content="Occult Music & Esoteric Soundscapes for Consciousness Expansion | Malleable Reality">
-    <meta property="twitter:description"
-        content="Explore curated occult music, ritual ambient, and dark esoteric hip-hop. Transformative soundscapes for shadow work, meditation, and consciousness expansion.">
-    <meta property="twitter:image" content="https://malleable-reality.com/mr-og-image.webp">
-
-    <link rel="icon" type="image/svg+xml" href="mr-eye.svg">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MusicPlaylist",
-      "name": "Music Alchemy - Curated Occult & Consciousness Sounds",
-      "description": "A collection of dark hip-hop, transformative soundscapes, and progressive metal curated for consciousness expansion and internal shift.",
-      "numTracks": 6,
-      "track": [
-        { "@type": "MusicRecording", "name": "The 12 Oracles of Shadowland", "byArtist": { "@type": "MusicGroup", "name": "Lo Key" }, "url": "https://open.spotify.com/album/6jt5yQsBmCbuiLbm2217FU" },
-        { "@type": "MusicRecording", "name": "Imaginal Disk", "byArtist": { "@type": "MusicGroup", "name": "Magdalena Bay" }, "url": "https://open.spotify.com/album/2Htq1sHgmdGffojIBM6Q1s" },
-        { "@type": "MusicRecording", "name": "GODHAND Volume I-IV", "byArtist": { "@type": "MusicGroup", "name": "GODHANDUSA" }, "url": "https://open.spotify.com/artist/52XZBIfTRn9iyM7QLf6DmX" },
-        { "@type": "MusicRecording", "name": "Episodes 1-10", "byArtist": { "@type": "MusicGroup", "name": "Qveen Herby" }, "url": "https://open.spotify.com/artist/4o4tLTIJ3eWMFerz73atcT" },
-        { "@type": "MusicRecording", "name": "Grant Us Eyes", "byArtist": { "@type": "MusicGroup", "name": "Something Outta Nothing" }, "url": "https://open.spotify.com/album/6IOEnuQXPIEvsQEbakPDrg" },
-        { "@type": "MusicRecording", "name": "Lateralus / 10,000 Days", "byArtist": { "@type": "MusicGroup", "name": "Tool" }, "url": "https://open.spotify.com/artist/2yEwvVSSSUkcLeSTNyHKh8" }
-      ]
-    }
-    </script>
 </head>
 
 <body class="mr-theme">
-    <div class="mr-starfield">
-        <div class="mr-starfield-foreground"></div>
-    </div>
-    <div class="mr-hypnotic-bg"></div>
-    <div class="mr-hypnotic-overlay"></div>
+
+    <!-- Navigation -->
     <nav class="mr-navbar">
         <a href="discord-server-directory" class="mr-nav-link">Discord Server Directory</a>
         <a href="music-alchemy" class="mr-nav-link active">Music Alchemy</a>
     </nav>
 
-    <!-- Omnipresent Watcher -->
-    <div style="position: fixed; top: 1.5rem; right: 2rem; z-index: 100; opacity: 0.75; pointer-events: none;">
-        <div class="mystic-eye mr-floating"
-            style="margin: 0; width: 40px; height: 40px; border-width: 2px; box-shadow: var(--mr-glow-crimson);">
-            <div class="pupil" style="width: 8px; height: 20px;"></div>
-        </div>
+    <!-- MR Background Layers -->
+    <div class="mr-starfield">
+        <div class="mr-starfield-foreground"></div>
     </div>
+    <div class="mr-hypnotic-bg"></div>
+    <div class="mr-hypnotic-overlay"></div>
 
-    <div class="mr-container" style="padding-top: 3rem; padding-bottom: 6rem;">
+    <div class="dir-container">
 
-        <section class="dir-seo-intro" style="margin-bottom: 3rem;">
-            <div class="mr-page-accent"></div>
-            <h1 style="font-family: 'Cinzel Decorative', cursive; font-size: 2.5rem; margin-bottom: 1rem; color: #fff;">Music Alchemy</h1>
-            <p style="font-size: 1.15rem; color: var(--mr-primary); margin-bottom: 1.5rem; font-weight: 500; letter-spacing: 0.5px;">Curated Frequencies for Consciousness Expansion & Ritual Practice</p>
+        <!-- Hero -->
+        <header class="dir-hero mr-floating-delay-3">
+            <div class="dir-eye">
+                <div class="pupil"></div>
+            </div>
+            <h1 class="dir-title">Music Alchemy</h1>
+            <p class="dir-tagline">Curated Frequencies for Consciousness Expansion</p>
+        </header>
+
+        <section class="dir-seo-intro">
             <p>Welcome to the Alchemical Soundscape Hub. Here, music is treated not as entertainment, but as a catalyst for internal transformation and occult exploration. This collection features a hand-picked selection of ritual ambient, dark esoteric hip-hop, and meditative frequencies designed to bridge the gap between the mundane and the infinite.</p>
             <p style="margin-top: 1rem;">Whether you are seeking the best music for tarot reading, ritual background audio, or deep shadow work, these artists provide the necessary resonance for your journey. From alchemical vibrations and gnostic frequencies to the raw energy of occult rap, each track is selected for its ability to shift perception and accelerate spiritual evolution.</p>
         </section>
 
-        <div class="alchemy-grid">
+        <!-- Grid -->
+        <main class="dir-grid">
 
-            <!-- CARD 6: Lo Key -->
-            <div class="alchemy-card" style="--card-glow: rgba(217, 28, 28, 0.6);">
-                <div
-                    style="width: 100%; height: 240px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(217,28,28,0.15);">
-                    <img src="music-lokey.jpg" alt="Lo Key - Shadowland album art, dark hip-hop for introspection and shadow work"
-                        style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85);">
-                    <div
-                        style="position: absolute; inset: 0; background: linear-gradient(transparent 50%, rgba(10,2,15,1)); pointer-events: none;">
-                    </div>
-                </div>
-                <div class="alchemy-card-header">
-                    <span class="alchemy-card-tag" style="color: var(--mr-primary);">Dark Hip-Hop / Lore Series</span>
-                    <h2 class="alchemy-card-title mr-text-primary">Lo Key</h2>
-                    <p class="alchemy-card-subtitle">The 12 Oracles of Shadowland</p>
-                </div>
-                <div class="alchemy-divider" style="background: rgba(217,28,28,0.15);"></div>
-                <div class="alchemy-card-body">
-                    <p class="alchemy-card-desc">LORE represents the vanguard of occult hip-hop, blending deep esoteric knowledge with sharp, introspective lyricism. This isn't just rap; it's a series of rhythmic incantations designed for those who navigate the shadow and the light. Perfect for those who seek occult rap and dark esoteric sounds during their contemplative practices.</p>
+            <!-- Card 1: Lo Key -->
+            <div class="dir-card">
+                <div class="dir-card-inner">
+                    <div class="dir-pfp-wrap"><img class="dir-pfp pb-crimson" src="music-lokey.jpg" alt="Lo Key - Shadowland" width="76" height="76" loading="lazy"></div>
+                    <div class="dir-card-content">
+                        <span class="dir-tag">Dark Hip-Hop / Lore Series</span>
+                        <h2 class="dir-card-title">Lo Key</h2>
+                        <span class="dir-card-subtitle">The 12 Oracles of Shadowland</span>
+                        <p class="dir-card-desc">LORE represents the vanguard of occult hip-hop, blending deep esoteric knowledge with sharp, introspective lyricism. This isn't just rap; it's a series of rhythmic incantations designed for those who navigate the shadow and the light. Perfect for those who seek occult rap and dark esoteric sounds during their contemplative practices.</p>
 
-                    <div class="alchemy-oracle-lore">
-                        <a href="https://open.spotify.com/album/6jt5yQsBmCbuiLbm2217FU" target="_blank" rel="noopener"
-                            class="oracle-entry">
-                            <span class="oracle-title">Shadowland</span>
-                            <p>The collapsed dimension itself. A threshold between all realms where time dissolves and
-                                dreams become the terrain.</p>
-                        </a>
-                        <a href="https://open.spotify.com/album/2GYmZR5WjBULVsGftcNmoY" target="_blank" rel="noopener"
-                            class="oracle-entry">
-                            <span class="oracle-title">Book of Time</span>
-                            <p>An artifact that anchors reality by dictating which futures can be remembered. Written in
-                                events, not words.</p>
-                        </a>
-                        <a href="https://open.spotify.com/album/1FWsC4RZol50Z2BNaKwgwp" target="_blank" rel="noopener"
-                            class="oracle-entry">
-                            <span class="oracle-title">Izu</span>
-                            <p>The great annihilator, born from the abyss. Primal dominance and consuming chaos given
-                                form. He does not sleep. He waits.</p>
-                        </a>
-                        <a href="https://open.spotify.com/album/2W13QJoZ5PlXysGlWQwIKu" target="_blank" rel="noopener"
-                            class="oracle-entry">
-                            <span class="oracle-title">Parasuva</span>
-                            <p>Once a war goddess, now mournful myth. Her presence can freeze time and unravel minds. A
-                                lesson in suffering and transformation.</p>
-                        </a>
-                        <a href="https://open.spotify.com/album/47GuUjsSYymeK8NLC29834" target="_blank" rel="noopener"
-                            class="oracle-entry" style="grid-column: 1 / -1;">
-                            <span class="oracle-title">Neculai</span>
-                            <p>Keeper of The End's Keep. A figure who became a god by refusing to leave his kingdom of
-                                sorrow. He listens to your darkest confessions and guards The Void.</p>
+                        <div class="alchemy-oracle-lore">
+                            <a href="https://open.spotify.com/album/6jt5yQsBmCbuiLbm2217FU" target="_blank" rel="noopener" class="oracle-entry">
+                                <span class="oracle-title">Shadowland</span>
+                                <p>The collapsed dimension itself. A threshold between all realms where time dissolves.</p>
+                            </a>
+                            <a href="https://open.spotify.com/album/2GYmZR5WjBULVsGftcNmoY" target="_blank" rel="noopener" class="oracle-entry">
+                                <span class="oracle-title">Book of Time</span>
+                                <p>An artifact that anchors reality by dictating which futures can be remembered.</p>
+                            </a>
+                            <a href="https://open.spotify.com/album/1FWsC4RZol50Z2BNaKwgwp" target="_blank" rel="noopener" class="oracle-entry">
+                                <span class="oracle-title">Izu</span>
+                                <p>The great annihilator, born from the abyss. Primal dominance given form.</p>
+                            </a>
+                            <a href="https://open.spotify.com/album/2W13QJoZ5PlXysGlWQwIKu" target="_blank" rel="noopener" class="oracle-entry">
+                                <span class="oracle-title">Parasuva</span>
+                                <p>Once a war goddess, now mournful myth. A lesson in suffering and transformation.</p>
+                            </a>
+                            <a href="https://open.spotify.com/album/47GuUjsSYymeK8NLC29834" target="_blank" rel="noopener" class="oracle-entry" style="grid-column: 1 / -1;">
+                                <span class="oracle-title">Neculai</span>
+                                <p>Keeper of The End's Keep. A figure who became a god by refusing to leave his kingdom of sorrow.</p>
+                            </a>
+                        </div>
+                        
+                        <a href="https://open.spotify.com/album/6jt5yQsBmCbuiLbm2217FU" target="_blank" rel="noopener" class="dir-card-action ac-crimson">
+                            Listen on Spotify <span class="dir-arrow">→</span>
                         </a>
                     </div>
                 </div>
             </div>
 
-
-            <!-- CARD 2: Magdalena Bay - Imaginal Disk -->
-            <div class="alchemy-card" style="--card-glow: rgba(255, 100, 200, 0.5);">
-                <div
-                    style="width: 100%; height: 240px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(255,100,200,0.15);">
-                    <img src="music-magdalena.jpg" alt="Magdalena Bay - Imaginal Disk album art, electronic music for consciousness expansion"
-                        style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); object-position: center top;">
-                    <div
-                        style="position: absolute; inset: 0; background: linear-gradient(transparent 50%, rgba(10,2,15,1)); pointer-events: none;">
+            <!-- Card 2: Magdalena Bay -->
+            <div class="dir-card">
+                <div class="dir-card-inner">
+                    <div class="dir-pfp-wrap"><img class="dir-pfp pb-pink" src="music-magdalena.jpg" alt="Magdalena Bay" width="76" height="76" loading="lazy"></div>
+                    <div class="dir-card-content">
+                        <span class="dir-tag">Synth Pop / Concept Album</span>
+                        <h2 class="dir-card-title">Magdalena Bay</h2>
+                        <span class="dir-card-subtitle">Imaginal Disk (2024)</span>
+                        <p class="dir-card-desc">A concept album built around the biological phenomenon of imaginal discs in insect larvae. During metamorphosis, the larva does not gradually become a butterfly. It dissolves almost entirely inside the chrysalis, and hidden discs of undifferentiated cells grow into the adult form. Magdalena Bay uses this as a model for identity. The album follows a character named True, who receives an implanted Imaginal Disk meant to construct her ideal self, rejects it, and has to figure out who she actually is. The question it keeps asking: how much of you is you, and how much is programming?</p>
+                        <a href="https://open.spotify.com/album/2Htq1sHgmdGffojIBM6Q1s" target="_blank" rel="noopener" class="dir-card-action ac-pink">
+                            Listen on Spotify <span class="dir-arrow">→</span>
+                        </a>
                     </div>
-                </div>
-                <div class="alchemy-card-header">
-                    <span class="alchemy-card-tag" style="color: #e991c8;">Synth Pop / Concept Album</span>
-                    <h2 class="alchemy-card-title" style="color: #f4a7d9;">Magdalena Bay</h2>
-                    <p class="alchemy-card-subtitle">Imaginal Disk (2024)</p>
-                </div>
-                <div class="alchemy-divider" style="background: rgba(255,100,200,0.1);"></div>
-                <div class="alchemy-card-body">
-                    <p class="alchemy-card-desc">A concept album built around the biological phenomenon of imaginal
-                        discs in insect larvae. During metamorphosis, the larva does not gradually become a butterfly.
-                        It dissolves almost entirely inside the chrysalis, and hidden discs of undifferentiated cells
-                        grow into the adult form. Magdalena Bay uses this as a model for identity. The album follows a
-                        character named True, who receives an implanted Imaginal Disk meant to construct her ideal self,
-                        rejects it, and has to figure out who she actually is. The question it keeps asking: how much of
-                        you is you, and how much is programming</p>
-                    <a href="https://open.spotify.com/album/2Htq1sHgmdGffojIBM6Q1s" target="_blank" rel="noopener"
-                        class="alchemy-listen-btn"
-                        style="border-color: rgba(255,100,200,0.3); color: #f4a7d9; background: rgba(255,100,200,0.07);">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: #f4a7d9;">
-                            <path
-                                d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
-                        </svg>
-                        Listen on Spotify
-                    </a>
                 </div>
             </div>
 
-            <!-- CARD 3: GODHANDUSA -->
-            <div class="alchemy-card" style="--card-glow: rgba(217, 28, 28, 0.6);">
-                <div
-                    style="width: 100%; height: 240px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(217,28,28,0.15);">
-                    <img src="music-godhand.jpg" alt="GODHANDUSA album art, avant-garde underground hip-hop exploring identity and divinity"
-                        style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85);">
-                    <div
-                        style="position: absolute; inset: 0; background: linear-gradient(transparent 50%, rgba(10,2,15,1)); pointer-events: none;">
+            <!-- Card 3: GODHANDUSA -->
+            <div class="dir-card">
+                <div class="dir-card-inner">
+                    <div class="dir-pfp-wrap"><img class="dir-pfp pb-crimson" src="music-godhand.jpg" alt="GODHANDUSA" width="76" height="76" loading="lazy"></div>
+                    <div class="dir-card-content">
+                        <span class="dir-tag">Underground Hip-Hop</span>
+                        <h2 class="dir-card-title">GODHANDUSA</h2>
+                        <span class="dir-card-subtitle">Volume I-IV</span>
+                        <p class="dir-card-desc">ORACLE provides the instrumental foundation for ritual work and meditation. These are high-vibration soundscapes and ritual ambient tracks that act as a mirror for the soul, facilitating the quiet focus necessary for deep tarot reading, astral travel, and hermetic study.</p>
+                        <a href="https://open.spotify.com/artist/52XZBIfTRn9iyM7QLf6DmX" target="_blank" rel="noopener" class="dir-card-action ac-crimson">
+                            Listen on Spotify <span class="dir-arrow">→</span>
+                        </a>
                     </div>
-                </div>
-                <div class="alchemy-card-header">
-                    <span class="alchemy-card-tag" style="color: var(--mr-primary);">Underground Hip-Hop</span>
-                    <h2 class="alchemy-card-title mr-text-primary">GODHANDUSA</h2>
-                </div>
-                <div class="alchemy-divider" style="background: rgba(217,28,28,0.15);"></div>
-                <div class="alchemy-card-body">
-                    <p class="alchemy-card-desc">ORACLE provides the instrumental foundation for ritual work and meditation. These are high-vibration soundscapes and ritual ambient tracks that act as a mirror for the soul, facilitating the quiet focus necessary for deep tarot reading, astral travel, and hermetic study.</p>
-                    <a href="https://open.spotify.com/artist/52XZBIfTRn9iyM7QLf6DmX" target="_blank" rel="noopener"
-                        class="alchemy-listen-btn"
-                        style="border-color: rgba(217,28,28,0.3); color: var(--mr-primary); background: rgba(217,28,28,0.07);">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: var(--mr-primary);">
-                            <path
-                                d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
-                        </svg>
-                        Listen on Spotify
-                    </a>
                 </div>
             </div>
 
-            <!-- CARD 4: Qveen Herby -->
-            <div class="alchemy-card">
-                <div
-                    style="width: 100%; height: 240px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(255,180,0,0.15);">
-                    <img src="music-qveen.jpg" alt="Qveen Herby album art, R&B and hip-hop for self-actualization and power alignment"
-                        style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); object-position: center top;">
-                    <div
-                        style="position: absolute; inset: 0; background: linear-gradient(transparent 50%, rgba(10,2,15,1)); pointer-events: none;">
+            <!-- Card 4: Qveen Herby -->
+            <div class="dir-card">
+                <div class="dir-card-inner">
+                    <div class="dir-pfp-wrap"><img class="dir-pfp pb-gold" src="music-qveen.jpg" alt="Qveen Herby" width="76" height="76" loading="lazy"></div>
+                    <div class="dir-card-content">
+                        <span class="dir-tag">R&B / Hip-Hop</span>
+                        <h2 class="dir-card-title">Qveen Herby</h2>
+                        <span class="dir-card-subtitle">Discography</span>
+                        <p class="dir-card-desc">Soulful, quirky, and deliberately devious R&B blended with hip-hop rhythm and a razor-sharp interior life. Qveen Herby operates in the space between self-actualization and seduction, building music that is fun to listen to on the surface and structurally about something much harder to name: alignment with your own power, without flinching from what you are. The speed-rap sections hit different when you realize the speed itself is the point. She is not in a hurry. She is just already there.</p>
+                        <a href="https://open.spotify.com/artist/4o4tLTIJ3eWMFerz73atcT" target="_blank" rel="noopener" class="dir-card-action ac-gold">
+                            Listen on Spotify <span class="dir-arrow">→</span>
+                        </a>
                     </div>
-                </div>
-                <div class="alchemy-card-header">
-                    <span class="alchemy-card-tag" style="color: var(--mr-accent);">R&B / Hip-Hop</span>
-                    <h2 class="alchemy-card-title" style="color: var(--mr-accent);">Qveen Herby</h2>
-                </div>
-                <div class="alchemy-divider" style="background: rgba(255,204,0,0.12);"></div>
-                <div class="alchemy-card-body">
-                    <p class="alchemy-card-desc">Soulful, quirky, and deliberately devious R&B blended with hip-hop
-                        rhythm and a razor-sharp interior life. Qveen Herby operates in the space between
-                        self-actualization and seduction, building music that is fun to listen to on the surface and
-                        structurally about something much harder to name: alignment with your own power, without
-                        flinching from what you are. The speed-rap sections hit different when you realize the speed
-                        itself is the point. She is not in a hurry. She is just already there.</p>
-                    <a href="https://open.spotify.com/artist/4o4tLTIJ3eWMFerz73atcT" target="_blank" rel="noopener"
-                        class="alchemy-listen-btn"
-                        style="border-color: rgba(255,204,0,0.3); color: var(--mr-accent); background: rgba(255,204,0,0.06);">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: var(--mr-accent);">
-                            <path
-                                d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
-                        </svg>
-                        Listen on Spotify
-                    </a>
                 </div>
             </div>
 
-            <!-- CARD 5: Something Outta Nothing - Grant Us Eyes -->
-            <div class="alchemy-card">
-                <div
-                    style="width: 100%; height: 240px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(100,80,140,0.15);">
-                    <img src="music-son.jpg" alt="Something Outta Nothing - Grant Us Eyes album art, doom bap and horrorcore for introspective weight"
-                        style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85);">
-                    <div
-                        style="position: absolute; inset: 0; background: linear-gradient(transparent 50%, rgba(10,2,15,1)); pointer-events: none;">
+            <!-- Card 5: Something Outta Nothing -->
+            <div class="dir-card">
+                <div class="dir-card-inner">
+                    <div class="dir-pfp-wrap"><img class="dir-pfp pb-violet" src="music-son.jpg" alt="Something Outta Nothing" width="76" height="76" loading="lazy"></div>
+                    <div class="dir-card-content">
+                        <span class="dir-tag">Doom Bap / Horrorcore</span>
+                        <h2 class="dir-card-title">Something Outta Nothing</h2>
+                        <span class="dir-card-subtitle">Grant Us Eyes (2021)</span>
+                        <p class="dir-card-desc">The debut project that defined what people now call doom bap. Traditional boom bap production architecture carrying horrorcore lyricism that does not flinch from psychological deterioration, societal rot, or existential weight. Grant Us Eyes is dark in the way that honest things are dark. It does not gesture at heaviness for style points. The imagery is vivid and uncomfortable because it is accurate. This is music for the part of you that already knows how bad it can get and refuses to pretend otherwise.</p>
+                        <a href="https://open.spotify.com/album/6IOEnuQXPIEvsQEbakPDrg" target="_blank" rel="noopener" class="dir-card-action ac-violet">
+                            Listen on Spotify <span class="dir-arrow">→</span>
+                        </a>
                     </div>
-                </div>
-                <div class="alchemy-card-header">
-                    <span class="alchemy-card-tag" style="color: #9080c0;">Doom Bap / Horrorcore</span>
-                    <h2 class="alchemy-card-title" style="color: #b0a0d8;">Something Outta Nothing</h2>
-                    <p class="alchemy-card-subtitle">Grant Us Eyes (2021)</p>
-                </div>
-                <div class="alchemy-divider" style="background: rgba(100,80,140,0.15);"></div>
-                <div class="alchemy-card-body">
-                    <p class="alchemy-card-desc">The debut project that defined what people now call doom bap.
-                        Traditional boom bap production architecture carrying horrorcore lyricism that does not flinch
-                        from psychological deterioration, societal rot, or existential weight. Grant Us Eyes is dark in
-                        the way that honest things are dark. It does not gesture at heaviness for style points. The
-                        imagery is vivid and uncomfortable because it is accurate. This is music for the part of you
-                        that already knows how bad it can get and refuses to pretend otherwise.</p>
-                    <a href="https://open.spotify.com/album/6IOEnuQXPIEvsQEbakPDrg" target="_blank" rel="noopener"
-                        class="alchemy-listen-btn"
-                        style="border-color: rgba(100,80,140,0.35); color: #b0a0d8; background: rgba(100,80,140,0.08);">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: #b0a0d8;">
-                            <path
-                                d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
-                        </svg>
-                        Listen on Spotify
-                    </a>
                 </div>
             </div>
 
-            <!-- CARD 1: Tool -->
-            <div class="alchemy-card" style="--card-glow: rgba(155, 89, 182, 0.6);">
-                <div
-                    style="width: 100%; height: 240px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(155,89,182,0.15);">
-                    <img src="music-tool.jpg" alt="Tool album art, progressive metal built on Fibonacci sequences for architectural mind growth"
-                        style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85);">
-                    <div
-                        style="position: absolute; inset: 0; background: linear-gradient(transparent 50%, rgba(10,2,15,1)); pointer-events: none;">
+            <!-- Card 6: Tool -->
+            <div class="dir-card">
+                <div class="dir-card-inner">
+                    <div class="dir-pfp-wrap"><img class="dir-pfp pb-purple" src="music-tool.jpg" alt="Tool" width="76" height="76" loading="lazy"></div>
+                    <div class="dir-card-content">
+                        <span class="dir-tag">Progressive Metal</span>
+                        <h2 class="dir-card-title">Tool</h2>
+                        <span class="dir-card-subtitle">Lateralus / 10,000 Days</span>
+                        <p class="dir-card-desc">Tool does not make background music. Every album is an architectural event built on time signatures derived from the Fibonacci sequence, lyrics drawn from Jungian psychology, and an overall intent to push the listener toward something they cannot fully articulate but definitely feel. Lateralus is a map of personal disintegration and reconstruction encoded in sound. 10,000 Days is a reckoning with loss, transformation, and the Saturn Return. You do not simply listen to Tool. You survive it.</p>
+                        <a href="https://open.spotify.com/artist/2yEwvVSSSUkcLeSTNyHKh8" target="_blank" rel="noopener" class="dir-card-action ac-purple">
+                            Listen on Spotify <span class="dir-arrow">→</span>
+                        </a>
                     </div>
                 </div>
-                <div class="alchemy-card-header">
-                    <span class="alchemy-card-tag" style="color: #9b59b6;">Progressive Metal</span>
-                    <h2 class="alchemy-card-title" style="color: #c39bd3;">Tool</h2>
-                </div>
-                <div class="alchemy-divider" style="background: rgba(155,89,182,0.15);"></div>
-                <div class="alchemy-card-body">
-                    <p class="alchemy-card-desc">Tool does not make background music. Every album is an architectural
-                        event built on time signatures derived from the Fibonacci sequence, lyrics drawn from Jungian
-                        psychology, and an overall intent to push the listener toward something they cannot fully
-                        articulate but definitely feel. Lateralus is a map of personal disintegration and reconstruction
-                        encoded in sound. 10,000 Days is a reckoning with loss, transformation, and the Saturn Return.
-                        You do not simply listen to Tool. You survive it.</p>
-                    <a href="https://open.spotify.com/artist/2yEwvVSSSUkcLeSTNyHKh8" target="_blank" rel="noopener"
-                        class="alchemy-listen-btn">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.371-.721.49-1.101.24-3.021-1.858-6.832-2.278-11.322-1.237-.422.101-.851-.16-.952-.581-.1-.421.16-.85.582-.951 4.91-1.121 9.12-.641 12.51 1.43.38.24.5.721.26 1.1zm1.47-3.27c-.301.47-.93.62-1.4.33-3.46-2.13-8.73-2.75-12.83-1.5-.51.17-1.06-.12-1.22-.63-.17-.51.12-1.06.63-1.22 4.68-1.42 10.48-.73 14.46 1.71.47.3.62.93.33 1.4zm.13-3.41c-4.15-2.47-11.01-2.7-14.97-1.49-.631.19-1.3-.16-1.49-.79-.19-.63.16-1.3.79-1.49 4.55-1.38 12.12-1.11 16.89 1.72.571.34.76 1.081.41 1.651-.341.57-1.081.76-1.651.41z" />
-                        </svg>
-                        Listen on Spotify
-                    </a>
-                </div>
             </div>
-        </div>
+
+        </main>
 
         <div style="text-align: center; margin-top: 6rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4rem;">
             <a href="discord-server-directory" class="mr-hub-link">
@@ -567,6 +525,22 @@
         </div>
     </div>
 
+    <script>
+        // ── Mouse Parallax on header eye ──
+        if (window.innerWidth > 768) {
+            const pupil = document.querySelector('.dir-eye .pupil');
+            const eye   = document.querySelector('.dir-eye');
+            if (pupil && eye) {
+                document.addEventListener('mousemove', (e) => {
+                    const cx = window.innerWidth / 2;
+                    const cy = 180;
+                    const mx = (e.clientX - cx) / 55;
+                    const my = (e.clientY - cy) / 55;
+                    pupil.style.transform = `translate(${mx}px, ${my}px)`;
+                    eye.style.transform   = `rotate(${mx * 0.5}deg)`;
+                });
+            }
+        }
+    </script>
 </body>
-
 </html>
