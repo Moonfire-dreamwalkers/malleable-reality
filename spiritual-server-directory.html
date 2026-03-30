@@ -226,11 +226,21 @@
             box-shadow: 0 22px 55px rgba(0,0,0,0.7), 0 0 30px rgba(168,85,247,0.18);
         }
 
-        .dir-card-inner {
+        .dir-card, .dir-sub-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dir-card-inner, .dir-sub-inner {
             padding: 2.25rem;
             display: flex;
             flex-direction: column;
             height: 100%;
+        }
+
+        .dir-sub-inner {
+            padding: 1.75rem;
         }
 
         .dir-pfp-wrap { margin-bottom: 1.75rem; }
@@ -442,6 +452,7 @@
             padding: 1.75rem;
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
         .dir-sub-pfp-wrap { margin-bottom: 1.25rem; }
         .dir-sub-pfp {
@@ -484,6 +495,112 @@
             .dir-super-desc { max-width: 100%; }
             .dir-sub-grid { grid-template-columns: 1fr; }
         }
+
+        /* ── Synchronized featured glow ── */
+        @keyframes dir-featured-glow {
+            0%, 100% {
+                box-shadow: 0 0 30px rgba(168,85,247,0.25), 0 0 15px rgba(217,28,28,0.1), 0 15px 40px rgba(0,0,0,0.6);
+                border-color: rgba(168,85,247,0.3);
+            }
+            50% {
+                box-shadow: 0 0 70px rgba(168,85,247,0.55), 0 0 40px rgba(217,28,28,0.25), 0 15px 40px rgba(0,0,0,0.6);
+                border-color: rgba(168,85,247,0.7);
+            }
+        }
+        .dir-super-card {
+            animation: dir-featured-glow 3s ease-in-out infinite;
+        }
+        .dir-super-card:hover {
+            animation: none;
+        }
+        .dir-sub-card {
+            animation: dir-featured-glow 3s ease-in-out infinite;
+        }
+        .dir-sub-card:hover {
+            animation: none;
+        }
+
+        /* ── About / Admin section ── */
+        .dir-about-section {
+            margin-top: 5rem;
+            margin-bottom: 2rem;
+        }
+        .dir-about-intro {
+            max-width: 620px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            color: var(--mr-text-muted);
+            font-size: 0.97rem;
+            line-height: 1.75;
+        }
+        .dir-admin-card {
+            max-width: 480px;
+            margin: 0 auto;
+            background: linear-gradient(160deg, rgba(20,5,35,0.85) 0%, rgba(10,2,18,0.95) 100%);
+            border: 1px solid rgba(217,28,28,0.35);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(217,28,28,0.15), 0 20px 50px rgba(0,0,0,0.6);
+            backdrop-filter: blur(20px);
+        }
+        .dir-admin-avatar-wrap {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            margin: 0 auto 1.75rem;
+            border: 3px solid #d91c1c;
+            box-shadow: 0 0 35px rgba(217,28,28,0.7), 0 0 70px rgba(217,28,28,0.3);
+            overflow: hidden;
+            animation: dir-eye-pulse 4s ease-in-out infinite alternate;
+        }
+        .dir-admin-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .dir-admin-name {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #d4a0a0;
+            margin-bottom: 0.6rem;
+        }
+        .dir-admin-role {
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #ffcc00;
+            margin-bottom: 1.5rem;
+        }
+        .dir-admin-bio {
+            color: var(--mr-text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .dir-admin-discord {
+            font-size: 0.9rem;
+            color: var(--mr-text-muted);
+        }
+        .dir-admin-discord strong {
+            color: #A855F7;
+            font-weight: 700;
+        }
+
+        /* ── Synchronized Featured Glow ── */
+        @keyframes featured-glow-pulse {
+            0% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.4), 0 10px 30px rgba(0,0,0,0.5); border-color: rgba(168, 85, 247, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.8), 0 10px 30px rgba(0,0,0,0.5); border-color: rgba(168, 85, 247, 0.8); }
+            100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.4), 0 10px 30px rgba(0,0,0,0.5); border-color: rgba(168, 85, 247, 0.4); }
+        }
+
+        .dir-super-card, .dir-sub-card {
+            animation: featured-glow-pulse 3s infinite ease-in-out;
+        }
     </style>
 </head>
 <body class="mr-theme">
@@ -514,10 +631,10 @@
 
         <!-- SEO Intro: expanded keyword-rich prose -->
         <section class="dir-seo-intro" aria-label="About this directory">
-            <p>Welcome to the <strong>Spiritual Discord Directory</strong> — the most comprehensive, curated listing of active <strong>spiritual and occult Discord servers</strong> on the internet. Whether you are searching for the <strong>best spiritual Discord servers</strong>, a welcoming <strong>witchcraft Discord server</strong>, or advanced <strong>occult Discord communities</strong>, this directory connects you directly to living, breathing spaces where real practitioners gather.</p>
-            <p style="margin-top:1rem;">Finding your spiritual community online has never been easier. This <strong>esoteric Discord server list</strong> spans the full spectrum of metaphysical traditions — from <strong>Thelema</strong> and <strong>Gnosticism</strong> to <strong>Hinduism</strong>, <strong>Shinto</strong>, chaos magick, astral projection, Tarot divination, and open-ended <strong>consciousness exploration</strong>. Every server listed here has been hand-reviewed for activity, community quality, and authentic engagement.</p>
-            <p style="margin-top:1rem;">If you are new to esoteric Discord communities, start with one of our featured servers at the top — they represent the most active and immersive experiences in the network. For beginners wondering <em>how to find spiritual Discord communities</em>, simply browse the cards below, read each description, and click the invite link to join for free.</p>
-            <p style="margin-top:1rem;">Whether you practice <strong>ceremonial magick</strong>, study the <strong>Left-Hand Path</strong>, follow <strong>Thelemic philosophy</strong>, or are simply awakening to the possibility that reality is far stranger and more malleable than it appears — there is a community here for you. Each server in this <strong>occult Discord directory</strong> offers its own culture, focus, and depth of engagement. Use the search bar below to instantly filter by topic, practice, or server name.</p>
+            <p>Welcome to the <strong>Spiritual Discord Directory</strong>, the most comprehensive and curated listing of active <strong>spiritual and occult Discord servers</strong> on the internet. Whether you are searching for the <strong>best spiritual Discord servers</strong>, a welcoming <strong>witchcraft Discord server</strong>, or advanced <strong>occult Discord communities</strong>, this directory connects you directly to living spaces where real practitioners gather.</p>
+            <p style="margin-top:1rem;">Finding your spiritual community online has never been easier. This <strong>esoteric Discord server list</strong> spans the full spectrum of metaphysical traditions: from <strong>Thelema</strong> and <strong>Gnosticism</strong> to <strong>Hinduism</strong>, <strong>Shinto</strong>, chaos magick, astral projection, Tarot divination, and open-ended <strong>consciousness exploration</strong>. Every server listed here has been hand-reviewed for activity, community quality, and authentic engagement.</p>
+            <p style="margin-top:1rem;">If you are new to esoteric Discord communities, start with one of the featured servers at the top. They represent the most active and immersive experiences in the network. For beginners wondering <em>how to find spiritual Discord communities</em>, simply browse the cards below, read each description, and click the invite link to join for free.</p>
+            <p style="margin-top:1rem;">Whether you practice <strong>ceremonial magick</strong>, study the <strong>Left-Hand Path</strong>, follow <strong>Thelemic philosophy</strong>, or are simply awakening to the possibility that reality is far stranger and more malleable than it appears, there is a community here for you. Each server in this <strong>occult Discord directory</strong> offers its own culture, focus, and depth of engagement. Use the search bar below to instantly filter by topic, practice, or server name.</p>
             <p style="margin-top:0.75rem; font-size: 0.82rem; color: var(--mr-text-muted);">Last updated: <time datetime="2026-03-29">March 2026</time> &nbsp;&middot;&nbsp; 31 active communities listed</p>
         </section>
 
@@ -534,7 +651,7 @@
             <div>
                 <span class="dir-super-badge">⭐ Top Community</span>
                 <h2 class="dir-super-title">Malleable Reality</h2>
-                <p class="dir-super-desc">Explore reality as flexible and dream-like. A hub for simulation theories, the architecture of the mind, and the Great Work. The nexus of the connected universe network.</p>
+                <p class="dir-super-desc">The Malleable Reality Discord explores reality as flexible and dream-like. Topics include magick, metaphysics, higher beings, simulation theory, consciousness models, and self-help practices. We welcome bold ideas shared in good faith and showcase creators and their work.</p>
                 <div class="dir-super-action">Join Discord Server <span class="dir-arrow">→</span></div>
             </div>
         </a>
@@ -600,19 +717,6 @@
         <!-- ══ ALL COMMUNITIES (random order) ══ -->
         <p class="dir-section-label">✦ All Communities</p>
         <main id="dir-shuffle-grid" class="dir-grid" aria-label="Spiritual Discord community listings">
-
-            <!-- Sanctum Hermeticum -->
-            <a href="https://discord.gg/FyUNaHssjq" target="_blank" rel="noopener" class="dir-card dir-shuffle" data-tags="Philosophy Magick Simulation" aria-label="Join Malleable Reality Discord server">
-                <div class="dir-card-inner">
-                    <div class="dir-pfp-wrap"><img class="dir-pfp pb-purple" src="directory-assets/malleable-reality.webp" alt="Malleable Reality Discord server icon" width="76" height="76" loading="lazy"></div>
-                    <div class="dir-card-content">
-                        <span class="dir-tag">Philosophy &amp; Magick</span>
-                        <h2 class="dir-card-title">Malleable Reality</h2>
-                        <p class="dir-card-desc">Explore reality as flexible and dream-like. A hub for simulation theories, the architecture of the mind, and the Great Work.</p>
-                        <div class="dir-card-action ac-purple">Join Discord Server <span class="dir-arrow">→</span></div>
-                    </div>
-                </div>
-            </a>
 
             <!-- Sanctum Hermeticum -->
             <a href="https://discord.com/invite/xWcuYaEXTj" target="_blank" rel="noopener" class="dir-card dir-shuffle" data-tags="History Religion Philosophy Occult" aria-label="Join Sanctum Hermeticum Discord server">
@@ -815,7 +919,7 @@
                     <div class="dir-pfp-wrap"><img class="dir-pfp pb-gold" src="directory-assets/lightwarriors.webp" alt="LightWarriors Discord server icon" width="76" height="76" loading="lazy"></div>
                     <div class="dir-card-content">
                         <span class="dir-tag">Ascended Rift</span>
-                        <h2 class="dir-card-title">LightWarriors</h2>
+                        <h2 class="dir-card-title">5D+ Ascended Platform Of LightWarriors</h2>
                         <p class="dir-card-desc">Focused on harnessing energies to create an interdimensional gate to the 5th dimension.</p>
                         <div class="dir-card-action ac-gold">Join Discord Server <span class="dir-arrow">→</span></div>
                     </div>
@@ -968,14 +1072,14 @@
             <div class="dir-faq-item" itemscope itemtype="https://schema.org/Question">
                 <h3 itemprop="name" style="font-size: 1.05rem; font-weight: 700; color: var(--mr-text-main); margin-bottom: 0.5rem;">How do I join an occult Discord community?</h3>
                 <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <p itemprop="text" style="color: var(--mr-text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Click any invite link in this directory. You'll be taken directly to the server's Discord invite page — you just need a free Discord account. Most servers are open to all experience levels, from total beginners exploring witchcraft or Thelema for the first time, to advanced practitioners of ceremonial magick and Left-Hand Path traditions.</p>
+                    <p itemprop="text" style="color: var(--mr-text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Click any invite link in this directory. You'll be taken directly to the server's Discord invite page : you just need a free Discord account. Most servers are open to all experience levels, from total beginners exploring witchcraft or Thelema for the first time, to advanced practitioners of ceremonial magick and Left-Hand Path traditions.</p>
                 </div>
             </div>
 
             <div class="dir-faq-item" itemscope itemtype="https://schema.org/Question">
                 <h3 itemprop="name" style="font-size: 1.05rem; font-weight: 700; color: var(--mr-text-main); margin-bottom: 0.5rem;">Is there a Discord for witchcraft beginners?</h3>
                 <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <p itemprop="text" style="color: var(--mr-text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Yes — <strong>All Things Spiritual</strong>, <strong>Witchy Study Buddies</strong>, <strong>Spellbound</strong>, and <strong>Fate Weavers</strong> all welcome witchcraft beginners. They offer resource libraries, study channels, and mentorship. Fate Weavers specifically includes 90+ practice roles to help you find your path within the craft.</p>
+                    <p itemprop="text" style="color: var(--mr-text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Yes : <strong>All Things Spiritual</strong>, <strong>Witchy Study Buddies</strong>, <strong>Spellbound</strong>, and <strong>Fate Weavers</strong> all welcome witchcraft beginners. They offer resource libraries, study channels, and mentorship. Fate Weavers specifically includes 90+ practice roles to help you find your path within the craft.</p>
                 </div>
             </div>
 
@@ -990,6 +1094,26 @@
                 <h3 itemprop="name" style="font-size: 1.05rem; font-weight: 700; color: var(--mr-text-main); margin-bottom: 0.5rem;">Are there Discord servers for astral projection?</h3>
                 <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                     <p itemprop="text" style="color: var(--mr-text-muted); font-size: 0.95rem; margin-bottom: 0;"><strong>Astral Society</strong> specializes in astral projection, lucid dreaming, and metaphysical expansion. The <strong>5th Dimension</strong> server covers consciousness exploration and non-duality. Both are active communities with experienced guides and shared resources for those seeking to explore beyond the physical.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="dir-about-section">
+            <div class="dir-about-intro">
+                <h2 style="font-family: 'Cinzel Decorative', cursive; font-size: 1.6rem; margin-bottom: 1.5rem; color: #fff;">About Malleable Reality</h2>
+                <p>Malleable Reality is more than a directory; it is a gateway to the interconnected universes of the digital occult. We curate resources and communities that challenge the boundaries of perception, fostering a network where simulation theory, ancient wisdom, and modern magick converge.</p>
+            </div>
+
+            <div class="dir-admin-card">
+                <div class="dir-admin-avatar-wrap">
+                    <img src="https://www.horrorcore-reshare.com/assets/images/lunaserafina.jpg" alt="Luna Serafina" class="dir-admin-avatar">
+                </div>
+                <h3 class="dir-admin-name">LUNA SERAFINA</h3>
+                <div class="dir-admin-role">SITE ADMIN | COMMUNITY ARCHITECT | PERCEPTION ALCHEMIST</div>
+                <p class="dir-admin-bio">A visionary architect of digital spaces, Luna Serafina specializes in the intersection of community management and consciousness-shifting narratives.</p>
+                <div class="dir-admin-discord">
+                    Discord: <strong>luna.serafina</strong>
                 </div>
             </div>
         </section>
