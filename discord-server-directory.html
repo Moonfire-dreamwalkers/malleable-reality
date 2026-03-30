@@ -565,6 +565,76 @@
             font-weight: 700;
         }
 
+        /* Hub Link Styling */
+        .mr-hub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem 2.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        .mr-hub-link:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(168, 85, 247, 0.4);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(168, 85, 247, 0.2);
+        }
+
+        .mr-hub-visual {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: radial-gradient(circle at center, rgba(168,85,247,0.2) 0%, transparent 70%);
+        }
+
+        .mr-hub-icon {
+            font-size: 1.8rem;
+            color: #fff;
+        }
+
+        .mr-hub-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mr-hub-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--mr-text-muted);
+            margin-bottom: 0.2rem;
+        }
+
+        .mr-hub-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mr-hub-arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .mr-hub-link:hover .mr-hub-arrow {
+            transform: translateX(8px);
+        }
     </style>
 </head>
 <body class="mr-theme">
@@ -1103,8 +1173,15 @@
         <!-- Footer -->
         <footer class="dir-footer">
             <div style="text-align: center; margin-bottom: 3rem;">
-                <p style="color: var(--mr-text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Looking for deeper integration? Explore our curated soundscapes.</p>
-                <a href="music-alchemy" class="dir-card-action ac-blue" style="display: inline-block; padding: 0.8rem 2rem; border: 1px solid rgba(0,180,255,0.3); border-radius: 8px;">Explore Music Alchemy <span class="dir-arrow">→</span></a>
+                <a href="music-alchemy" class="mr-hub-link">
+                    <div class="mr-hub-visual">
+                        <span class="mr-hub-icon">♫</span>
+                    </div>
+                    <div class="mr-hub-content">
+                        <span class="mr-hub-label">Deeper Integration</span>
+                        <span class="mr-hub-title">Explore Music Alchemy <span class="mr-hub-arrow">→</span></span>
+                    </div>
+                </a>
             </div>
             <div class="dir-divider"></div>
             <a href="#" class="dir-back">Return to Sources <span>↑</span></a>

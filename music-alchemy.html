@@ -180,6 +180,76 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* Hub Link Styling */
+        .mr-hub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem 2.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        .mr-hub-link:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 204, 0, 0.4);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 204, 0, 0.15);
+        }
+
+        .mr-hub-visual {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: radial-gradient(circle at center, rgba(255,204,0,0.1) 0%, transparent 70%);
+        }
+
+        .mr-hub-icon {
+            font-size: 1.8rem;
+            color: #fff;
+        }
+
+        .mr-hub-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mr-hub-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--mr-text-muted);
+            margin-bottom: 0.2rem;
+        }
+
+        .mr-hub-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mr-hub-arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .mr-hub-link:hover .mr-hub-arrow {
+            transform: translateX(8px);
+        }
     </style>
 
     <!-- SEO Optimization -->
@@ -487,9 +557,14 @@
         </div>
 
         <div style="text-align: center; margin-top: 6rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4rem;">
-            <p style="color: var(--mr-text-muted); font-size: 1rem; margin-bottom: 2rem;">Seeking the communities where these sounds resonate?</p>
-            <a href="discord-server-directory" class="alchemy-listen-btn" style="display: inline-flex; max-width: 320px; border-color: var(--mr-accent); color: var(--mr-accent); background: rgba(255,204,0,0.05);">
-                Browse Spiritual Discord Directory <span style="margin-left: 0.5rem; transition: transform 0.3s ease;">→</span>
+            <a href="discord-server-directory" class="mr-hub-link">
+                <div class="mr-hub-visual">
+                    <span class="mr-hub-icon">✦</span>
+                </div>
+                <div class="mr-hub-content">
+                    <span class="mr-hub-label">Community Network</span>
+                    <span class="mr-hub-title">Browse Spiritual Directory <span class="mr-hub-arrow">→</span></span>
+                </div>
             </a>
         </div>
     </div>
