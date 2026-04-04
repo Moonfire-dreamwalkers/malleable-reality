@@ -412,8 +412,26 @@
             z-index: 2;
             text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 1);
         }
+        .dir-super-card > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+        }
         .dir-super-card.mr-featured {
             background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('directory-assets/malleable-reality-bg.png');
+        }
+        .dir-super-card.mr-featured .dir-super-action {
+            background: linear-gradient(135deg, rgba(217, 28, 28, 0.8), rgba(92, 24, 168, 0.8));
+            border-color: rgba(255, 204, 0, 0.4);
+            box-shadow: 0 0 20px rgba(217, 28, 28, 0.4), inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .dir-super-card.mr-featured:hover .dir-super-action {
+            background: linear-gradient(135deg, rgba(92, 24, 168, 0.9), rgba(217, 28, 28, 0.9));
+            border-color: rgba(255, 204, 0, 0.8);
+            box-shadow: 0 0 35px rgba(255, 204, 0, 0.6), inset 0 0 15px rgba(0, 0, 0, 0.6);
+            color: #ffcc00;
         }
         .dir-super-card.divinity-featured {
             background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('directory-assets/divinity.gif');
