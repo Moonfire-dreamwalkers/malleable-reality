@@ -1849,6 +1849,34 @@
                 });
             }
         }
+        
+        // ── Advanced SEO & Outbound Link Tracking ──
+        const trackLinks = document.querySelectorAll('a');
+        trackLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const url = this.href;
+                const text = this.innerText.trim() || this.getAttribute('aria-label') || 'Icon';
+                const isExternal = this.hostname !== window.location.hostname;
+                
+                if (typeof gtag !== 'undefined') {
+                    if (isExternal) {
+                        gtag('event', 'click', {
+                            'event_category': 'Outbound Click',
+                            'event_label': text,
+                            'link_url': url,
+                            'transport_type': 'beacon'
+                        });
+                    } else {
+                        gtag('event', 'click', {
+                            'event_category': 'Internal Navigation',
+                            'event_label': text,
+                            'link_url': url,
+                            'transport_type': 'beacon'
+                        });
+                    }
+                }
+            });
+        });
     });
     </script>
 </body>
